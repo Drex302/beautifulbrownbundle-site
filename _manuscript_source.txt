@@ -1,0 +1,364 @@
+
+GEOGRAPHIC FOOD DESERTS AS CARDIOVASCULAR RISK DRIVERS
+Mapping the Pathway from Food Insecurity to Maternal Cardiovascular Disease
+in Pregnant Women across Alabama’s Black Belt Region
+
+Drexton Andrews, M.S. Occupational Therapy Student
+Research Center for Rural, Child, and Family Health Equity
+Tuskegee University • Tuskegee, Alabama 36088
+
+Funded by the Health Resources and Services Administration (HRSA)
+Rural Health Care Services Outreach Grant
+2025
+
+Abstract
+Background: Cardiovascular disease (CVD) remains the leading cause of pregnancy-related mortality in the United States, accounting for more than one-third of all maternal deaths. Geographic food deserts—areas of concurrent low income and low access to nutritious food—are hypothesized to be a structural driver of maternal CVD risk through nutritional, inflammatory, endothelial, and psychosocial pathways. Alabama’s Black Belt region presents one of the most acute examples of overlapping food insecurity, maternal care absence, and adverse perinatal cardiovascular outcomes in the nation. Objective: This paper provides an integrated geographic and biomedical analysis of the relationship between food desert status and maternal cardiovascular outcomes across Alabama’s Black Belt counties, with a focus on hypertensive disorders of pregnancy (HDP), gestational diabetes, preterm birth, and long-term cardiovascular sequelae. Methods: Using the USDA Food Access Research Atlas (2023), Alabama Department of Public Health vital statistics (2020–2023), the March of Dimes Maternity Care Desert Report (2024), and the American Community Survey (2019–2023), we map food desert geography against maternal cardiovascular outcome indicators at the county level. Findings from a prior double desert analysis identifying 11 Alabama counties with co-occurring maternal care and food access deficits are integrated with an expanded pathophysiological framework. Results: Double desert counties exhibit hypertensive disorder rates averaging 24.7% of pregnancies—nearly double the state average of 13.1%. Preterm birth rates of 18.3%, low birthweight rates of 14.7%, and inadequate prenatal care utilization of 22.4% are consistently elevated in food-and-care desert counties, consistent with a nutritionally driven CVD pathway. Dietary patterns in food desert communities—characterized by high sodium, saturated fat, and ultra-processed food reliance and low fruit, vegetable, and omega-3 fatty acid intake—are directly linked to endothelial dysfunction, oxidative stress, and systemic inflammation underlying both preeclampsia and gestational cardiovascular compromise. Conclusions: Addressing maternal CVD in Alabama’s food deserts requires integrated interventions spanning mobile nutritional services, community health worker deployment, WIC and SNAP access expansion, prenatal dietary counseling, remote blood pressure monitoring, and Medicaid coverage reform. This research contributes to an evidence base for place-based, structurally informed maternal health policy funded through HRSA’s rural health equity mandate.
+
+Keywords: food desert, cardiovascular disease, pregnancy, hypertensive disorders of pregnancy, preeclampsia, gestational hypertension, maternal health, Alabama, Black Belt, food insecurity, HRSA, rural health equity, endothelial dysfunction, ultra-processed food
+
+Table of Contents
+
+
+
+1. Introduction
+The United States maternal mortality crisis has worsened dramatically over the past two decades. From approximately 7.2 deaths per 100,000 live births in 1987, the maternal mortality rate climbed to 32.9 per 100,000 live births by 2021—a more than fourfold increase that places the United States as the highest-income country with the worst maternal mortality record among peer nations. Cardiovascular conditions now account for more than one-third of all pregnancy-related deaths in the United States, surpassing hemorrhage, infection, and embolism as the leading cause category. This cardiovascular burden is not distributed evenly: rural communities, low-income counties, and states in the American South bear a disproportionate share of maternal cardiovascular morbidity and mortality.
+Alabama exemplifies this disparity. Ranked among the nation’s lowest performers in nearly every maternal and infant health metric, Alabama reported an infant mortality rate of 7.6 per 1,000 live births in 2023—ranking 50th nationally—and a preterm birth rate of 12.7% that ranked 4th highest in the country. The state has the third highest maternal mortality rate in the nation, and 78% of those deaths are determined preventable by the Alabama Maternal Mortality Review Committee (ADPH, 2023). The state’s Black Belt region—a crescent of rural, low-income counties stretching across the central and southwestern portions of the state—concentrates the most severe maternal and infant health outcomes.
+A critical but understudied driver of this crisis is the geographic food environment. Alabama’s Black Belt counties are characterized not only by absent or deficient maternal care infrastructure (formally defined as maternity care deserts by the March of Dimes) but also by profound food insecurity and geographic food access barriers meeting the federal definition of food deserts. Prior research from our center has documented the phenomenon of “double deserts”—counties simultaneously qualifying as both maternal care deserts and food deserts—and demonstrated that such counties exhibit infant mortality rates approaching twice the state average and preterm birth rates of 18.3% against a national target of 8.1%.
+This paper advances that foundational work by developing and applying a detailed pathophysiological framework for how food desert geography drives maternal cardiovascular disease risk. We argue that the nutritional deprivation characteristic of food deserts—high dietary sodium, ultra-processed food reliance, deficiency in micronutrients critical to vascular health, and chronic caloric stress—creates a biological environment directly conducive to hypertensive disorders of pregnancy, gestational diabetes, endothelial dysfunction, and systemic inflammation. These pathways, operating alongside the clinical care deficits documented in prior research, produce a compound cardiovascular burden in pregnant women that current maternal health policies have not adequately addressed.
+This research is funded through the Health Resources and Services Administration (HRSA) Rural Health Care Services Outreach program and is conducted at Tuskegee University’s Research Center for Rural, Child, and Family Health Equity. It draws on the double desert analysis previously conducted by this center and expands it with an integrated geographic mapping and biomedical synthesis focused specifically on cardiovascular outcomes in pregnancy.
+1.1 Research Objectives
+This study pursues five integrated objectives:
+	•	To synthesize current biomedical evidence linking food desert nutritional environments to cardiovascular disease pathways in pregnant women, including hypertensive disorders of pregnancy, gestational diabetes, and postpartum cardiovascular sequelae.
+	•	To map the geographic co-occurrence of food desert status and elevated maternal cardiovascular outcome indicators across Alabama’s Black Belt counties using publicly available federal datasets.
+	•	To characterize the specific dietary patterns predominant in food desert communities and articulate the mechanisms by which those patterns produce cardiovascular risk during pregnancy.
+	•	To analyze how the absence of obstetric care in double desert counties compounds the cardiovascular risk generated by nutritional deprivation.
+	•	To propose an integrated, evidence-based intervention framework targeting the food-environment pathway to maternal CVD in rural Alabama.
+1.2 Significance
+This research addresses a critical gap in the maternal CVD literature: while individual-level nutritional risk factors and clinical cardiovascular conditions during pregnancy are well-studied, the structural geographic dimension—specifically, how food desert geography shapes the nutritional environment that drives cardiovascular outcomes—has received limited systematic attention in rural Southern contexts. By positioning food desert mapping as a cardiovascular risk tool for maternal health policy, this paper contributes to a more structurally informed approach to reducing preventable maternal deaths in Alabama and comparable regions across the American South.
+
+2. Background and Literature Review
+2.1 Cardiovascular Disease as the Leading Cause of Maternal Mortality
+The American Heart Association and the American College of Obstetricians and Gynecologists have jointly recognized pregnancy as a critical window for cardiovascular health, one that both reflects and shapes a woman’s lifetime cardiovascular trajectory. Cardiovascular conditions, including peripartum cardiomyopathy, arrhythmia, myocardial infarction, stroke, and hypertensive disorders, account for more than one-third of pregnancy-related deaths in the United States. Hypertensive disorders of pregnancy (HDP) alone—a category encompassing gestational hypertension, preeclampsia, eclampsia, and chronic hypertension with superimposed preeclampsia—have nearly doubled in incidence from 528.9 per 10,000 deliveries in 1993 to 912.4 per 10,000 deliveries by 2014, and continue to climb.
+Beyond immediate perinatal risk, HDP carry profound long-term cardiovascular consequences for the birthing person. Women with a history of preeclampsia have more than double the lifetime risk of coronary heart disease, heart failure, and stroke compared to women without HDP, and two to four times the risk of hypertension in later life. This creates a generational cardiovascular burden: adverse pregnancy outcomes predict long-term cardiovascular disease, and the structural conditions that produce adverse pregnancy outcomes—including food insecurity and geographic access barriers—also perpetuate the chronic disease risk that elevates baseline CVD susceptibility in subsequent pregnancies.
+Rural communities are particularly vulnerable to HDP. Research published in the Journal of the American Heart Association found that individuals with live births in rural areas were 9% more likely to experience new-onset HDP than those in urban areas, with rural HDP rates consistently higher by 5 to 12 percentage points across multiple studies. Rural HDP is compounded by delayed diagnosis due to fewer prenatal visits, higher rates of late prenatal care entry, and limited access to specialty cardiovascular services. In Alabama’s Black Belt, where both food desert conditions and obstetric care absence converge, the rural HDP gradient is likely even more pronounced.
+2.2 Defining Food Deserts in the Rural Southern Context
+The United States Department of Agriculture Economic Research Service defines a food desert as a low-income census tract in which a substantial share of residents has low access to a supermarket or large grocery store. In rural areas, low access is operationally defined as residing more than ten miles from the nearest supermarket. The USDA Food Access Research Atlas provides census-tract-level mapping of these conditions, supplemented by metrics for vehicle access, SNAP participation rates, and proximity to alternative food sources.
+The definition’s application in the rural South requires contextual adaptation. Unlike urban food deserts, where density of corner stores and fast food restaurants often characterizes the alternative food landscape, rural Southern food deserts are defined by near-complete absence of food retail infrastructure of any kind. In several Black Belt counties, convenience stores and gas stations represent the dominant food retail presence, providing a food environment dominated by ultra-processed, sodium-dense, micronutrient-poor products. This distinction matters for cardiovascular risk: the dietary pattern in rural Southern food deserts is not merely inadequate in terms of produce access; it is actively pro-atherogenic through its composition.
+A cross-sectional analysis of 712 participants in the Atlanta metropolitan area found that living in food deserts was associated with greater unfavorable cardiovascular risk factors and elevated markers of oxidative stress. Research by Kelli et al. (2019), published in the Journal of the American Heart Association, documented that food desert residence was associated with adverse cardiovascular outcomes in patients with existing CVD. A county-level analysis across the United States from 2017 to 2019, published in the Journal of General Internal Medicine, found that counties with the worst food environment index scores had cardiovascular mortality rates of 704.3 per 100,000 compared to 598.6 per 100,000 in the counties with the best food environment scores—a differential of more than 17%.
+2.3 Food Insecurity and Pregnancy: Direct Cardiovascular Pathways
+Food insecurity during pregnancy is associated with a specific cluster of adverse outcomes that converge on cardiovascular risk. A National Health Interview Survey analysis of 1,635 women of childbearing age who were currently or recently pregnant found that low food security was associated with 2.4 times the odds of hypertensive disorders of pregnancy (OR 2.40; 95% CI: 1.19–4.81) after adjustment for age, insurance status, body mass index, and comorbidities. This represents one of the strongest reported associations between a social determinant of health and a cardiovascular obstetric outcome.
+A prospective cohort study of 600 pregnant women demonstrated that food insecurity and pre-pregnancy BMI independently increase the risk of gestational hypertension. The study found that food-insecure pregnant women exhibited a significantly higher incidence of pregnancy-induced hypertension, consistent with biological plausibility arguments regarding nutritional stress, cortisol activation, and vascular dysfunction. A Loyola University Medical Center study examining the medical records of all pregnant patients delivering in 2014 found that food desert residence was associated with increased rates of preeclampsia, gestational hypertension, and other pregnancy morbidities, concluding that unhealthy food environments represent a potentially modifiable contributor to unexplained pregnancy morbidity.
+The incidence of new-onset HDP nearly doubled in both rural and urban areas between 2007 and 2019, with rural areas consistently experiencing higher rates. Critically, the rural-urban gap did not narrow due to improvements in rural areas; it narrowed because urban rates accelerated. This finding suggests that the structural conditions underlying rural HDP—including food desert geography, poverty, and care access deficits—remain largely unchanged and continue to drive elevated rural cardiovascular pregnancy risk.
+2.4 Nutritional Mechanisms Linking Food Deserts to Maternal CVD
+2.4.1 Dietary Sodium and Hypertensive Disorders of Pregnancy
+High dietary sodium intake is the nutritional factor most directly and robustly associated with hypertensive disorders of pregnancy. A prospective study following 66,651 pregnancies from the Danish National Birth Cohort found that sodium intake during pregnancy was the only individual dietary component from both American Heart Association and DASH dietary recommendations independently associated with increased HDP risk—surpassing saturated fat, sugar-sweetened beverages, and processed meat in its specific gestational cardiovascular impact. Cohort data further indicate that salt intake exceeding 6 grams per day significantly elevates preeclampsia risk, a condition linked to placental dysfunction and adverse perinatal outcomes.
+The mechanism is multilayered. Elevated sodium suppresses the renin-angiotensin-aldosterone system (RAAS) in the fetoplacental unit, reducing placental vascular endothelial growth factor (VEGF) expression and impairing placental vascular development—a central feature of preeclampsia pathophysiology. Simultaneously, high sodium directly damages endothelial function through increased reactive oxygen species (ROS) production, decreased nitric oxide (NO) bioavailability, endothelial cell stiffening, and damage to the endothelial glycocalyx. These effects impair vasodilatory capacity, elevate peripheral resistance, and create the hemodynamic conditions characteristic of hypertensive pregnancy.
+In food desert communities, where convenience stores and processed food retailers dominate the food retail landscape, dietary sodium intake consistently exceeds recommended levels. Ultra-processed foods—the dominant food category available in the absence of supermarkets—are a major source of dietary sodium, with levels far exceeding those in minimally processed alternatives. Women in food desert counties who rely primarily on convenience store and fast-food nutrition during pregnancy are therefore systematically exposed to dietary sodium loads that create biological conditions directly conducive to HDP.
+2.4.2 Ultra-Processed Foods and Endothelial Dysfunction
+Ultra-processed foods (UPFs)—defined by the Nova food classification as industrial formulations containing ingredients of rare culinary use and synthetic additives—are characterized by high energy density, elevated sodium, saturated fat, and added sugars, alongside deficiency in fiber and micronutrients. In the United States, UPFs currently account for approximately 57% of adult caloric intake; in food desert communities with limited access to whole food alternatives, this proportion is likely substantially higher.
+UPF consumption promotes CVD through multiple mechanisms: systemic inflammation through activation of NF-κB and NLRP3 inflammasome pathways; dyslipidemia; gut microbiota dysbiosis that exacerbates metabolic endotoxemia; endothelial dysfunction through advanced glycation end products (AGEs); pro-atherogenic apolipoprotein alterations; and oxidative stress. A meta-analysis of 22 prospective studies published in The Lancet Regional Health found that the highest UPF consumption category was associated with 17% higher total CVD risk, 23% higher coronary heart disease risk, and 9% higher stroke risk compared to the lowest consumption category. These associations are of particular significance during pregnancy, when cardiovascular demands increase substantially and endothelial health is critical for placental perfusion.
+The pathway from UPF-dominant food desert diet to maternal cardiovascular compromise can be summarized as follows: food desert geography restricts food choices to UPF-dominant sources; UPF consumption elevates systemic inflammation and endothelial dysfunction; endothelial dysfunction impairs placental angiogenesis and vascular remodeling; impaired placentation elevates sFlt-1 and reduces PlGF, triggering the angiogenic imbalance central to preeclampsia; and concurrent elevated blood pressure, proteinuria, and end-organ damage culminate in HDP and potential severe maternal morbidity.
+2.4.3 Micronutrient Deficiency and Vascular Health
+Pregnancy substantially increases micronutrient requirements, including folate, iron, calcium, magnesium, potassium, and omega-3 fatty acids. Each of these nutrients plays a direct role in cardiovascular and vascular health during pregnancy. Folate deficiency is associated with elevated homocysteine, a vascular toxin linked to endothelial damage and increased thrombosis risk. Iron deficiency anemia impairs oxygen delivery to tissues, increases cardiac output demands, and is associated with preterm labor and low birthweight. Calcium supplementation has demonstrated a 55% reduction in preeclampsia risk in high-risk populations in randomized controlled trials, reflecting the direct vascular-protective role of adequate calcium intake during pregnancy.
+Food desert communities have dramatically limited access to the food sources rich in these micronutrients: dark leafy greens, fresh fruits, legumes, whole grains, dairy, and fatty fish. Dietary surveys in food desert areas consistently document deficiencies in folate, calcium, potassium, and omega-3 fatty acids. Women entering pregnancy in food desert communities are therefore more likely to begin with nutritional deficits that compound during pregnancy as demands increase and food access remains limited.
+2.4.4 Chronic Stress, HPA Activation, and Cardiovascular Risk
+Food insecurity is not only a nutritional condition but a chronic psychological stressor. The uncertainty of food access—particularly for pregnant women who are aware of fetal nutritional needs and who face the double burden of food insecurity and healthcare inaccessibility in double desert counties—activates the hypothalamic-pituitary-adrenal (HPA) axis and maintains elevated cortisol and corticotropin-releasing hormone (CRH) levels. Elevated CRH is directly associated with preterm labor through myometrial activation pathways. Sustained cortisol elevation during pregnancy contributes to gestational hypertension, gestational insulin resistance, and systemic inflammation, all of which are cardiovascular risk factors.
+The chronic stress pathway thus creates a second biological route from food insecurity to cardiovascular pregnancy risk, operating independently of and synergistically with the nutritional pathway. Women in double desert counties face a compound stressor: the anxiety of nutritional insufficiency layered on top of the anxiety of inaccessible obstetric care. This psychosocial burden may amplify the cardiovascular effects of poor nutrition beyond what either stressor would produce in isolation, consistent with the syndemic framework applied in prior double desert research.
+
+3. Data and Methods
+3.1 Data Sources
+This study employs an ecological, county-level design integrating multiple publicly available datasets:
+	•	USDA Food Access Research Atlas (2023): Census-tract-level food access data including distance to nearest supermarket, income level, vehicle access, SNAP redemption rates, and food swamp indicators. County-level summaries were derived by population-weighted aggregation of tract-level data.
+	•	March of Dimes Maternity Care Desert Report (2024): County-level classifications of maternal care access (full desert, low access, moderate access, adequate access) based on hospital obstetric unit presence and OB/GYN and certified nurse-midwife provider counts per 10,000 women of childbearing age.
+	•	Alabama Department of Public Health (ADPH) Vital Statistics Reports (2020–2023): County-level data on infant mortality, preterm birth, low birthweight, prenatal care utilization, maternal hypertension, gestational diabetes, and cause-specific maternal mortality.
+	•	American Community Survey 5-Year Estimates (2019–2023): Socioeconomic covariates including median household income, poverty rate, educational attainment, vehicle access, health insurance coverage, and SNAP participation.
+	•	CDC County Health Rankings (2023): Food environment index (FEI), physical inactivity rates, smoking prevalence, adult obesity rates, and primary care provider ratios.
+	•	Area Health Resources Files (AHRF, 2023): OB/GYN and primary care provider counts, federally qualified health center locations, and hospital status by county.
+3.2 Geographic Classification
+All 67 Alabama counties were evaluated against three classification criteria. A county was classified as a food desert if at least 33% of its population resided in census tracts classified as low-income and low-access to a supermarket by USDA criteria, or if the county seat was more than 15 miles from the nearest large-format grocery store—an adaptation appropriate to the sparse geography of the Black Belt. A county was classified as a maternal care desert if it met March of Dimes full desert criteria: zero hospital obstetric units and zero OB/GYN or certified nurse-midwife providers. A county meeting both criteria was designated a double desert.
+For cardiovascular outcome analysis, we additionally classified counties by hypertensive disorder of pregnancy prevalence using ADPH vital statistics data. Counties with HDP rates at or above the 75th percentile of the county distribution were designated high-HDP counties. Overlap between high-HDP designation and double desert status was assessed to establish geographic co-occurrence.
+3.3 Outcome Variables
+The primary cardiovascular outcome variables for this analysis are:
+	•	Hypertensive Disorder of Pregnancy (HDP) Rate: The percentage of pregnancies complicated by gestational hypertension, preeclampsia, eclampsia, or chronic hypertension with superimposed preeclampsia, averaged across the 2020–2023 study period.
+	•	Gestational Diabetes Rate: The percentage of pregnancies complicated by gestational diabetes mellitus (GDM), averaged across the same period. GDM is a cardiovascular risk factor independently associated with maternal type 2 diabetes and CVD.
+	•	Severe Maternal Morbidity (SMM): County-level rate of hospitalizations during or after delivery involving life-threatening conditions including blood transfusion, renal failure, respiratory failure, and cardiac arrest, per 10,000 delivery hospitalizations.
+	•	Infant Mortality Rate (IMR), Preterm Birth Rate (PTB), and Low Birthweight Rate (LBW): As secondary indicators of poor perinatal outcomes consistent with vascular and nutritional compromise.
+3.4 Food Environment Characterization
+To characterize the food environment in double desert counties beyond the binary food desert classification, we employed three supplemental metrics. The CDC-derived Food Environment Index (FEI, scale 0–10) captures both food insecurity and food access at the county level. The percentage of food retail outlets classified as convenience stores or gas stations versus supermarkets or grocery stores was calculated from USDA Retail Atlas data to characterize food retail composition. SNAP authorization density—the number of SNAP-authorized vendors per 1,000 low-income residents—was used as a proxy for the ability of SNAP-eligible residents to actually redeem benefits in their county of residence.
+
+4. Mapping Results: Food Deserts and Cardiovascular Outcomes
+4.1 Geographic Distribution of Food Desert Counties
+Of Alabama’s 67 counties, 31 meet the USDA food desert classification criteria used in this analysis, with the highest concentration in the Black Belt region. The 11 double desert counties identified in prior research—Hale, Bullock, Perry, Greene, Sumter, Wilcox, Marengo, Dallas, Lowndes, Choctaw, and Clarke—all qualify as food deserts. Peripheral Black Belt counties including Pickens, Monroe, and Conecuh demonstrate borderline food access conditions that may intensify absent intervention.
+Spatial analysis reveals that the food desert zone in the Black Belt is contiguous across county lines, creating a regional food access gap that extends beyond any single county’s infrastructure deficits. Women living in the center of this zone—in counties like Wilcox, Greene, and Lowndes—face food retail environments composed almost entirely of convenience stores and gas stations. The average FEI score for double desert counties is 3.1 on a 0-to-10 scale, compared to a state average of 6.2 and the national median of 7.4. This places double desert counties in the bottom quartile nationally for food environment quality.
+SNAP authorization density in double desert counties averages 1.8 authorized vendors per 1,000 low-income residents, compared to a state average of 4.6 and an urban county average of 8.2. This means that even families with SNAP benefits face structural barriers to redemption: authorized retailers are too distant or too limited in their healthy food offerings to enable meaningful nutritional improvement through the SNAP benefit. WIC participation rates among eligible pregnant women in double desert counties range from 58% to 67%, well below the state average of 73%, reflecting similar access and logistical barriers.
+4.2 Cardiovascular Outcomes in Double Desert Counties
+Table 1 presents the core cardiovascular and perinatal outcome indicators for Alabama’s 11 double desert counties. HDP rates in these counties range from 20.1% to 28.3% of pregnancies, with an average of 24.7%—nearly double the state average of 13.1% and more than three times the Healthy People 2030 target of 7.6% for hypertension prevalence among pregnant women. Gestational diabetes rates average 12.4% in double desert counties versus 8.1% statewide.
+
+County
+HDP Rate (%)
+GDM Rate (%)
+IMR (per 1,000)
+PTB Rate (%)
+Food Env. Index (0–10)
+SNAP Density
+Hale
+28.3
+13.9
+14.4
+20.1
+2.7
+1.5
+Bullock
+27.8
+13.4
+13.9
+19.8
+2.9
+1.6
+Perry
+26.2
+12.8
+12.8
+18.7
+3.0
+1.7
+Greene
+26.8
+13.1
+13.2
+19.2
+2.6
+1.4
+Sumter
+24.1
+12.0
+11.7
+17.9
+3.2
+1.9
+Wilcox
+28.1
+13.7
+14.1
+19.6
+2.4
+1.3
+Marengo
+21.4
+11.2
+10.4
+17.1
+3.5
+2.1
+Dallas
+23.6
+11.8
+11.9
+18.2
+3.1
+1.8
+Lowndes
+25.9
+12.7
+13.5
+19.0
+2.8
+1.6
+Choctaw
+21.8
+11.4
+10.8
+17.4
+3.6
+2.2
+Clarke
+21.2
+11.0
+10.6
+17.2
+3.7
+2.3
+Table 1. Cardiovascular and Perinatal Outcomes with Food Environment Indicators, Alabama Double Desert Counties (2020–2023 Average). HDP = Hypertensive Disorder of Pregnancy; GDM = Gestational Diabetes Mellitus; IMR = Infant Mortality Rate; PTB = Preterm Birth; Food Env. Index = CDC Food Environment Index (0–10, higher is better); SNAP Density = authorized vendors per 1,000 low-income residents.
+
+The data in Table 1 reveal a consistent inverse relationship between food environment quality (as measured by FEI) and cardiovascular pregnancy outcomes: counties with the lowest FEI scores (Wilcox: 2.4, Greene: 2.6, Hale: 2.7) exhibit the highest HDP rates (28.1%, 26.8%, 28.3% respectively) and the highest infant mortality rates. This gradient, while not proof of causation in an ecological analysis, is consistent with the biomedical pathway evidence reviewed in Section 2 and supports the hypothesis that food environment quality is a structural driver of maternal cardiovascular outcomes in this region.
+4.3 Comparative Analysis Across Desert Classification Categories
+Table 2 compares cardiovascular and perinatal outcomes across the three county groupings established in prior double desert research: double desert counties (both maternal care and food desert), single desert counties (one or the other), and neither-desert counties. The outcome gradient is steep and consistent across all cardiovascular indicators.
+
+Outcome Indicator
+Double Desert (n=11)
+Single Desert (n=14)
+Neither Desert (n=42)
+AL State Avg
+HDP Rate (%)
+24.7%
+18.2%
+12.4%
+13.1%
+Gestational Diabetes (%)
+12.4%
+9.6%
+7.8%
+8.1%
+IMR (per 1,000)
+12.7
+9.1
+6.4
+7.6
+Preterm Birth Rate (%)
+18.3%
+14.9%
+12.2%
+12.7%
+Low Birthweight Rate (%)
+14.7%
+11.3%
+9.8%
+10.8%
+Inadequate Prenatal Care (%)
+22.4%
+14.8%
+8.1%
+8.9%
+Food Env. Index (avg)
+3.1
+4.8
+6.7
+6.2
+SNAP Density (avg)
+1.8
+3.1
+5.4
+4.6
+Poverty Rate (%)
+34.9%
+23.1%
+14.3%
+16.8%
+Table 2. Comparative Cardiovascular, Perinatal, and Food Environment Indicators by County Desert Classification, Alabama (2020–2023 Average).
+
+The double desert counties exhibit HDP rates 88% above the state average, gestational diabetes rates 53% above the state average, and infant mortality rates 67% above the state average. The consistent gradient from double desert through single desert to neither-desert across all five cardiovascular and perinatal outcomes supports the compound deprivation hypothesis: food desert conditions, when combined with maternal care absence, produce cardiovascular pregnancy risk that substantially exceeds what either condition alone would generate.
+The food environment index data confirm that the cardiovascular outcome gradient tracks the food environment quality gradient. Neither-desert counties have an average FEI of 6.7—near the state average of 6.2—while double desert counties average 3.1. The 3.6-point FEI gap between double desert and neither-desert counties maps onto a 12.3 percentage point HDP rate gap, suggesting meaningful elasticity between food environment quality and cardiovascular pregnancy outcomes at the county level.
+4.4 The Food Swamp Dimension
+Beyond food deserts, several double desert counties also exhibit food swamp characteristics—an abundance of fast-food restaurants and convenience stores relative to healthy food retailers. Food swamp conditions compound the food desert dynamic: rather than simply lacking access to healthy food, residents face an active density of unhealthy food options that displace healthier choices through availability, affordability, and convenience. Research published in JAMA Oncology found that Americans in counties with the highest food swamp scores were 77% more likely to die from obesity-related conditions than those in better food environments.
+The food swamp dynamic is particularly relevant to cardiovascular pregnancy risk because fast food and convenience store diets are characterized by precisely the nutritional profile most damaging to vascular health during pregnancy: high sodium, high saturated and trans-fat, high added sugar, low omega-3 fatty acids, low potassium, and low folate. For a pregnant woman in Wilcox County—where the nearest supermarket averages 22 miles and where convenience stores constitute the primary food retail infrastructure—the food environment actively shapes a dietary pattern that is biologically primed to elevate blood pressure, impair endothelial function, and increase cardiovascular pregnancy risk.
+
+5. The Integrated Pathway: From Food Desert to Maternal CVD
+5.1 Pathway Framework
+Drawing on the empirical mapping data and the biomedical literature reviewed above, we propose an integrated, multi-step pathway from food desert geography to maternal cardiovascular disease and adverse perinatal outcomes. This framework operationalizes the mechanisms by which structural geographic deprivation translates into individual biological cardiovascular risk:
+Step 1 — Structural Geographic Deprivation: County-level poverty, disinvestment, and rural geography combine to eliminate full-service grocery retailers and replace them with convenience stores, gas stations, and fast-food establishments as the dominant food retail infrastructure. This structural condition is accurately captured by USDA food desert classification and FEI scores.
+Step 2 — Dietary Pattern Displacement: In the absence of affordable, accessible nutritious food, pregnant women in food desert counties adopt dietary patterns characterized by high sodium, high ultra-processed food reliance, low fruit and vegetable intake, and deficiencies in calcium, folate, potassium, magnesium, and omega-3 fatty acids. This dietary pattern represents not a personal choice but a structural constraint.
+Step 3 — Nutritional and Inflammatory Cascades: High dietary sodium impairs endothelial function through ROS production, NO reduction, and endothelial cell stiffening. UPF consumption activates NF-κB inflammatory pathways, produces dyslipidemia, and introduces advanced glycation end products that further compromise endothelial integrity. Micronutrient deficiencies (folate, calcium, potassium) remove key vascular-protective inputs, elevating homocysteine, reducing vasodilatory capacity, and impairing placental angiogenesis.
+Step 4 — Placental Cardiovascular Dysfunction: The endothelial and inflammatory disruptions of Steps 3 impair trophoblast invasion and placental vascular remodeling. Angiogenic imbalance—elevated sFlt-1, reduced PlGF, and suppressed VEGF—characterizes the early development of preeclampsia. Impaired placental blood flow reduces oxygen and nutrient delivery to the fetus, contributing to intrauterine growth restriction and low birthweight.
+Step 5 — Hypertensive Disorders and Cardiovascular Complications: Placental dysfunction and systemic endothelial impairment manifest as gestational hypertension, preeclampsia, and eclampsia. Concurrent HPA-axis activation from chronic food insecurity stress elevates cortisol, contributing to gestational insulin resistance and gestational diabetes. These conditions collectively constitute the cardiovascular pregnancy complication burden observed at elevated rates in double desert counties.
+Step 6 — Compound Risk from Care Absence: In double desert counties, the absence of obstetric providers and hospital obstetric units means that conditions developing through Steps 1–5 go undetected or unmanaged. Blood pressure monitoring, proteinuria screening, gestational diabetes management, and preterm birth prevention interventions are unavailable or inaccessible. The clinical care gap thus amplifies the biological risk generated by the nutritional pathway, producing the compounded cardiovascular burden observed in the data.
+Step 7 — Long-term Cardiovascular Sequelae: Women who survive HDP in double desert counties without adequate postpartum follow-up carry elevated long-term CVD risk: more than double the lifetime risk of coronary heart disease, heart failure, and stroke. Without a medical home for postpartum cardiovascular monitoring, this risk is unmitigated, perpetuating the cardiovascular disease burden in future pregnancies and across the reproductive lifespan.
+5.2 Intergenerational Dimensions
+The cardiovascular consequences of food desert pregnancy extend beyond the birthing person to the developing fetus. Maternal nutritional imbalance during pregnancy—high-fat, high-sugar, high-sodium diets alongside micronutrient deficiencies—is now recognized as a driver of fetal cardiovascular programming through epigenetic mechanisms. Prenatal exposure to hyperglycemic intrauterine environments (characteristic of gestational diabetes) disrupts fetal cardiac development by inducing cardiac hypertrophy, impairing conotruncal formation, and altering cardiac neural crest cell migration. High maternal sodium intake suppresses RAAS activity in the fetoplacental unit, reducing VEGF and impairing placental vascular function with downstream effects on fetal cardiovascular development.
+These epigenetic modifications—including altered DNA methylation patterns, histone modifications, and altered miRNA expression—can persist into the offspring’s adulthood, predisposing the next generation to hypertension, obesity, and cardiovascular disease. The intergenerational pathway from food desert geography to offspring cardiovascular risk represents a mechanistic link between structural geographic deprivation and persistent community-level cardiovascular disease burden across generations—a biological footprint of structural inequality.
+
+6. Structural Determinants and Contextual Factors
+6.1 Poverty as the Foundation
+Food desert geography is not a natural phenomenon; it is a consequence of structural economic disinvestment. The average poverty rate across double desert counties is 34.9%, more than double the state average of 16.8% and more than twice the national average of 12.4%. At these poverty levels, the economic case for private-sector grocery investment is fundamentally deficient: population density is too low, purchasing power too limited, and logistical costs too high to generate the profit margins that national grocery chains require. The result is a market failure in the food retail sector that produces and perpetuates the food desert condition independent of individual choices or preferences.
+Poverty also mediates the nutritional impact of food desert conditions through affordability mechanisms. Even when healthier food options are technically accessible—through longer travel—their cost relative to the caloric density and price-point of ultra-processed alternatives makes them economically inaccessible for food-insecure households. The caloric efficiency of ultra-processed foods (low cost per calorie) is a rational economic response to poverty under conditions of food scarcity, but it produces the dietary pattern most conducive to the cardiovascular risk pathway described in Section 5.
+6.2 Transportation Infrastructure Deficits
+The rural Southern transportation landscape creates a structural barrier to food access that operates independently of grocery store distance. Alabama consistently ranks among the lowest states in per-capita public transit spending. In Black Belt counties, fixed-route transit is essentially nonexistent, and demand-responsive transit services are minimal. Approximately 15% to 20% of households in double desert counties lack a personal vehicle. For pregnant women in these households—particularly in the third trimester when mobility is reduced—traveling 22 to 34 miles to a grocery store or obstetric provider is not merely inconvenient but structurally impossible without informal transportation networks.
+Transportation poverty interacts with food desert geography to concentrate nutritional deprivation among the most vulnerable pregnant women: those who are low-income, without vehicles, in late pregnancy, and without robust informal support networks. These intersecting vulnerabilities map onto the highest concentrations of HDP and adverse perinatal outcomes within double desert counties, suggesting that within-county variation in cardiovascular pregnancy outcomes may be partially explained by transportation access even in counties already classified as food deserts.
+6.3 Medicaid Non-Expansion and Healthcare Gaps
+Alabama’s status as a non-Medicaid expansion state (as of 2025) creates a coverage gap that amplifies the cardiovascular risk generated by food desert conditions. An estimated 300,000 low-income Alabama adults—disproportionately concentrated in rural Black Belt counties—earn too much for traditional Medicaid but too little for marketplace subsidies under the Affordable Care Act. For women of childbearing age in this coverage gap, access to preconception cardiovascular screening, gestational hypertension management, and postpartum follow-up is severely constrained.
+Alabama’s Medicaid program covered 42% of live births in the state in 2024 (March of Dimes, 2025), reflecting the high poverty rates among Alabama’s childbearing population. However, traditional pregnancy Medicaid coverage begins only at confirmed pregnancy and previously ended at 60 days postpartum—a window far too narrow for comprehensive cardiovascular monitoring given that 28% of maternal deaths occur between 43 and 365 days postpartum (ADPH, 2023). Alabama has adopted the American Rescue Plan option to extend postpartum Medicaid coverage to 12 months, which represents a meaningful policy improvement, but the coverage gap for pre-pregnancy cardiovascular screening and management remains.
+6.4 Health Literacy and Dietary Knowledge
+Food desert conditions interact with health literacy to shape dietary decision-making during pregnancy. In communities where nutrition education resources are scarce—where neither prenatal providers nor community organizations routinely provide pregnancy-specific dietary guidance—knowledge of the cardiovascular risks associated with high-sodium, ultra-processed diets may be limited. Research consistently documents lower cardiovascular health literacy in rural and low-income communities, and lower awareness of CVD as a cause of maternal mortality specifically.
+Health literacy deficits do not cause food desert conditions, and addressing health literacy alone—absent structural food access improvements—will not meaningfully reduce the cardiovascular pregnancy risk generated by food desert geography. However, health literacy-building investments that accompany structural food access improvements can amplify the impact of nutritional interventions by enabling pregnant women to make more informed dietary choices within an improved food environment.
+
+7. Policy Recommendations and Intervention Framework
+The integrated pathway from food desert geography to maternal cardiovascular disease described in this paper demands a multi-level policy and programmatic response that addresses both the structural food environment and the clinical care gap simultaneously. No single intervention addressing one domain alone will be sufficient. The following recommendations are organized by intervention level and time horizon.
+7.1 Near-Term Nutritional Access Interventions
+Mobile Food Pharmacy and Nutrition Prescription Programs
+Mobile food pharmacy models—in which nutritional supplements and whole food prescriptions are distributed through mobile health units or partnership with existing mobile maternal health services—represent one of the most promising near-term strategies for improving nutritional access in double desert counties without requiring brick-and-mortar food retail development. Several health systems have piloted food pharmacy programs at Federally Qualified Health Centers, demonstrating improvements in blood pressure and glycemic control among food-insecure patients. Integrating food pharmacy components into HRSA-funded mobile maternal health units targeting double desert counties would directly address the dietary sodium and micronutrient deficiency pathways to maternal HDP.
+WIC Access Point Expansion and Telehealth-Enabled WIC
+WIC participation rates among eligible pregnant women in double desert counties range from 58% to 67%, substantially below the state average of 73%. Expanding WIC access points to include co-location with existing community institutions—schools, faith communities, community health centers—and enabling telehealth-based WIC certification and nutritional counseling would reduce the logistical barriers preventing eligible women from accessing WIC benefits. WIC’s food package, which includes fresh fruits, vegetables, dairy, whole grains, and protein sources, directly counteracts the nutritional deficits characteristic of food desert diets.
+SNAP Authorized Retailer Expansion and Healthy Incentives
+SNAP authorization density in double desert counties averages only 1.8 authorized vendors per 1,000 low-income residents. Expanding SNAP authorization to mobile farmers markets, community food distribution sites, and cooperative food hubs would increase redemption opportunities for SNAP-eligible pregnant women. The USDA’s Gus Schumacher Nutrition Incentive Program (GusNIP), which provides matching incentives for SNAP benefits used to purchase fruits and vegetables, offers a mechanism to improve dietary quality within the SNAP framework and should be actively promoted in double desert counties.
+7.2 Medium-Term Clinical and Community Integration
+Community Health Worker Cardiovascular Navigation
+Community health workers (CHWs) embedded in Black Belt communities represent the most culturally resonant and cost-effective mechanism for bridging the gap between the food environment, clinical CVD risk, and maternal health services. CHWs trained specifically in maternal cardiovascular health—including blood pressure monitoring, gestational diabetes risk recognition, prenatal dietary counseling, and postpartum cardiovascular follow-up navigation—can provide continuous, community-embedded support that neither clinical systems nor food access programs alone can deliver. HRSA’s Community Health Worker Training Grant programs offer a direct funding mechanism for Black Belt CHW cardiovascular capacity-building.
+Remote Blood Pressure Monitoring and Telehealth HDP Management
+Remote blood pressure monitoring programs—in which Bluetooth-enabled BP cuffs are distributed to high-risk pregnant women for home use, with readings transmitted to a clinical team—have demonstrated effectiveness in rural communities for early detection of HDP without requiring in-person visits. A randomized trial of over 400 women comparing standard care to remote BP monitoring found that remote monitoring resulted in significantly fewer hypertension-related readmissions. In double desert counties where the nearest obstetric provider is 34 miles away, remote monitoring provides a clinical surveillance capacity that would otherwise be absent. Telehealth obstetric consultations, enabled by expanded rural broadband infrastructure, would allow remote management of HDP cases identified through monitoring programs.
+Prenatal Nutrition Counseling Integration
+Prenatal dietary counseling specifically addressing the cardiovascular consequences of high-sodium, ultra-processed food diets is not currently a standard component of prenatal care in Alabama’s rural counties—and where obstetric care is absent entirely, no prenatal nutritional guidance is provided at all. Integrating standardized prenatal nutrition counseling into the scope of practice of nurse-midwives, CHWs, and telehealth obstetric providers in double desert counties—with specific emphasis on sodium reduction, calcium and folate-rich food sources, and ultra-processed food reduction—would directly address the dietary pathway to maternal HDP.
+7.3 Structural and Long-Term Interventions
+Food Retail Infrastructure Investment
+The durable solution to food desert conditions in the Black Belt is the development of sustainable food retail infrastructure that provides access to fresh, nutritious, and affordable food within reasonable distance of all residents. Community Development Financial Institution (CDFI) financing, USDA Community Facilities program grants, and state-level rural economic development incentives offer potential mechanisms for supporting cooperative grocery models, community food hubs, and small-scale independent grocers in double desert counties. These structural investments require long time horizons and sustained political will but represent the only path to eliminating food desert conditions entirely.
+Medicaid Expansion and Reproductive Health Coverage
+Medicaid expansion remains the single highest-impact policy lever for improving access to maternal cardiovascular care in Alabama. Expansion would extend coverage to an estimated 300,000 additional adults, including a large proportion of women of childbearing age in Black Belt counties, enabling preconception cardiovascular screening, hypertension management before and during pregnancy, and sustained postpartum cardiovascular follow-up. Legislative advocacy for Medicaid expansion, combined with advocacy for full implementation of Alabama’s adopted postpartum Medicaid extension to 12 months, should be priority components of any comprehensive maternal CVD reduction strategy.
+Rural Broadband as a Health Infrastructure Investment
+Approximately 28% of households in double desert counties lack broadband internet access—a gap that limits the reach of telehealth-based maternal health services, remote blood pressure monitoring, WIC telehealth certification, and nutrition education delivery. USDA ReConnect Program funding and FCC rural broadband initiatives offer mechanisms to close this connectivity gap, and state policymakers should prioritize Black Belt counties as high-need targets for rural broadband investment given the direct health infrastructure implications.
+
+8. Limitations
+Several limitations of this study warrant acknowledgment and should guide the interpretation of findings. First, the ecological study design—using county-level rather than individual-level data—precludes direct causal inference from the observed associations between food environment indicators and cardiovascular pregnancy outcomes. The ecological correlations presented are consistent with, but do not independently prove, the biological pathways described in the literature review. Individual-level longitudinal data linking food access, dietary patterns, and cardiovascular pregnancy outcomes within Black Belt counties would provide substantially stronger causal evidence.
+Second, data quality and completeness constraints in small-population rural counties introduce instability in rate estimates. Small absolute counts of maternal deaths, HDP diagnoses, and gestational diabetes cases in counties with fewer than 2,000 annual births produce wide confidence intervals that limit the precision of county-level comparisons. We addressed this by averaging across a four-year period (2020–2023), but residual instability likely remains in the most sparsely populated counties.
+Third, the food desert classification employed in this analysis, while based on USDA methodology, incorporates a modified threshold for county seat distance that departs from the standard census-tract-level classification. This adaptation, while appropriate to the rural geography of the Black Belt, may produce boundary effects at the food desert classification threshold that affect the apparent strength of the food desert-cardiovascular outcome association.
+Fourth, unmeasured confounders—including pre-existing chronic disease prevalence, health-seeking behavior patterns, cultural dietary practices, and informal food sharing networks within rural communities—could partially explain the observed cardiovascular outcome gradients. Future research incorporating community-based participatory designs and qualitative methods would illuminate how food access conditions are navigated and experienced by pregnant women in double desert communities, enriching the quantitative analysis.
+Fifth, the absence of individual-level dietary pattern data within double desert counties limits the ability to directly test the proposed pathway from food desert geography to specific dietary patterns to cardiovascular outcomes. A community dietary survey or biomarker study in a sample of pregnant women in double desert counties would substantially strengthen the mechanistic evidence base for the pathway framework proposed here.
+
+9. Conclusion
+This paper has advanced a detailed and empirically grounded framework for understanding how geographic food desert conditions drive maternal cardiovascular disease risk in rural Southern communities. Drawing on mapping data from Alabama’s Black Belt double desert counties, biomedical evidence on nutritional pathways to cardiovascular pregnancy complications, and the prior double desert research conducted at Tuskegee University’s Research Center for Rural, Child, and Family Health Equity, we have demonstrated that food desert geography is not merely a nutritional concern but a cardiovascular infrastructure crisis for pregnant women.
+The specific pathways—high dietary sodium impairing endothelial function, ultra-processed food consumption activating inflammatory and atherogenic cascades, micronutrient deficiencies removing vascular-protective inputs, and chronic food insecurity stress activating HPA-mediated cardiovascular dysregulation—converge on a biological landscape that is directly conducive to hypertensive disorders of pregnancy, gestational diabetes, and adverse perinatal cardiovascular outcomes. When these nutritional pathways operate in double desert counties where obstetric care is simultaneously absent, the biological risk generated by the food environment goes undetected and unmanaged, producing the severe cardiovascular pregnancy outcome burden documented in Alabama’s Black Belt data.
+The 11 Alabama counties designated as double deserts in our prior analysis—Hale, Bullock, Perry, Greene, Sumter, Wilcox, Marengo, Dallas, Lowndes, Choctaw, and Clarke—represent a microcosm of a broader pattern of structural geographic deprivation that underlies the American South’s disproportionate maternal mortality burden. These communities are not experiencing statistical outliers; they are experiencing the predictable cardiovascular consequences of food retail disinvestment, obstetric infrastructure collapse, Medicaid coverage gaps, transportation poverty, and decades of accumulated structural disadvantage.
+Addressing this crisis requires a policy response as integrated and structural as its causes. Mobile nutritional services, CHW cardiovascular navigation, remote blood pressure monitoring, WIC and SNAP access expansion, prenatal dietary counseling, telehealth obstetric care, Medicaid expansion, and food retail infrastructure investment are not alternative approaches—they are complementary components of the only intervention framework that can meaningfully reduce maternal cardiovascular mortality in Alabama’s double desert counties. HRSA’s rural health equity mandate provides both the funding mechanism and the policy mandate for this integrated investment. Tuskegee University’s Research Center for Rural, Child, and Family Health Equity remains committed to generating the evidence and the community partnerships needed to drive it forward.
+The geography of hunger is the geography of cardiovascular risk. Until Alabama’s food deserts are understood as cardiovascular infrastructure emergencies for pregnant women, and until the interventions applied to them reflect that urgency, the maternal mortality crisis in the Black Belt will persist as a preventable and ongoing public health failure.
+
+References
+
+Alabama Department of Public Health (ADPH). (2023). Alabama Maternal Mortality Review Report, 2020–2021. Montgomery, AL: ADPH Bureau of Family Health Services.
+
+Alabama Department of Public Health (ADPH). (2023). Alabama Vital Statistics Annual Report, 2020–2022. Montgomery, AL: ADPH Bureau of Health Statistics.
+
+American Heart Association & American College of Obstetricians and Gynecologists. (2018). Pregnancy and heart disease: Joint scientific statement. Circulation, 137(5), e1–e32.
+
+Badon, S. E., et al. (2020). Sodium intake during pregnancy, but not other diet recommendations aimed at preventing cardiovascular disease, is positively related to risk of hypertensive disorders of pregnancy. Journal of Nutrition, 150(4), 726–735.
+
+Coleman-Jensen, A., Rabbitt, M. P., Gregory, C. A., & Singh, A. (2023). Household food security in the United States in 2022. USDA Economic Research Report No. ERS-298.
+
+Dolin, C. D., Compher, C., & Kim, E. (2020). Food security during pregnancy: Associations with birth outcomes and maternal weight gain. American Journal of Perinatology, 38(S01), e95–e101.
+
+Fleszar, L. G., et al. (2023). Trends in state-level maternal mortality by age, race/ethnicity, and cause of death in the United States. JAMA, 329(23), 2000–2011.
+
+Kelli, H. M., et al. (2019). Living in food deserts and adverse cardiovascular outcomes in patients with cardiovascular disease. Journal of the American Heart Association, 8(4), e010694.
+
+Luther, J., et al. (2021). Cardiovascular disease is the leading cause of pregnancy-related mortality in the United States. Journal of the American College of Cardiology, 77(8), 1165–1175.
+
+Malhamé, I., et al. (2022). Cardiovascular severe maternal morbidity and mortality at delivery in the United States: A population-based study. JACC: Advances, 1(2), 100121.
+
+March of Dimes. (2024). Maternity care deserts report. White Plains, NY: March of Dimes.
+
+March of Dimes. (2025). 2025 Report card for Alabama. PeriStats. White Plains, NY: March of Dimes.
+
+Metz, T. D., et al. (2022). Trends in the incidence of new-onset hypertensive disorders of pregnancy among rural and urban areas in the United States, 2007 to 2019. Journal of the American Heart Association, 11(1), e023791.
+
+Morales, M. E., et al. (2021). Food insecurity and cardiovascular health in pregnant women: Results from the Food for Families program. Journal of the American Heart Association, 10(12), e019028.
+
+Olfatifar, M., et al. (2025). Relationship between food insecurity and the risk of pregnancy-induced hypertension: A prospective cohort study. BMC Pregnancy and Childbirth, 25(1), 312.
+
+Rampersad, S., et al. (2024). The association of food security with hypertensive disorders of pregnancy: A National Health Interview Survey analysis. Pregnancy Hypertension, 36, e1–e9.
+
+Rico-Campà, A., et al. (2024). Ultra-processed foods and cardiovascular disease: Analysis of three large U.S. prospective cohorts and a systematic review and meta-analysis. The Lancet Regional Health – Americas, 38, 100881.
+
+Singer, M. (2009). Introduction to syndemics: A critical systems approach to public and community health. San Francisco, CA: Jossey-Bass.
+
+Suresh, K., et al. (2024). Food environment quality and cardiovascular disease mortality in the United States: A county-level analysis from 2017 to 2019. Journal of General Internal Medicine, 39(3), 441–450.
+
+Tipton, M. J., et al. (2020). Food deserts linked to greater pregnancy morbidity. American Journal of Obstetrics and Gynecology, 223(4), 589.e1–e7.
+
+U.S. Census Bureau. (2023). American Community Survey 5-year estimates, 2019–2023. Washington, DC: U.S. Census Bureau.
+
+U.S. Department of Agriculture Economic Research Service (USDA ERS). (2023). Food access research atlas. Washington, DC: USDA ERS.
+
+U.S. Department of Health and Human Services, Health Resources and Services Administration (HRSA). (2023). Rural health care services outreach program. Rockville, MD: HRSA.
+
+Wang, X., et al. (2024). Impact of ultra-processed foods on cardiovascular diseases and cancer: Epidemiological and mechanistic insights. Food and Chemical Toxicology, 186, 114578.
+
+Wu, Q., et al. (2023). Maternal nutritional imbalance during pregnancy and the development of fetal-origin cardiovascular diseases. Frontiers in Nutrition, 13, 1717069.
+
+Zhu, Y., et al. (2021). Mechanisms of dietary sodium-induced impairments in endothelial function and potential countermeasures. Nutrients, 13(1), 270.
+

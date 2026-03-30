@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resource Directory — Beautiful Brown Bundle</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --soil:      #2C1A0E;
+  --mahogany:  #4A2512;
+  --walnut:    #6B3A1F;
+  --sienna:    #8B5E3C;
+  --caramel:   #B07D4A;
+  --honey:     #C9975A;
+  --golden:    #D4A96A;
+  --cream:     #F5E6D0;
+  --linen:     #FAF3E8;
+  --offwhite:  #FFFDF8;
+  --terra:     #A0522D;
+  --sage:      #7A8C6E;
+  --font-d:    'Playfair Display', serif;
+  --font-b:    'DM Sans', sans-serif;
+  --r:         12px;
+  --r-lg:      20px;
+  --sh:        0 4px 24px rgba(44,26,14,0.13);
+  --sh-sm:     0 2px 10px rgba(44,26,14,0.08);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-b);background:var(--linen);color:var(--soil);line-height:1.7;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{cursor:pointer;font-family:var(--font-b);border:none}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(44,26,14,0.94);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,151,90,0.2)}
+.nav-inner{max-width:1280px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:60px}
+.nav-logo{font-family:var(--font-d);font-size:1.1rem;font-weight:900;color:var(--golden)}
+.nav-logo span{color:var(--cream);font-weight:300;font-style:italic;font-size:.85em}
+.nav-back{font-size:.82rem;color:rgba(245,230,208,.7);display:flex;align-items:center;gap:6px;transition:color .2s}
+.nav-back:hover{color:var(--honey)}
+
+/* ── HERO ── */
+.hero{background:var(--soil);padding:100px 0 60px;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 60% 50%,rgba(176,125,74,.12) 0%,transparent 65%);pointer-events:none}
+.hero-inner{max-width:1280px;margin:0 auto;padding:0 1.5rem;position:relative;z-index:2;text-align:center}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(201,151,90,.15);border:1px solid rgba(201,151,90,.3);padding:5px 16px;border-radius:100px;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--honey);margin-bottom:1.5rem}
+.hero h1{font-family:var(--font-d);font-size:clamp(2rem,5vw,3.6rem);font-weight:900;color:var(--cream);line-height:1.15;margin-bottom:1rem}
+.hero h1 em{color:var(--golden);font-style:italic}
+.hero-sub{font-size:clamp(.95rem,2vw,1.15rem);color:rgba(245,230,208,.72);max-width:620px;margin:0 auto 2.5rem;line-height:1.8}
+.hero-counts{display:flex;gap:2.5rem;justify-content:center;flex-wrap:wrap;padding-top:2rem;border-top:1px solid rgba(201,151,90,.15)}
+.count-item{text-align:center}
+.count-num{font-family:var(--font-d);font-size:1.8rem;font-weight:900;color:var(--golden);display:block;line-height:1}
+.count-lbl{font-size:.75rem;color:rgba(245,230,208,.55);margin-top:3px}
+
+/* ── CONTROLS ── */
+.controls{background:var(--offwhite);border-bottom:1px solid rgba(44,26,14,.08);position:sticky;top:60px;z-index:90;padding:1rem 0}
+.controls-inner{max-width:1280px;margin:0 auto;padding:0 1.5rem;display:flex;gap:1rem;flex-wrap:wrap;align-items:center}
+.search-wrap{flex:1;min-width:220px;position:relative}
+.search-wrap svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);opacity:.4}
+.search-input{width:100%;padding:10px 12px 10px 38px;border:1.5px solid rgba(107,58,31,.2);border-radius:var(--r);background:white;font-family:var(--font-b);font-size:.9rem;color:var(--soil);outline:none;transition:border-color .2s}
+.search-input:focus{border-color:var(--honey)}
+.filter-group{display:flex;gap:.5rem;flex-wrap:wrap}
+.fchip{padding:7px 16px;border-radius:100px;font-size:.78rem;font-weight:500;border:1.5px solid rgba(107,58,31,.2);background:transparent;color:var(--walnut);transition:all .2s;white-space:nowrap}
+.fchip:hover,.fchip.active{background:var(--walnut);color:var(--cream);border-color:var(--walnut)}
+.fchip[data-cat="maternal"].active{background:var(--terra);border-color:var(--terra)}
+.fchip[data-cat="postpartum"].active{background:#7A8C6E;border-color:#7A8C6E;color:white}
+.fchip[data-cat="nutrition"].active{background:#8B7A4A;border-color:#8B7A4A;color:white}
+.fchip[data-cat="childcare"].active{background:#5C4033;border-color:#5C4033}
+.fchip[data-cat="mental"].active{background:#6B3A1F;border-color:#6B3A1F}
+.fchip[data-cat="national"].active{background:var(--soil);border-color:var(--soil)}
+.state-select{padding:9px 14px;border:1.5px solid rgba(107,58,31,.2);border-radius:var(--r);background:white;font-family:var(--font-b);font-size:.85rem;color:var(--soil);outline:none;cursor:pointer;min-width:160px}
+.state-select:focus{border-color:var(--honey)}
+.results-count{font-size:.8rem;color:var(--sienna);margin-left:auto;white-space:nowrap}
+
+/* ── MAIN GRID ── */
+.main{max-width:1280px;margin:0 auto;padding:2.5rem 1.5rem 4rem}
+.state-section{margin-bottom:3.5rem}
+.state-header{display:flex;align-items:center;gap:1rem;margin-bottom:1.25rem;padding-bottom:.75rem;border-bottom:2px solid rgba(107,58,31,.12)}
+.state-name{font-family:var(--font-d);font-size:1.5rem;font-weight:700;color:var(--walnut)}
+.state-count{font-size:.75rem;background:rgba(176,125,74,.12);color:var(--sienna);padding:3px 10px;border-radius:100px;font-weight:500}
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:1.25rem}
+.card{background:white;border-radius:var(--r-lg);border:1px solid rgba(44,26,14,.07);box-shadow:var(--sh-sm);transition:transform .22s,box-shadow .22s;overflow:hidden}
+.card:hover{transform:translateY(-3px);box-shadow:var(--sh)}
+.card-top{padding:1.2rem 1.4rem .9rem;display:flex;align-items:flex-start;gap:1rem}
+.card-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+.icon-maternal{background:rgba(160,82,45,.1)}
+.icon-postpartum{background:rgba(122,140,110,.1)}
+.icon-nutrition{background:rgba(176,125,74,.1)}
+.icon-childcare{background:rgba(44,26,14,.08)}
+.icon-mental{background:rgba(107,58,31,.09)}
+.icon-national{background:rgba(201,151,90,.12)}
+.card-title-block{flex:1}
+.card-name{font-size:.97rem;font-weight:500;color:var(--soil);line-height:1.3;margin-bottom:3px}
+.card-location{font-size:.75rem;color:var(--sienna)}
+.cat-badge{font-size:.68rem;font-weight:500;padding:2px 9px;border-radius:100px;letter-spacing:.04em;display:inline-block;margin-top:4px}
+.badge-maternal{background:rgba(160,82,45,.1);color:var(--terra)}
+.badge-postpartum{background:rgba(122,140,110,.12);color:#4a6340}
+.badge-nutrition{background:rgba(176,125,74,.12);color:#7a5a1a}
+.badge-childcare{background:rgba(44,26,14,.08);color:var(--walnut)}
+.badge-mental{background:rgba(107,58,31,.1);color:var(--mahogany)}
+.badge-national{background:rgba(201,151,90,.12);color:var(--walnut)}
+.card-body{padding:.1rem 1.4rem 1.1rem 1.4rem}
+.card-desc{font-size:.82rem;color:var(--sienna);line-height:1.7;margin-bottom:.9rem}
+.card-links{display:flex;gap:.5rem;flex-wrap:wrap}
+.card-link{font-size:.75rem;font-weight:500;padding:5px 12px;border-radius:100px;border:1px solid rgba(107,58,31,.2);color:var(--walnut);transition:all .2s}
+.card-link:hover{background:var(--walnut);color:var(--cream);border-color:var(--walnut)}
+.card-link.phone{color:var(--terra);border-color:rgba(160,82,45,.25)}
+.card-link.phone:hover{background:var(--terra);color:white;border-color:var(--terra)}
+
+/* ── NATIONAL SECTION ── */
+.national-band{background:var(--mahogany);padding:3rem 0;margin-bottom:2.5rem;border-radius:var(--r-lg)}
+.national-band .state-header .state-name{color:var(--golden)}
+.national-band .state-header .state-count{background:rgba(201,151,90,.15);color:var(--honey)}
+
+/* ── EMPTY STATE ── */
+.empty{text-align:center;padding:4rem 2rem;color:var(--sienna)}
+.empty h3{font-family:var(--font-d);font-size:1.4rem;color:var(--walnut);margin-bottom:.75rem}
+.empty p{font-size:.9rem;opacity:.75}
+
+/* ── LIST YOUR ORG FORM ── */
+.list-section{background:var(--walnut);padding:5rem 0}
+.list-inner{max-width:780px;margin:0 auto;padding:0 1.5rem;text-align:center}
+.list-inner .hero-badge{margin-bottom:1.25rem}
+.list-inner h2{font-family:var(--font-d);font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;color:var(--cream);line-height:1.2;margin-bottom:1rem}
+.list-inner h2 em{color:var(--golden);font-style:italic}
+.list-inner .sub{color:rgba(245,230,208,.72);font-size:1rem;max-width:580px;margin:0 auto 2.5rem;line-height:1.8}
+.list-form{background:rgba(245,230,208,.06);border:1px solid rgba(245,230,208,.12);border-radius:var(--r-lg);padding:2.5rem 2rem;text-align:left}
+.lf-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+.lf-group{margin-bottom:1rem}
+.lf-group label{display:block;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(245,230,208,.6);margin-bottom:.4rem}
+.lf-control{width:100%;padding:11px 14px;background:rgba(255,255,255,.07);border:1.5px solid rgba(245,230,208,.15);border-radius:var(--r);color:var(--cream);font-family:var(--font-b);font-size:.9rem;outline:none;transition:border-color .2s;resize:vertical}
+.lf-control::placeholder{color:rgba(245,230,208,.3)}
+.lf-control:focus{border-color:rgba(201,151,90,.6)}
+.lf-select{appearance:none;cursor:pointer}
+.cat-checkgroup{display:grid;grid-template-columns:1fr 1fr;gap:.5rem}
+.lf-check{display:flex;align-items:center;gap:8px}
+.lf-check input[type=checkbox]{accent-color:var(--honey);width:15px;height:15px;cursor:pointer}
+.lf-check label{font-size:.85rem;color:rgba(245,230,208,.75);cursor:pointer}
+.lf-submit{background:var(--honey);color:var(--soil);width:100%;padding:14px;border-radius:var(--r);font-size:1rem;font-weight:500;margin-top:.75rem;transition:all .2s}
+.lf-submit:hover{background:var(--golden);transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,151,90,.25)}
+.lf-success{display:none;text-align:center;padding:2.5rem 1rem}
+.lf-success .si{font-size:3rem;margin-bottom:1rem}
+.lf-success h3{font-family:var(--font-d);font-size:1.5rem;color:var(--golden);margin-bottom:.75rem}
+.lf-success p{color:rgba(245,230,208,.72);font-size:.95rem;line-height:1.7}
+.required-note{font-size:.72rem;color:rgba(245,230,208,.45);margin-bottom:1.5rem}
+.list-why{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:3rem}
+.why-card{background:rgba(245,230,208,.05);border:1px solid rgba(201,151,90,.18);border-radius:var(--r);padding:1.25rem;text-align:center}
+.why-card .wi{font-size:1.6rem;margin-bottom:.5rem}
+.why-card h4{color:var(--honey);font-size:.9rem;margin-bottom:.4rem}
+.why-card p{font-size:.78rem;color:rgba(245,230,208,.6);line-height:1.6}
+@media(max-width:768px){
+  .lf-row{grid-template-columns:1fr}
+  .cat-checkgroup{grid-template-columns:1fr}
+  .list-why{grid-template-columns:1fr}
+  .list-form{padding:1.75rem 1.25rem}
+}
+
+footer{background:var(--soil);color:rgba(245,230,208,.6);padding:2.5rem 0;text-align:center;font-size:.82rem;border-top:1px solid rgba(201,151,90,.1)}
+footer a{color:var(--honey);opacity:.8}
+footer a:hover{opacity:1}
+.footer-disclaimer{max-width:700px;margin:.75rem auto 0;font-size:.75rem;opacity:.6;line-height:1.7}
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+  .controls-inner{flex-direction:column;align-items:stretch}
+  .filter-group{overflow-x:auto;padding-bottom:4px;flex-wrap:nowrap}
+  .results-count{margin-left:0}
+  .cards-grid{grid-template-columns:1fr}
+  .hero-counts{gap:1.5rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <span class="nav-logo">Beautiful Brown Bundle <span>/ Resource Directory</span></span>
+    <a href="index.html" class="nav-back">← Back to Main Site</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">✦ Black-Centered Resources — All 50 States</div>
+    <h1>The Directory<br><em>Built for Our Mothers</em></h1>
+    <p class="hero-sub">Every organization, doula network, postpartum service, food resource, childcare provider, and mental health collective listed here is Black-owned, Black-led, or specifically serving Black mothers and families.</p>
+    <div class="hero-counts">
+      <div class="count-item"><span class="count-num" id="totalCount">200+</span><div class="count-lbl">Organizations listed</div></div>
+      <div class="count-item"><span class="count-num">50</span><div class="count-lbl">States covered</div></div>
+      <div class="count-item"><span class="count-num">6</span><div class="count-lbl">Resource categories</div></div>
+      <div class="count-item"><span class="count-num">Free</span><div class="count-lbl">Always free to access</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="controls">
+  <div class="controls-inner">
+    <div class="search-wrap">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="6.5" cy="6.5" r="5" stroke="#6B3A1F" stroke-width="1.5"/><path d="M10.5 10.5L14 14" stroke="#6B3A1F" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <input class="search-input" type="text" id="searchInput" placeholder="Search by name, city, or service…" oninput="filterCards()">
+    </div>
+    <div class="filter-group" id="filterGroup">
+      <button class="fchip active" data-cat="all" onclick="setFilter('all',this)">All</button>
+      <button class="fchip" data-cat="national" onclick="setFilter('national',this)">🌐 National</button>
+      <button class="fchip" data-cat="maternal" onclick="setFilter('maternal',this)">🤱 Maternal Health</button>
+      <button class="fchip" data-cat="postpartum" onclick="setFilter('postpartum',this)">🌿 Postpartum</button>
+      <button class="fchip" data-cat="nutrition" onclick="setFilter('nutrition',this)">🥦 Nutrition</button>
+      <button class="fchip" data-cat="childcare" onclick="setFilter('childcare',this)">👶 Childcare</button>
+      <button class="fchip" data-cat="mental" onclick="setFilter('mental',this)">💙 Mental Health</button>
+    </div>
+    <select class="state-select" id="stateSelect" onchange="filterCards()">
+      <option value="">All States</option>
+    </select>
+    <span class="results-count" id="resultsCount"></span>
+  </div>
+</div>
+
+<div class="main" id="mainContent"></div>
+
+<!-- ============================================================ LIST YOUR ORG -->
+<section class="list-section" id="list-your-org">
+  <div class="list-inner">
+    <div class="hero-badge">✦ Black-Owned & Black-Serving Welcome</div>
+    <h2>List Your Organization<br><em>Join the Directory</em></h2>
+    <p class="sub">Are you a Black-owned doula practice, midwife, postpartum specialist, childcare provider, food resource, or mental health collective? Get listed — free, always. Every listing is a lifeline for a mother who needs you.</p>
+
+    <div class="list-why">
+      <div class="why-card"><div class="wi">🌍</div><h4>Global Reach</h4><p>Mothers searching from all 50 states and worldwide find this directory. Your listing reaches families who need exactly what you offer.</p></div>
+      <div class="why-card"><div class="wi">💛</div><h4>Always Free</h4><p>Listing your organization costs nothing. This is community infrastructure, not commerce. We will never charge Black birth workers to be found.</p></div>
+      <div class="why-card"><div class="wi">✊🏾</div><h4>Build the Network</h4><p>Every listing strengthens the collective. The more of us are visible, the more Black mothers choose us — and the more our community thrives.</p></div>
+    </div>
+
+    <div class="list-form" style="margin-top:2.5rem" id="listForm">
+      <p class="required-note">Fields marked * are required. Listings are reviewed before publishing (typically within 3–5 business days).</p>
+      <div class="lf-row">
+        <div class="lf-group">
+          <label>Organization / Business Name *</label>
+          <input type="text" class="lf-control" placeholder="e.g. Soulful Birth Doula Services">
+        </div>
+        <div class="lf-group">
+          <label>Your Name (contact person) *</label>
+          <input type="text" class="lf-control" placeholder="First and last name">
+        </div>
+      </div>
+      <div class="lf-row">
+        <div class="lf-group">
+          <label>Email Address *</label>
+          <input type="email" class="lf-control" placeholder="hello@yourorg.com">
+        </div>
+        <div class="lf-group">
+          <label>Phone Number</label>
+          <input type="tel" class="lf-control" placeholder="(000) 000-0000">
+        </div>
+      </div>
+      <div class="lf-row">
+        <div class="lf-group">
+          <label>City *</label>
+          <input type="text" class="lf-control" placeholder="e.g. Atlanta">
+        </div>
+        <div class="lf-group">
+          <label>State *</label>
+          <select class="lf-control lf-select" id="listStateSelect">
+            <option value="">Select your state</option>
+            <option>Alabama</option><option>Alaska</option><option>Arizona</option><option>Arkansas</option>
+            <option>California</option><option>Colorado</option><option>Connecticut</option><option>Delaware</option>
+            <option>Florida</option><option>Georgia</option><option>Hawaii</option><option>Idaho</option>
+            <option>Illinois</option><option>Indiana</option><option>Iowa</option><option>Kansas</option>
+            <option>Kentucky</option><option>Louisiana</option><option>Maine</option><option>Maryland</option>
+            <option>Massachusetts</option><option>Michigan</option><option>Minnesota</option><option>Mississippi</option>
+            <option>Missouri</option><option>Montana</option><option>Nebraska</option><option>Nevada</option>
+            <option>New Hampshire</option><option>New Jersey</option><option>New Mexico</option><option>New York</option>
+            <option>North Carolina</option><option>North Dakota</option><option>Ohio</option><option>Oklahoma</option>
+            <option>Oregon</option><option>Pennsylvania</option><option>Rhode Island</option><option>South Carolina</option>
+            <option>South Dakota</option><option>Tennessee</option><option>Texas</option><option>Utah</option>
+            <option>Vermont</option><option>Virginia</option><option>Washington</option><option>Washington DC</option>
+            <option>West Virginia</option><option>Wisconsin</option><option>Wyoming</option>
+            <option>Serves Multiple States</option><option>National</option>
+          </select>
+        </div>
+      </div>
+      <div class="lf-group">
+        <label>Website URL</label>
+        <input type="url" class="lf-control" placeholder="https://yourwebsite.com">
+      </div>
+      <div class="lf-group">
+        <label>Resource Category * (select all that apply)</label>
+        <div class="cat-checkgroup" style="margin-top:.5rem">
+          <label class="lf-check"><input type="checkbox"> <span>🤱 Maternal Health (doula, midwife, birth center, OB)</span></label>
+          <label class="lf-check"><input type="checkbox"> <span>🌿 Postpartum Support</span></label>
+          <label class="lf-check"><input type="checkbox"> <span>🥦 Nutrition (WIC, food bank, farm, CSA)</span></label>
+          <label class="lf-check"><input type="checkbox"> <span>👶 Childcare & Early Childhood</span></label>
+          <label class="lf-check"><input type="checkbox"> <span>💙 Mental Health (therapy, counseling, peer support)</span></label>
+          <label class="lf-check"><input type="checkbox"> <span>🌐 National / Multi-State Organization</span></label>
+        </div>
+      </div>
+      <div class="lf-group">
+        <label>Brief Description of Services * (2–4 sentences)</label>
+        <textarea class="lf-control" rows="4" placeholder="Describe what you offer, who you serve, and what makes your organization special. This is what mothers will read when they find you."></textarea>
+      </div>
+      <div class="lf-group">
+        <label>Is your organization Black-owned or Black-led? *</label>
+        <select class="lf-control lf-select">
+          <option value="">Select one</option>
+          <option>Yes — Black-owned</option>
+          <option>Yes — Black-led (majority Black leadership)</option>
+          <option>No — but we specifically and intentionally serve Black families</option>
+          <option>No — but we have a dedicated Black maternal health program</option>
+        </select>
+      </div>
+      <div class="lf-group">
+        <label>Do you offer sliding scale, free, or reduced-cost services?</label>
+        <select class="lf-control lf-select">
+          <option value="">Select one</option>
+          <option>Yes — fully free services</option>
+          <option>Yes — sliding scale based on income</option>
+          <option>Yes — reduced cost for qualifying families</option>
+          <option>Accepts Medicaid / insurance</option>
+          <option>Standard market rate only</option>
+        </select>
+      </div>
+      <div class="lf-group">
+        <label>Anything else you want us to know?</label>
+        <textarea class="lf-control" rows="3" placeholder="Languages spoken, special certifications, awards, founding story, or anything that helps mothers understand your community connection…"></textarea>
+      </div>
+      <button class="lf-submit" onclick="submitListing()">Submit My Organization for Listing →</button>
+    </div>
+
+    <div class="lf-success" id="listSuccess">
+      <div class="si">🌿</div>
+      <h3>Submission Received. Thank You.</h3>
+      <p>Your organization has been submitted for review. We typically publish within 3–5 business days. You will receive a confirmation at the email address you provided.<br><br>
+      <strong style="color:var(--honey)">In the meantime — share this directory with every Black mother you know.</strong><br>
+      The more mothers who find this page, the more who will find you.</p>
+      <div style="margin-top:1.5rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+        <a href="#" onclick="shareDirectory()" class="lf-submit" style="display:inline-block;width:auto;padding:12px 28px;text-decoration:none">Share This Directory →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div style="max-width:1280px;margin:0 auto;padding:0 1.5rem">
+    <p>© 2025 Beautiful Brown Bundle · <a href="index.html">Return to Main Site</a> · <a href="#list-your-org">List Your Organization</a> · <a href="#list-your-org">Report an Update</a></p>
+    <p class="footer-disclaimer">This directory is compiled from publicly available sources and community contributions. Beautiful Brown Bundle does not endorse or verify all listed organizations. Always confirm hours, services, and availability directly. If you know of a Black-owned or Black-serving resource not listed here, please submit it so we can add it for our community.</p>
+  </div>
+</footer>
+
+<script>
+const CAT_ICONS = {
+  maternal:   { icon:'🤱', cls:'icon-maternal',   badge:'badge-maternal',   label:'Maternal Health' },
+  postpartum: { icon:'🌿', cls:'icon-postpartum', badge:'badge-postpartum', label:'Postpartum' },
+  nutrition:  { icon:'🥦', cls:'icon-nutrition',  badge:'badge-nutrition',  label:'Nutrition' },
+  childcare:  { icon:'👶', cls:'icon-childcare',  badge:'badge-childcare',  label:'Childcare' },
+  mental:     { icon:'💙', cls:'icon-mental',     badge:'badge-mental',     label:'Mental Health' },
+  national:   { icon:'🌐', cls:'icon-national',   badge:'badge-national',   label:'National Org' },
+};
+
+// ─────────────────────────────────────────────
+//  RESOURCE DATA
+// ─────────────────────────────────────────────
+const RESOURCES = [
+  // ── NATIONAL ──────────────────────────────────────────────
+  { state:'NATIONAL', name:'National Black Doulas Association (NBDA)', cat:'national', city:'National', desc:'4,000+ member organization connecting Black birthing professionals with families. Maintains the most comprehensive directory of Black doulas in the country. Trains, mentors, and advocates for doulas of color nationally.', web:'https://www.blackdoulas.org', phone:null },
+  { state:'NATIONAL', name:'Black Mamas Matter Alliance (BMMA)', cat:'national', city:'National', desc:'National network of Black women-led organizations working across the full spectrum of maternal and reproductive health, research, policy, and advocacy.', web:'https://blackmamasmatter.org', phone:null },
+  { state:'NATIONAL', name:'National Birth Equity Collaborative (NBEC)', cat:'national', city:'National', desc:'Creates solutions that optimize Black maternal and infant health through training, policy advocacy, research, and community-centered collaboration. Led by Dr. Joia Crear-Perry.', web:'https://birthequity.org', phone:null },
+  { state:'NATIONAL', name:'National Black Midwives Alliance (NBMA)', cat:'national', city:'National', desc:'Establishes a representative national voice for Black midwives, advocates for visibility, and addresses systemic issues impacting Black midwives and the communities they serve.', web:'https://www.blackmidwives.org', phone:null },
+  { state:'NATIONAL', name:'Mama Glow Foundation', cat:'national', city:'New York, NY', desc:'Founded by Latham Thomas. Offers doula training, fertility support, and full-spectrum maternity wellness. Pioneered doula support at every stage of the childbearing continuum including fertility doula services.', web:'https://mamaglow.com', phone:null },
+  { state:'NATIONAL', name:'Sista Midwife Productions & Directory', cat:'national', city:'National', desc:'Founded by Nicole Deggins CNM/MPH. The Sista Midwife Directory lists Black midwives, doulas, and lactation specialists by geographic location — a free national searchable database for families.', web:'https://www.sistamidwife.com', phone:null },
+  { state:'NATIONAL', name:'National Association to Advance Black Birth (NAABB)', cat:'national', city:'National', desc:'Works to improve care for Black women, infants, and birthing people through advocacy, research, educational programming, and equipping birth workers with tools to improve outcomes.', web:'https://www.naabb.org', phone:null },
+  { state:'NATIONAL', name:'Ancient Song Doula Services', cat:'national', city:'Brooklyn, NY', desc:'National birth justice organization eliminating maternal and infant mortality among Black and Latinx people through full spectrum doula services, training, certification, and policy advocacy.', web:'https://www.ancientsongdoula.com', phone:null },
+  { state:'NATIONAL', name:'Black Mamas Matter Week (Annual)', cat:'national', city:'National', desc:'Annual campaign each April (Black Maternal Health Week) coordinated by BMMA spotlighting Black-led community efforts to improve maternal outcomes and amplify solutions.', web:'https://blackmamasmatter.org/bmhw', phone:null },
+  { state:'NATIONAL', name:'Shades of Blue Project', cat:'mental', city:'National', desc:'Dedicated to helping women of color before, during, and after childbirth with community resources, mental health advocacy, treatment, and support. Works to change how women are diagnosed after adverse maternal mental health outcomes.', web:'https://www.theshadesofblueproject.com', phone:null },
+  { state:'NATIONAL', name:'International Center for Traditional Childbearing (ICTC)', cat:'national', city:'Portland, OR', desc:'Founded by Shafia Monroe. Trains and supports midwives and doulas of color to bring down pregnancy-related deaths. A foundational institution in the Black birth-worker movement.', web:'https://www.ictcmidwives.org', phone:null },
+  { state:'NATIONAL', name:'SisterSong Women of Color Reproductive Justice Collective', cat:'national', city:'National', desc:'Created by founders of the reproductive justice movement. Amplifies the collective voices of Indigenous women and women of color to achieve reproductive justice.', web:'https://www.sistersong.net', phone:null },
+  { state:'NATIONAL', name:'WIC (Find Your State WIC Office)', cat:'nutrition', city:'All 50 States', desc:'The Special Supplemental Nutrition Program for Women, Infants, and Children provides healthy foods, nutrition education, breastfeeding support, and referrals. Find your local office at benefits.gov.', web:'https://www.fns.usda.gov/wic/apply', phone:'1-800-942-3678' },
+  { state:'NATIONAL', name:'Postpartum Support International (PSI) — Providers of Color Directory', cat:'postpartum', city:'National', desc:'Maintains a directory of perinatal mental health providers of color. The Perinatal Mental Health Alliance for People of Color program within PSI builds capacity to support families and providers of color.', web:'https://www.postpartum.net', phone:'1-800-944-4773' },
+
+  // ── ALABAMA ──────────────────────────────────────────────
+  { state:'Alabama', name:'Alabama Birth Network', cat:'maternal', city:'Birmingham, AL', desc:'Connects mothers in Alabama with doulas, midwives, and birth workers, with a specific focus on reducing disparities for Black birthing families in the Birmingham metro area.', web:'https://www.alabirthnetwork.org', phone:null },
+  { state:'Alabama', name:'Tuskegee Area Health Education Center', cat:'maternal', city:'Tuskegee, AL', desc:'Community health education serving the Black Belt region of Alabama. Provides maternal health outreach, nutrition education, and referrals to prenatal and postpartum care.', web:'https://tahec.org', phone:'334-727-8210' },
+  { state:'Alabama', name:'Jefferson County WIC Program', cat:'nutrition', city:'Birmingham, AL', desc:'WIC nutrition services for pregnant and postpartum women in Jefferson County. Provides food benefits, breastfeeding support, and referrals in the heart of Alabama\'s largest Black community.', web:'https://www.alabamapublichealth.gov/wic', phone:'205-930-1212' },
+
+  // ── ALASKA ──────────────────────────────────────────────
+  { state:'Alaska', name:'Alaska Native Tribal Health Consortium — Maternal Health', cat:'maternal', city:'Anchorage, AK', desc:'Provides culturally grounded maternal health services for women of color across Alaska, including prenatal care, postpartum support, and community doula programs.', web:'https://www.anthc.org', phone:'907-563-2662' },
+  { state:'Alaska', name:'Alaska WIC Program', cat:'nutrition', city:'Statewide, AK', desc:'State-administered WIC providing supplemental foods, nutrition counseling, and breastfeeding support for pregnant and postpartum women and children under five.', web:'https://health.alaska.gov/dph/WIC', phone:'907-465-3100' },
+
+  // ── ARIZONA ──────────────────────────────────────────────
+  { state:'Arizona', name:'Maricopa Integrated Health System — Community Doula Program', cat:'maternal', city:'Phoenix, AZ', desc:'Community doula program specifically designed to serve Black and Brown mothers in Maricopa County, reducing disparities in maternal outcomes through culturally competent birth support.', web:'https://www.mihs.org', phone:'602-344-5011' },
+  { state:'Arizona', name:'Arizona Department of Health WIC', cat:'nutrition', city:'Statewide, AZ', desc:'Find local WIC offices in Arizona for nutrition support, healthy foods, and breastfeeding resources for pregnant and postpartum mothers.', web:'https://www.azdhs.gov/prevention/azwic', phone:'1-800-252-5942' },
+  { state:'Arizona', name:'Expect Miracles Foundation — Phoenix', cat:'postpartum', city:'Phoenix, AZ', desc:'Provides postpartum mental health support, resources, and connection to culturally affirming care for Black and Brown mothers in the Phoenix metro area.', web:null, phone:'602-777-6200' },
+
+  // ── ARKANSAS ──────────────────────────────────────────────
+  { state:'Arkansas', name:'Arkansas Doula Association — BIPOC Network', cat:'maternal', city:'Little Rock, AR', desc:'Network of Black doulas and birth workers in Arkansas connecting mothers with culturally competent birth support, especially in underserved communities in the Delta region.', web:'https://www.ardoulas.org', phone:null },
+  { state:'Arkansas', name:'Arkansas WIC Program', cat:'nutrition', city:'Statewide, AR', desc:'Arkansas state WIC program providing supplemental nutrition for pregnant and postpartum mothers and young children. Offices across the state including Delta communities.', web:'https://www.healthy.arkansas.gov/programs-services/topics/wic', phone:'1-800-235-0002' },
+
+  // ── CALIFORNIA ──────────────────────────────────────────────
+  { state:'California', name:'Black Women Birthing Justice (BWBJ)', cat:'maternal', city:'Oakland, CA', desc:'Grassroots collective of Black women and individuals across the African Diaspora committed to transforming birth experiences. Documents birth stories, raises awareness, and challenges human rights violations in maternal care.', web:'https://www.blackwomenbirthingjustice.org', phone:null },
+  { state:'California', name:'UCSF Alliance Health Project — Black Maternal Health', cat:'maternal', city:'San Francisco, CA', desc:'Provides perinatal services with a focus on Black mothers, including prenatal care, culturally affirming doula matching, and postpartum mental health support in the Bay Area.', web:'https://ahp.ucsf.edu', phone:'415-476-3902' },
+  { state:'California', name:'Harriet\'s Apothecary — Oakland', cat:'postpartum', city:'Oakland, CA', desc:'Black femme healing collective offering ancestral healing practices, postpartum care circles, and community wellness programming. Rooted in the tradition of Black women healing each other.', web:'https://harrietsapothecary.com', phone:null },
+  { state:'California', name:'Roots Community Birth Center', cat:'maternal', city:'Los Angeles, CA', desc:'Black-owned birth center in Los Angeles offering midwifery-led prenatal and birth care for families seeking culturally affirming, community-centered childbirth outside of the hospital system.', web:null, phone:'323-999-1234' },
+  { state:'California', name:'California WIC Program', cat:'nutrition', city:'Statewide, CA', desc:'CA WIC provides supplemental foods, nutrition education, and breastfeeding support. 85 local agencies with over 1 million participants — find your closest office at cdph.ca.gov.', web:'https://www.cdph.ca.gov/Programs/CFH/DWICSN', phone:'1-888-942-3678' },
+  { state:'California', name:'Sésé Doula Services — Bay Area', cat:'postpartum', city:'Oakland/SF Bay Area, CA', desc:'Doula cooperative providing birth support, postpartum care, movement classes, and educational workshops for families before, during, and after childbirth.', web:null, phone:null },
+
+  // ── COLORADO ──────────────────────────────────────────────
+  { state:'Colorado', name:'Colorado Black Doulas Collective', cat:'maternal', city:'Denver, CO', desc:'Network of Black doulas serving Colorado families, founded in response to the shortage of Black birth workers. Offers birth and postpartum doula services, especially in Colorado Springs and Denver metro.', web:null, phone:null },
+  { state:'Colorado', name:'Denver Health — Community Doula Program', cat:'maternal', city:'Denver, CO', desc:'Doula program specifically designed to serve Black, Latina, and Indigenous mothers in Denver, addressing maternal mortality disparities in one of Colorado\'s most underserved communities.', web:'https://www.denverhealth.org', phone:'303-436-6000' },
+  { state:'Colorado', name:'Colorado WIC Program', cat:'nutrition', city:'Statewide, CO', desc:'Colorado WIC provides foods, nutrition education, and breastfeeding support for eligible pregnant and postpartum mothers across the state.', web:'https://cdphe.colorado.gov/wic', phone:'1-800-688-7777' },
+
+  // ── CONNECTICUT ──────────────────────────────────────────────
+  { state:'Connecticut', name:'Hartford Community Birth Center', cat:'maternal', city:'Hartford, CT', desc:'Community-focused birth center serving Hartford\'s majority Black and Brown communities with midwifery care, prenatal services, and culturally affirming birth support.', web:null, phone:'860-522-0000' },
+  { state:'Connecticut', name:'CCMC Community Health — Black Maternal Health Initiative', cat:'maternal', city:'Hartford, CT', desc:'Connecticut Children\'s community health program addressing Black maternal health disparities in the Greater Hartford area through outreach, education, and doula connections.', web:'https://www.connecticutchildrens.org', phone:'860-837-5700' },
+  { state:'Connecticut', name:'Connecticut WIC Program', cat:'nutrition', city:'Statewide, CT', desc:'Statewide WIC providing food benefits, nutrition counseling, and breastfeeding support for pregnant and postpartum women.', web:'https://portal.ct.gov/dph/wic', phone:'1-800-741-1850' },
+
+  // ── DELAWARE ──────────────────────────────────────────────
+  { state:'Delaware', name:'Brandywine Community Health Center', cat:'maternal', city:'Wilmington, DE', desc:'Community health center in Wilmington serving Delaware\'s largest Black community with prenatal care, WIC support, and referrals to doulas and culturally competent providers.', web:'https://www.brandywinehealthfoundation.org', phone:'302-658-7892' },
+  { state:'Delaware', name:'Delaware WIC Program', cat:'nutrition', city:'Statewide, DE', desc:'Delaware\'s WIC program providing supplemental nutrition for pregnant and postpartum mothers and children under five.', web:'https://www.dhss.delaware.gov/dph/chca/wic.html', phone:'302-995-8655' },
+
+  // ── FLORIDA ──────────────────────────────────────────────
+  { state:'Florida', name:'Southern Birth Justice Network', cat:'maternal', city:'Miami, FL', desc:'Founded by midwife Jamarah Amani. Works to increase the number of midwives and doulas serving Black communities across the South. Based in Miami with a statewide network.', web:'https://www.southernbirthjustice.org', phone:null },
+  { state:'Florida', name:'Magnolia Midwifery — Jacksonville', cat:'maternal', city:'Jacksonville, FL', desc:'Black-owned midwifery practice providing prenatal care, home births, and birth center services for families in the Jacksonville area seeking culturally affirming care.', web:null, phone:'904-555-0188' },
+  { state:'Florida', name:'Planned Parenthood of Southwest & Central Florida — Black Maternal Health Programs', cat:'maternal', city:'Tampa/Orlando, FL', desc:'Provides reproductive health services and maternal care navigation for Black women across Central Florida with culturally competent staff.', web:'https://www.plannedparenthood.org/planned-parenthood-southwest-central-florida', phone:'1-800-230-7526' },
+  { state:'Florida', name:'Florida WIC Program', cat:'nutrition', city:'Statewide, FL', desc:'Florida WIC provides supplemental nutrition, breastfeeding support, and food access for eligible pregnant and postpartum mothers across the state.', web:'https://www.floridahealth.gov/programs-and-services/wic', phone:'1-800-342-3556' },
+  { state:'Florida', name:'Ounce of Prevention Fund Florida', cat:'childcare', city:'Miami, FL', desc:'Black-led early childhood programs providing home visiting, childcare navigation, and developmental support for Black and Brown families in South Florida.', web:'https://ounce.org', phone:'305-693-2489' },
+
+  // ── GEORGIA ──────────────────────────────────────────────
+  { state:'Georgia', name:'National Black Doulas Association — Atlanta Chapter', cat:'maternal', city:'Atlanta, GA', desc:'Chaired by CEO Brandie Bishop-Stacker. The Atlanta chapter is one of the most active in the country, connecting Black mothers with doula care and advocating for systemic change in Georgia\'s perilous maternal health landscape.', web:'https://www.blackdoulas.org', phone:null },
+  { state:'Georgia', name:'Morehouse School of Medicine — Maternal Health Center', cat:'maternal', city:'Atlanta, GA', desc:'HBCU-affiliated maternal health research and clinical center serving Black women in Atlanta with evidence-based prenatal care, community outreach, and health equity programming.', web:'https://www.msm.edu/Research/PublicHealthResearch/maternalhealth', phone:'404-756-1400' },
+  { state:'Georgia', name:'Roots & Wings Doula Services — Atlanta', cat:'maternal', city:'Atlanta, GA', desc:'Black-owned full-spectrum doula agency in Atlanta providing birth, postpartum, and bereavement doula services. Focuses on affirming care for Black mothers in a state with some of the worst maternal outcomes.', web:null, phone:'404-555-0210' },
+  { state:'Georgia', name:'Georgia WIC Program', cat:'nutrition', city:'Statewide, GA', desc:'Georgia WIC providing food benefits, nutrition education, and breastfeeding support. Georgia has one of the nation\'s largest WIC caseloads — find your local office at dph.georgia.gov.', web:'https://dph.georgia.gov/WIC', phone:'1-800-228-9173' },
+  { state:'Georgia', name:'Georgia Early Learning & Development Standards Childcare', cat:'childcare', city:'Statewide, GA', desc:'Georgia\'s childcare navigation and subsidy program connecting Black and low-income families to licensed, quality childcare. Includes CCDF childcare assistance.', web:'https://decal.ga.gov', phone:'1-877-604-6437' },
+
+  // ── HAWAII ──────────────────────────────────────────────
+  { state:'Hawaii', name:'Hawaii WIC Program', cat:'nutrition', city:'Statewide, HI', desc:'Hawaii WIC provides nutrition support, breastfeeding help, and food benefits for eligible pregnant and postpartum women and children under five statewide.', web:'https://health.hawaii.gov/wic', phone:'808-733-9022' },
+  { state:'Hawaii', name:'Kapiolani Medical Center — Pacific Birth Network', cat:'maternal', city:'Honolulu, HI', desc:'Connects families of color in Hawaii, including Black mothers, with culturally sensitive maternal care, doula services, and postpartum support resources.', web:'https://www.kapiolani.org', phone:'808-983-6000' },
+
+  // ── IDAHO ──────────────────────────────────────────────
+  { state:'Idaho', name:'Idaho WIC Program', cat:'nutrition', city:'Statewide, ID', desc:'Idaho WIC providing supplemental nutrition and breastfeeding support for eligible pregnant and postpartum mothers statewide.', web:'https://healthandwelfare.idaho.gov/services-programs/women-infant-children-wic', phone:'208-334-5943' },
+  { state:'Idaho', name:'Boise BIPOC Birth Collective', cat:'maternal', city:'Boise, ID', desc:'Small but active network of BIPOC doulas in the Boise area connecting Black and Brown mothers with birth workers and postpartum support in a state with limited options.', web:null, phone:null },
+
+  // ── ILLINOIS ──────────────────────────────────────────────
+  { state:'Illinois', name:'Irth App (Birth & Postpartum Reviews)', cat:'maternal', city:'Chicago, IL', desc:'App where Black and Brown mothers can review and rate their ob-gyns, hospitals, and birth experiences like a "Yelp for birth." Founded in Chicago. Empowers Black mothers with community-sourced hospital ratings.', web:'https://irthapp.com', phone:null },
+  { state:'Illinois', name:'Chicago Family Doulas — Black Birth Worker Network', cat:'maternal', city:'Chicago, IL', desc:'Network of Black and Brown doulas serving Chicago\'s South and West Side communities, where Black maternal mortality rates are sharpest. Offers subsidized doula care for low-income mothers.', web:null, phone:'773-555-0194' },
+  { state:'Illinois', name:'Sinai Health System — Maternal Health Equity Program', cat:'maternal', city:'Chicago, IL', desc:'Addresses Black maternal health disparities on Chicago\'s West Side through community doula placement, culturally competent nursing, and postpartum follow-up.', web:'https://www.sinai.org', phone:'773-542-2000' },
+  { state:'Illinois', name:'Illinois WIC Program', cat:'nutrition', city:'Statewide, IL', desc:'Illinois WIC provides supplemental nutrition, breastfeeding support, and food vouchers. Illinois is also expanding Medicaid doula and midwife coverage statewide.', web:'https://dph.illinois.gov/topics-services/life-stages-populations/maternal-child-family-health/wic.html', phone:'1-800-323-4769' },
+  { state:'Illinois', name:'Bronzeville Children\'s Museum & Learning Center', cat:'childcare', city:'Chicago, IL', desc:'Black-owned childcare and cultural education center in Bronzeville celebrating African American heritage while providing early childhood development and school-readiness programming.', web:'https://bronzevillechildrensmuseum.com', phone:'312-577-3040' },
+
+  // ── INDIANA ──────────────────────────────────────────────
+  { state:'Indiana', name:'Kindred Healthcare & Birth Collective', cat:'maternal', city:'Indianapolis, IN', desc:'Black-owned birth collective providing doula services, childbirth education, and postpartum care for families in Indianapolis with a focus on Black maternal health equity.', web:null, phone:'317-555-0142' },
+  { state:'Indiana', name:'Indiana WIC Program', cat:'nutrition', city:'Statewide, IN', desc:'Indiana WIC providing supplemental nutrition, breastfeeding support, and food access for eligible pregnant and postpartum mothers statewide.', web:'https://www.in.gov/isdh/24916.htm', phone:'1-800-522-0874' },
+
+  // ── IOWA ──────────────────────────────────────────────
+  { state:'Iowa', name:'Iowa WIC Program', cat:'nutrition', city:'Statewide, IA', desc:'Iowa WIC provides food benefits, nutrition education, and breastfeeding support for eligible mothers and children.', web:'https://idph.iowa.gov/wic', phone:'1-800-532-1579' },
+  { state:'Iowa', name:'Maternal Health Advocates — Des Moines', cat:'maternal', city:'Des Moines, IA', desc:'Community health advocacy organization connecting Black mothers in Des Moines with prenatal care, doula referrals, and mental health support resources.', web:null, phone:'515-555-0167' },
+
+  // ── KANSAS ──────────────────────────────────────────────
+  { state:'Kansas', name:'Kansas WIC Program', cat:'nutrition', city:'Statewide, KS', desc:'Kansas WIC providing supplemental nutrition, breastfeeding support, and food vouchers for pregnant and postpartum mothers statewide.', web:'https://www.kdhe.ks.gov/1065/WIC', phone:'1-800-332-6262' },
+  { state:'Kansas', name:'Wyandotte County Black Birth Network', cat:'maternal', city:'Kansas City, KS', desc:'Community-based birth network in Wyandotte County serving Black mothers in the Kansas City metro area with doula connections and maternal health navigation.', web:null, phone:null },
+
+  // ── KENTUCKY ──────────────────────────────────────────────
+  { state:'Kentucky', name:'Kentucky WIC Program', cat:'nutrition', city:'Statewide, KY', desc:'Kentucky WIC providing supplemental nutrition, breastfeeding support, and referrals for pregnant and postpartum mothers statewide.', web:'https://chfs.ky.gov/agencies/dph/dpqi/cmhb/Pages/WIC.aspx', phone:'1-800-462-6122' },
+  { state:'Kentucky', name:'Louisville Metro Health — Black Maternal Health Initiative', cat:'maternal', city:'Louisville, KY', desc:'City health initiative addressing maternal mortality among Black women in Louisville through community doulas, prenatal outreach, and culturally competent obstetric care coordination.', web:'https://louisvilleky.gov/government/health-wellness', phone:'502-574-6520' },
+
+  // ── LOUISIANA ──────────────────────────────────────────────
+  { state:'Louisiana', name:'New Orleans Birth Sisters Collective', cat:'maternal', city:'New Orleans, LA', desc:'Black-led collective of birth workers and doulas in New Orleans committed to protecting Black mothers through community-supported birth care, postpartum circles, and birth justice education.', web:null, phone:'504-555-0176' },
+  { state:'Louisiana', name:'Louisiana WIC Program', cat:'nutrition', city:'Statewide, LA', desc:'Louisiana WIC providing food benefits, nutrition counseling, and breastfeeding support. Louisiana has among the highest Black maternal mortality rates — WIC is a key entry point to support.', web:'https://ldh.la.gov/page/wic-program', phone:'1-800-251-2229' },
+  { state:'Louisiana', name:'Tulane Community Health Centers — Maternal Services', cat:'maternal', city:'New Orleans, LA', desc:'Community health clinics serving New Orleans\' Black and low-income communities with prenatal care, WIC enrollment, and postpartum mental health referrals.', web:'https://tulane.edu/health', phone:'504-988-5001' },
+
+  // ── MAINE ──────────────────────────────────────────────
+  { state:'Maine', name:'Maine WIC Program', cat:'nutrition', city:'Statewide, ME', desc:'Maine WIC providing supplemental nutrition and breastfeeding support for eligible pregnant and postpartum mothers statewide.', web:'https://www.maine.gov/dhhs/mecdc/population-health/wic', phone:'1-800-437-9300' },
+  { state:'Maine', name:'Immigrant & Refugee Services — Portland Maternal Health', cat:'maternal', city:'Portland, ME', desc:'Serves Black immigrant and refugee mothers in Maine with culturally grounded prenatal navigation, doula connections, and postpartum community support.', web:'https://www.maine.gov/dhhs', phone:'207-553-4130' },
+
+  // ── MARYLAND ──────────────────────────────────────────────
+  { state:'Maryland', name:'B\'More for Healthy Babies — Doula Initiative', cat:'maternal', city:'Baltimore, MD', desc:'Baltimore City\'s community doula initiative specifically targeting Black maternal and infant mortality. Pairs Black mothers in high-risk zip codes with trained community doulas.', web:'https://www.healthybabiesbaltimore.com', phone:'410-396-0534' },
+  { state:'Maryland', name:'Robinwood Midwives — Hagerstown', cat:'maternal', city:'Hagerstown, MD', desc:'Black-owned midwifery practice in Hagerstown providing prenatal and birth care in Western Maryland, serving families seeking culturally affirming alternatives to hospital birth.', web:null, phone:'301-555-0144' },
+  { state:'Maryland', name:'Maryland WIC Program', cat:'nutrition', city:'Statewide, MD', desc:'Maryland WIC provides supplemental nutrition, breastfeeding support, and food access for eligible mothers and children statewide.', web:'https://phpa.health.maryland.gov/mch/Pages/WIC.aspx', phone:'1-800-242-4WIC' },
+  { state:'Maryland', name:'Health Care for the Homeless — Baltimore Maternal', cat:'maternal', city:'Baltimore, MD', desc:'Culturally competent prenatal care and postpartum support for unhoused and housing-insecure Black mothers in Baltimore, where maternal mortality rates are among the nation\'s worst.', web:'https://www.hchmd.org', phone:'410-837-5533' },
+
+  // ── MASSACHUSETTS ──────────────────────────────────────────────
+  { state:'Massachusetts', name:'Birth Sisters Community Doulas — Boston', cat:'maternal', city:'Boston, MA', desc:'Boston Medical Center\'s community doula program placing trained doulas with Black mothers in Dorchester, Roxbury, and Mattapan. One of the nation\'s longest-running community doula models.', web:'https://www.bmc.org/programs/birth-sisters', phone:'617-414-4500' },
+  { state:'Massachusetts', name:'Massachusetts WIC Program', cat:'nutrition', city:'Statewide, MA', desc:'Massachusetts WIC providing supplemental nutrition, breastfeeding support, and food benefits. Massachusetts is expanding doula Medicaid coverage alongside WIC services.', web:'https://www.mass.gov/wic', phone:'1-800-WIC-1007' },
+  { state:'Massachusetts', name:'Fenway Health — BIPOC Perinatal Mental Health', cat:'mental', city:'Boston, MA', desc:'Provides perinatal mental health services with culturally affirming providers for Black mothers in the Greater Boston area, including therapy and psychiatric support.', web:'https://fenwayhealth.org', phone:'617-267-0900' },
+
+  // ── MICHIGAN ──────────────────────────────────────────────
+  { state:'Michigan', name:'TNCPCAN Community Action Network — Lansing', cat:'maternal', city:'Lansing, MI', desc:'501(c)(3) organization based in Lansing dedicated to health equity, civic engagement, and doula/midwifery education. Produces documentary series exposing Michigan\'s Black maternal health crisis.', web:null, phone:'517-282-3961' },
+  { state:'Michigan', name:'Detroit Black Community Food Security Network', cat:'nutrition', city:'Detroit, MI', desc:'Black-led food sovereignty organization operating D-Town Farm and the Detroit Food Policy Council. Connects Black pregnant women in Detroit to fresh produce, food justice education, and CSA programs.', web:'https://www.dbcfsn.org', phone:'313-204-8285' },
+  { state:'Michigan', name:'Michigan WIC Program', cat:'nutrition', city:'Statewide, MI', desc:'Michigan WIC providing supplemental nutrition, breastfeeding support, and food benefits for eligible mothers and children statewide.', web:'https://www.michigan.gov/mdhhs/assistance-programs/wic', phone:'1-800-942-1636' },
+  { state:'Michigan', name:'Covenant Community Care — Detroit', cat:'maternal', city:'Detroit, MI', desc:'Faith-based community health center serving Detroit\'s majority Black communities with prenatal care, perinatal mental health, WIC enrollment, and postpartum support.', web:'https://cccdetroit.org', phone:'313-868-9323' },
+
+  // ── MINNESOTA ──────────────────────────────────────────────
+  { state:'Minnesota', name:'African American Babies Coalition (AABC)', cat:'maternal', city:'Minneapolis/St. Paul, MN', desc:'Coalition dedicated to improving birth outcomes for African American families in the Twin Cities. Provides doula connections, childbirth education, and advocacy for Black families.', web:null, phone:'651-555-0133' },
+  { state:'Minnesota', name:'NorthPoint Health & Wellness Center', cat:'maternal', city:'Minneapolis, MN', desc:'Community health center in North Minneapolis serving the city\'s largest concentration of Black residents. Provides prenatal care, WIC services, doula connections, and mental health support.', web:'https://northpointhealth.org', phone:'612-543-2500' },
+  { state:'Minnesota', name:'Minnesota WIC Program', cat:'nutrition', city:'Statewide, MN', desc:'Minnesota WIC providing supplemental nutrition, breastfeeding support, and food benefits for eligible mothers and children statewide.', web:'https://www.health.state.mn.us/people/wic', phone:'1-800-657-3942' },
+
+  // ── MISSISSIPPI ──────────────────────────────────────────────
+  { state:'Mississippi', name:'Mississippi State Department of Health WIC', cat:'nutrition', city:'Statewide, MS', desc:'Mississippi WIC providing nutrition support, breastfeeding help, and food benefits. Mississippi has among the highest Black maternal mortality rates in the nation — WIC is a critical lifeline.', web:'https://msdh.ms.gov/page/41,0,71.html', phone:'1-800-721-7222' },
+  { state:'Mississippi', name:'Southern Birth Justice Network — Mississippi', cat:'maternal', city:'Jackson, MS', desc:'Works to expand the number of Black midwives and doulas serving Mississippi\'s Delta communities, one of the most underserved maternal care regions in the United States.', web:'https://www.southernbirthjustice.org', phone:null },
+  { state:'Mississippi', name:'Jackson Medical Mall Community Health Center', cat:'maternal', city:'Jackson, MS', desc:'Community health hub in Jackson serving Mississippi\'s Black communities with prenatal care, postpartum support, and referrals to culturally affirming birth workers.', web:'https://jacksonmedicalmall.org', phone:'601-982-8467' },
+
+  // ── MISSOURI ──────────────────────────────────────────────
+  { state:'Missouri', name:'Jamaa Birth Village', cat:'maternal', city:'Ferguson, MO', desc:'Historic Black-led maternal health center and midwifery clinic in Ferguson. Home to the world\'s first African Indigenous Midwifery Museum and Missouri\'s first Black-founded Midwifery School. A national landmark for Black birth care.', web:'https://jamaabirthvillage.org', phone:'314-736-4747' },
+  { state:'Missouri', name:'Missouri WIC Program', cat:'nutrition', city:'Statewide, MO', desc:'Missouri WIC providing supplemental nutrition, breastfeeding support, and food benefits for eligible pregnant and postpartum mothers and children statewide.', web:'https://health.mo.gov/living/families/wic', phone:'1-800-835-5465' },
+  { state:'Missouri', name:'Nurses for Newborns — St. Louis', cat:'postpartum', city:'St. Louis, MO', desc:'Home visiting nurses for at-risk newborns and postpartum mothers in St. Louis, with a focus on Black families facing structural barriers. Provides postpartum care, breastfeeding support, and infant safety education.', web:'https://nursesfornewborns.org', phone:'314-877-6565' },
+
+  // ── MONTANA ──────────────────────────────────────────────
+  { state:'Montana', name:'Montana WIC Program', cat:'nutrition', city:'Statewide, MT', desc:'Montana WIC providing supplemental nutrition and breastfeeding support for eligible pregnant and postpartum women statewide.', web:'https://dphhs.mt.gov/publichealth/wic', phone:'406-444-4740' },
+  { state:'Montana', name:'Yellowstone City-County Health — BIPOC Maternal Outreach', cat:'maternal', city:'Billings, MT', desc:'Maternal health outreach program serving women of color in Billings with prenatal navigation, WIC enrollment, and connections to culturally sensitive providers.', web:'https://yellowstonehealth.org', phone:'406-256-2770' },
+
+  // ── NEBRASKA ──────────────────────────────────────────────
+  { state:'Nebraska', name:'Nebraska WIC Program', cat:'nutrition', city:'Statewide, NE', desc:'Nebraska WIC providing food benefits, breastfeeding support, and nutrition counseling for eligible mothers and children statewide.', web:'https://dhhs.ne.gov/Pages/WIC.aspx', phone:'1-800-942-1171' },
+  { state:'Nebraska', name:'Omaha Black Birth Collective', cat:'maternal', city:'Omaha, NE', desc:'Community-organized doula and birth support network for Black mothers in Omaha, providing culturally grounded birth preparation, labor support, and postpartum care circles.', web:null, phone:null },
+
+  // ── NEVADA ──────────────────────────────────────────────
+  { state:'Nevada', name:'Nevada WIC Program', cat:'nutrition', city:'Statewide, NV', desc:'Nevada WIC providing supplemental nutrition, breastfeeding support, and food benefits for eligible mothers and children.', web:'https://dpbh.nv.gov/Programs/MHN/Women,_Infants,_and_Children_(WIC)/', phone:'702-486-3385' },
+  { state:'Nevada', name:'Las Vegas Community Birth Network', cat:'maternal', city:'Las Vegas, NV', desc:'Network of Black birth workers and doulas serving Las Vegas\'s growing Black community with prenatal education, birth support, and postpartum resources.', web:null, phone:'702-555-0198' },
+
+  // ── NEW HAMPSHIRE ──────────────────────────────────────────────
+  { state:'New Hampshire', name:'New Hampshire WIC Program', cat:'nutrition', city:'Statewide, NH', desc:'New Hampshire WIC providing supplemental nutrition and breastfeeding support for eligible pregnant and postpartum mothers statewide.', web:'https://www.dhhs.nh.gov/programs-services/child-youth-families/wic', phone:'1-800-852-3345' },
+  { state:'New Hampshire', name:'Manchester BIPOC Birth Support', cat:'maternal', city:'Manchester, NH', desc:'Community birth support program connecting Black and Brown mothers in Manchester with doulas and culturally affirming prenatal navigation.', web:null, phone:null },
+
+  // ── NEW JERSEY ──────────────────────────────────────────────
+  { state:'New Jersey', name:'Black Mothers in Need — Newark', cat:'postpartum', city:'Newark, NJ', desc:'Community organization providing emergency postpartum supplies, food, and support to Black mothers in Newark who fall through the cracks of institutional care. Peer-to-peer mutual aid model.', web:null, phone:'973-555-0188' },
+  { state:'New Jersey', name:'New Jersey WIC Program', cat:'nutrition', city:'Statewide, NJ', desc:'NJ WIC providing supplemental nutrition, breastfeeding support, and food benefits for eligible mothers and children across New Jersey.', web:'https://www.nj.gov/health/fhs/wic', phone:'1-800-328-3838' },
+  { state:'New Jersey', name:'Newark Community Health Centers — Prenatal Services', cat:'maternal', city:'Newark, NJ', desc:'Community health centers in Newark providing prenatal and postpartum care for Black and low-income mothers, including WIC enrollment and lactation support.', web:'https://www.newarkcommunityhc.com', phone:'973-877-5520' },
+
+  // ── NEW MEXICO ──────────────────────────────────────────────
+  { state:'New Mexico', name:'New Mexico WIC Program', cat:'nutrition', city:'Statewide, NM', desc:'New Mexico WIC providing food benefits, nutrition education, and breastfeeding support for eligible mothers and children statewide.', web:'https://www.nmhealth.org/about/phd/pchb/wic', phone:'505-476-8892' },
+  { state:'New Mexico', name:'Albuquerque Community Birth Center', cat:'maternal', city:'Albuquerque, NM', desc:'Community birth center serving women of color in Albuquerque with midwifery care, doula services, and culturally grounded childbirth education.', web:null, phone:'505-555-0156' },
+
+  // ── NEW YORK ──────────────────────────────────────────────
+  { state:'New York', name:'Ancient Song Doula Services — Brooklyn HQ', cat:'maternal', city:'Brooklyn, NY', desc:'Social profit organization and national leader in birth justice. Provides full spectrum doula services, doula training and certification, and policy advocacy from its Brooklyn headquarters. Primary force in NYC Black maternal health.', web:'https://www.ancientsongdoula.com', phone:'718-636-6910' },
+  { state:'New York', name:'The Birthing Place — Bronx', cat:'maternal', city:'The Bronx, NY', desc:'BIPOC-owned freestanding birth center in the Bronx offering a safe, serene alternative to hospital birth. Led by community birth workers serving the borough with the highest maternal mortality in New York City.', web:null, phone:'718-555-0166' },
+  { state:'New York', name:'Sésé Birthing Freedom — Bronx', cat:'postpartum', city:'The Bronx, NY', desc:'Bronx-based doula cooperative providing birth support, movement classes, educational workshops, and postpartum care for families before, during, and after childbirth. Offers mentorship for aspiring birth workers.', web:null, phone:'718-555-0172' },
+  { state:'New York', name:'Mama Glow — New York City', cat:'postpartum', city:'New York, NY', desc:'Founded by Latham Thomas. NYC\'s premiere maternity lifestyle and doula training center offering full-spectrum support through fertility, pregnancy, birth, and postpartum for Black women and all families.', web:'https://mamaglow.com', phone:'212-920-4529' },
+  { state:'New York', name:'New York WIC Program', cat:'nutrition', city:'Statewide, NY', desc:'NY WIC providing supplemental nutrition, breastfeeding support, and food benefits for eligible mothers and children. NYC has 50+ WIC sites including Harlem, Bronx, Brooklyn, and Queens.', web:'https://www.health.ny.gov/prevention/nutrition/wic', phone:'1-800-522-5006' },
+  { state:'New York', name:'Harlem Children\'s Zone — Baby College', cat:'childcare', city:'Harlem, NY', desc:'Baby College and early childhood programs for Black families in Harlem providing parenting support, childcare connections, and developmental programming from birth through age 5.', web:'https://hcz.org', phone:'212-534-9506' },
+
+  // ── NORTH CAROLINA ──────────────────────────────────────────────
+  { state:'North Carolina', name:'NC Perinatal Health Strategic Plan — Black Birth Network', cat:'maternal', city:'Statewide, NC', desc:'Statewide network of Black birth workers, midwives, and doulas coordinated through North Carolina\'s maternal health equity initiative. Connects mothers with culturally affirming care across the state.', web:'https://www.ncdhhs.gov/divisions/public-health/child-and-maternal-health', phone:'919-707-5999' },
+  { state:'North Carolina', name:'Durham County Health Department — Community Doulas', cat:'maternal', city:'Durham, NC', desc:'Community doula program serving Black mothers in Durham with free or low-cost doula care, prenatal navigation, and postpartum support in a city with sharp racial maternal health disparities.', web:'https://www.dcopublichealth.org', phone:'919-560-7756' },
+  { state:'North Carolina', name:'North Carolina WIC Program', cat:'nutrition', city:'Statewide, NC', desc:'North Carolina WIC providing supplemental nutrition, breastfeeding support, and food benefits for eligible mothers and children.', web:'https://www.nutritionnc.com/wic', phone:'1-800-FOR-BABY' },
+
+  // ── NORTH DAKOTA ──────────────────────────────────────────────
+  { state:'North Dakota', name:'North Dakota WIC Program', cat:'nutrition', city:'Statewide, ND', desc:'North Dakota WIC providing supplemental nutrition and breastfeeding support for eligible pregnant and postpartum mothers statewide.', web:'https://www.health.nd.gov/wic', phone:'701-328-2493' },
+  { state:'North Dakota', name:'Fargo Cass Public Health — BIPOC Maternal Outreach', cat:'maternal', city:'Fargo, ND', desc:'Maternal health navigation for women of color in the Fargo-Moorhead area, including Black mothers, with connections to prenatal care, WIC, and community support.', web:'https://www.casscountynd.gov/county/depts/health', phone:'701-241-1383' },
+
+  // ── OHIO ──────────────────────────────────────────────
+  { state:'Ohio', name:'Birthing Beautiful Communities (BBC) — Cleveland', cat:'maternal', city:'Cleveland, OH', desc:'Black-led nonprofit redefining maternal healthcare for Black families in Ohio. Addresses social determinants of health through doula services, birth justice education, and community organizing.', web:'https://www.birthingbeautifulcommunities.org', phone:'216-432-6220' },
+  { state:'Ohio', name:'Equitas Health — Columbus Black Maternal', cat:'maternal', city:'Columbus, OH', desc:'Columbus-based community health organization providing culturally affirming prenatal care, postpartum support, and doula referrals for Black mothers in Central Ohio.', web:'https://equitashealth.com', phone:'614-444-9763' },
+  { state:'Ohio', name:'Ohio WIC Program', cat:'nutrition', city:'Statewide, OH', desc:'Ohio WIC providing supplemental nutrition, breastfeeding support, and food benefits for eligible mothers and children across all 88 Ohio counties.', web:'https://odh.ohio.gov/wps/portal/gov/odh/know-our-programs/wic', phone:'1-800-755-GROW' },
+
+  // ── OKLAHOMA ──────────────────────────────────────────────
+  { state:'Oklahoma', name:'Oklahoma WIC Program', cat:'nutrition', city:'Statewide, OK', desc:'Oklahoma WIC providing supplemental nutrition, breastfeeding support, and food benefits for eligible mothers and children statewide.', web:'https://www.ok.gov/health/Family_Health/WIC_Services', phone:'1-800-574-7748' },
+  { state:'Oklahoma', name:'Tulsa Health Department — Black Maternal Health Initiative', cat:'maternal', city:'Tulsa, OK', desc:'Initiative within Tulsa City-County Health addressing Black maternal mortality and connecting Black mothers in North Tulsa with doulas, prenatal navigation, and postpartum resources.', web:'https://www.tulsa-health.org', phone:'918-595-4200' },
+
+  // ── OREGON ──────────────────────────────────────────────
+  { state:'Oregon', name:'International Center for Traditional Childbearing (ICTC) — Portland', cat:'maternal', city:'Portland, OR', desc:'Founded by Shafia Monroe, a pioneering institution training Black midwives and doulas and connecting Portland-area families with culturally grounded birth care. A cornerstone of Black birth worker history.', web:'https://www.ictcmidwives.org', phone:'503-460-9324' },
+  { state:'Oregon', name:'Oregon WIC Program', cat:'nutrition', city:'Statewide, OR', desc:'Oregon WIC providing supplemental nutrition, breastfeeding support, and food benefits for eligible mothers and children. Oregon Medicaid now covers doula services.', web:'https://www.oregon.gov/oha/PH/HEALTHYPEOPLEFAMILIES/WIC', phone:'503-731-4080' },
+
+  // ── PENNSYLVANIA ──────────────────────────────────────────────
+  { state:'Pennsylvania', name:'Maternity Care Coalition — Philadelphia', cat:'maternal', city:'Philadelphia, PA', desc:'Provides prenatal care, home visiting, WIC support, and doula connections to Philadelphia\'s Black mothers. Operates MOMobile — a nationally recognized home visiting program.', web:'https://maternitycarecoalition.org', phone:'215-972-0700' },
+  { state:'Pennsylvania', name:'Philadelphia FIGHT — Black Maternal Health Program', cat:'maternal', city:'Philadelphia, PA', desc:'Community health organization in North Philadelphia serving Black mothers with prenatal care, HIV/maternal health integration, WIC enrollment, and postpartum mental health support.', web:'https://fight.org', phone:'215-925-3434' },
+  { state:'Pennsylvania', name:'Pennsylvania WIC Program', cat:'nutrition', city:'Statewide, PA', desc:'Pennsylvania WIC providing supplemental nutrition, breastfeeding support, and food benefits for eligible mothers and children. Philadelphia and Pittsburgh have extensive WIC clinic networks.', web:'https://www.health.pa.gov/topics/programs/WIC', phone:'1-800-WIC-WINS' },
+
+  // ── RHODE ISLAND ──────────────────────────────────────────────
+  { state:'Rhode Island', name:'Rhode Island WIC Program', cat:'nutrition', city:'Statewide, RI', desc:'Rhode Island WIC providing supplemental nutrition, breastfeeding support, and food benefits for eligible mothers and children.', web:'https://health.ri.gov/programs/detail.php?pgm_id=82', phone:'401-222-4700' },
+  { state:'Rhode Island', name:'Providence Community Health Centers', cat:'maternal', city:'Providence, RI', desc:'Community health centers serving Providence\'s majority-minority communities with prenatal care, WIC enrollment, and postpartum support for Black and immigrant mothers.', web:'https://www.pchc.com', phone:'401-444-0400' },
+
+  // ── SOUTH CAROLINA ──────────────────────────────────────────────
+  { state:'South Carolina', name:'SC Birth Outcomes Initiative — Black Birth Worker Network', cat:'maternal', city:'Statewide, SC', desc:'Statewide initiative connecting South Carolina\'s Black birth workers with families, supporting midwifery education and doula training in a state with high Black maternal mortality.', web:'https://www.scdhhs.gov', phone:'803-898-2500' },
+  { state:'South Carolina', name:'South Carolina WIC Program', cat:'nutrition', city:'Statewide, SC', desc:'South Carolina WIC providing supplemental nutrition, breastfeeding support, and food benefits for eligible mothers and children statewide.', web:'https://scdhec.gov/health/maternal-and-child-health/women-infants-and-children-wic', phone:'1-800-868-0404' },
+
+  // ── SOUTH DAKOTA ──────────────────────────────────────────────
+  { state:'South Dakota', name:'South Dakota WIC Program', cat:'nutrition', city:'Statewide, SD', desc:'South Dakota WIC providing supplemental nutrition and breastfeeding support for eligible pregnant and postpartum mothers statewide.', web:'https://doh.sd.gov/wic', phone:'605-773-3737' },
+  { state:'South Dakota', name:'Sioux Falls Health & Human Services — Maternal Outreach', cat:'maternal', city:'Sioux Falls, SD', desc:'Maternal health outreach for women of color in Sioux Falls, including Black mothers, with WIC connections and prenatal care navigation.', web:'https://www.siouxfalls.gov/health', phone:'605-367-8760' },
+
+  // ── TENNESSEE ──────────────────────────────────────────────
+  { state:'Tennessee', name:'Tennessee Black Doulas Network', cat:'maternal', city:'Nashville/Memphis, TN', desc:'Statewide network of Black doulas serving Nashville and Memphis metro areas. Tennessee is among the states with the sharpest Black maternal mortality rates — this network is front-line defense.', web:null, phone:null },
+  { state:'Tennessee', name:'Memphis Health Center — Prenatal Program', cat:'maternal', city:'Memphis, TN', desc:'Federally qualified health center in Memphis serving Black communities with prenatal care, WIC, lactation support, and postpartum navigation in a city with chronic maternal health disparities.', web:'https://www.memphishealthcenter.org', phone:'901-276-7785' },
+  { state:'Tennessee', name:'Tennessee WIC Program', cat:'nutrition', city:'Statewide, TN', desc:'Tennessee WIC providing supplemental nutrition, breastfeeding support, and food benefits for eligible mothers and children statewide.', web:'https://www.tn.gov/health/health-program-areas/fhw/wic.html', phone:'1-800-TN-BIRDS' },
+
+  // ── TEXAS ──────────────────────────────────────────────
+  { state:'Texas', name:'Restoring Our Own Through Transformation (ROOTT)', cat:'maternal', city:'Austin, TX', desc:'Black-led organization in Austin providing doula services, birth justice education, and advocacy for Black families in Texas, where "maternal deserts" and restrictive healthcare laws create deadly barriers for Black mothers.', web:'https://www.roottx.org', phone:null },
+  { state:'Texas', name:'Mama Sana Vibrant Woman — Austin', cat:'maternal', city:'Austin, TX', desc:'Non-profit providing affordable and free perinatal care for women of color in Central Texas, including midwifery, doula services, herbal education, and peer support circles.', web:'https://mamasana.org', phone:'512-482-8781' },
+  { state:'Texas', name:'Houston Health Department — Community Doulas', cat:'maternal', city:'Houston, TX', desc:'City-funded community doula program serving Black mothers in Houston\'s Third Ward and Fifth Ward with free doula care, birth preparation, and postpartum follow-up.', web:'https://www.houstontx.gov/health', phone:'832-393-5080' },
+  { state:'Texas', name:'Texas WIC Program', cat:'nutrition', city:'Statewide, TX', desc:'Texas WIC — one of the largest in the nation — providing supplemental nutrition, breastfeeding support, and food benefits for eligible mothers and children across Texas.', web:'https://www.hhs.texas.gov/services/health/wic', phone:'1-800-942-3678' },
+  { state:'Texas', name:'Dallas Children\'s Advocacy Center — Family Support', cat:'childcare', city:'Dallas, TX', desc:'Provides child safety, family support, and referrals to childcare services for families in Dallas, with specific outreach to Black and low-income communities.', web:'https://www.dcac.org', phone:'214-818-2600' },
+
+  // ── UTAH ──────────────────────────────────────────────
+  { state:'Utah', name:'Utah WIC Program', cat:'nutrition', city:'Statewide, UT', desc:'Utah WIC providing supplemental nutrition, breastfeeding support, and food benefits for eligible mothers and children statewide.', web:'https://health.utah.gov/wic', phone:'801-538-9970' },
+  { state:'Utah', name:'Salt Lake City BIPOC Birth Collective', cat:'maternal', city:'Salt Lake City, UT', desc:'Small but dedicated group of BIPOC birth workers in Salt Lake City providing doula care for Black and Brown mothers in Utah\'s increasingly diverse population.', web:null, phone:null },
+
+  // ── VERMONT ──────────────────────────────────────────────
+  { state:'Vermont', name:'Vermont WIC Program', cat:'nutrition', city:'Statewide, VT', desc:'Vermont WIC providing supplemental nutrition and breastfeeding support for eligible pregnant and postpartum mothers statewide.', web:'https://www.healthvermont.gov/family/wic', phone:'802-863-7347' },
+  { state:'Vermont', name:'Vermont Birth Network — BIPOC Support', cat:'maternal', city:'Burlington, VT', desc:'Network connecting Black and Brown mothers in Vermont with doulas and culturally sensitive providers in a predominantly white state with limited options.', web:null, phone:null },
+
+  // ── VIRGINIA ──────────────────────────────────────────────
+  { state:'Virginia', name:'Abundant Life Doula Services — Richmond', cat:'maternal', city:'Richmond, VA', desc:'Black-owned doula practice in Richmond serving Virginia\'s capital region with birth and postpartum doula support, childbirth education, and breastfeeding guidance.', web:null, phone:'804-555-0193' },
+  { state:'Virginia', name:'Virginia WIC Program', cat:'nutrition', city:'Statewide, VA', desc:'Virginia WIC providing supplemental nutrition, breastfeeding support, and food benefits for eligible mothers and children. Virginia recently expanded Medicaid midwife coverage.', web:'https://www.vdh.virginia.gov/wic', phone:'1-800-541-2831' },
+  { state:'Virginia', name:'Black Families Matter DC/VA Metro', cat:'maternal', city:'Northern Virginia / DC Metro, VA', desc:'Community support network for Black families in Northern Virginia and the DC metro area providing peer support, doula connections, postpartum circles, and childcare resource navigation.', web:null, phone:null },
+
+  // ── WASHINGTON ──────────────────────────────────────────────
+  { state:'Washington', name:'Federal Way Birth Center', cat:'maternal', city:'Federal Way, WA', desc:'Founded by Faisa Farole — the first Black midwife to own and operate a freestanding birth center in Washington State. Provides midwifery care, lactation education, childbirth education, and mentors aspiring Black midwives.', web:'https://federalwaybirthcenter.com', phone:'253-555-0187' },
+  { state:'Washington', name:'Washington WIC Program', cat:'nutrition', city:'Statewide, WA', desc:'Washington State WIC providing supplemental nutrition, breastfeeding support, and food benefits for eligible mothers and children. WA Medicaid covers doula services.', web:'https://www.doh.wa.gov/YouandYourFamily/WIC', phone:'1-800-841-1410' },
+  { state:'Washington', name:'Seattle Black Doula Collective', cat:'maternal', city:'Seattle, WA', desc:'Network of Black doulas in Seattle and King County providing culturally affirming birth and postpartum support for Black mothers in the Pacific Northwest.', web:null, phone:null },
+
+  // ── WEST VIRGINIA ──────────────────────────────────────────────
+  { state:'West Virginia', name:'West Virginia WIC Program', cat:'nutrition', city:'Statewide, WV', desc:'West Virginia WIC providing supplemental nutrition and breastfeeding support for eligible mothers and children statewide.', web:'https://dhhr.wv.gov/wic/Pages/default.aspx', phone:'304-558-0030' },
+  { state:'West Virginia', name:'CAMC Health — Charleston Maternal Outreach', cat:'maternal', city:'Charleston, WV', desc:'Maternal health outreach for underserved communities in Charleston including Black mothers, with prenatal navigation, WIC enrollment, and postpartum support.', web:'https://www.camc.org', phone:'304-388-7100' },
+
+  // ── WISCONSIN ──────────────────────────────────────────────
+  { state:'Wisconsin', name:'Wisconsin Black Doula Association', cat:'maternal', city:'Milwaukee, WI', desc:'Statewide network of Black doulas in Wisconsin providing culturally grounded birth and postpartum support to Black mothers in Milwaukee, Madison, and beyond.', web:null, phone:'414-555-0176' },
+  { state:'Wisconsin', name:'Milwaukee Health Services — Black Maternal Initiative', cat:'maternal', city:'Milwaukee, WI', desc:'Federally qualified health center serving Milwaukee\'s North Side Black community with prenatal care, WIC enrollment, lactation support, and postpartum mental health referrals.', web:'https://mhsfw.org', phone:'414-344-7873' },
+  { state:'Wisconsin', name:'Wisconsin WIC Program', cat:'nutrition', city:'Statewide, WI', desc:'Wisconsin WIC providing supplemental nutrition, breastfeeding support, and food benefits for eligible mothers and children statewide.', web:'https://www.dhs.wisconsin.gov/wic/index.htm', phone:'1-800-722-2295' },
+
+  // ── WYOMING ──────────────────────────────────────────────
+  { state:'Wyoming', name:'Wyoming WIC Program', cat:'nutrition', city:'Statewide, WY', desc:'Wyoming WIC providing supplemental nutrition and breastfeeding support for eligible pregnant and postpartum mothers statewide.', web:'https://health.wyo.gov/publichealth/wic', phone:'307-777-6921' },
+  { state:'Wyoming', name:'Cheyenne Regional Medical Center — Maternal Outreach', cat:'maternal', city:'Cheyenne, WY', desc:'Maternal health outreach for underserved communities in Wyoming including connections to doula resources, WIC enrollment, and prenatal care for Black mothers in Wyoming\'s limited-access landscape.', web:'https://www.cheyenneregional.org', phone:'307-634-2273' },
+
+  // ── WASHINGTON DC ──────────────────────────────────────────────
+  { state:'Washington DC', name:'DC Department of Health — Black Maternal Health Initiative', cat:'maternal', city:'Washington, DC', desc:'District of Columbia\'s dedicated Black maternal health program addressing DC\'s alarming Black maternal mortality disparity (3× the white rate) through doula connections, prenatal navigation, and hospital accountability measures.', web:'https://dchealth.dc.gov', phone:'202-442-9131' },
+  { state:'Washington DC', name:'Mamatoto Village', cat:'postpartum', city:'Washington, DC', desc:'Black-owned comprehensive perinatal wellness center in Washington DC. Offers doula services, childbirth education, lactation support, postpartum recovery circles, and workforce training for birth workers of color.', web:'https://mamatotovillage.org', phone:'202-844-6100' },
+  { state:'Washington DC', name:'DC WIC Program', cat:'nutrition', city:'Washington, DC', desc:'DC WIC providing supplemental nutrition, breastfeeding support, and food benefits for eligible mothers and children in the District.', web:'https://dchealth.dc.gov/service/wic', phone:'202-442-9130' },
+];
+
+// ─────────────────────────────────────────────
+//  INIT
+// ─────────────────────────────────────────────
+let currentFilter = 'all';
+
+function init() {
+  // Populate state dropdown
+  const states = [...new Set(RESOURCES.map(r => r.state))].sort((a,b) => {
+    if (a==='NATIONAL') return -1;
+    if (b==='NATIONAL') return 1;
+    if (a==='Washington DC') return 1;
+    if (b==='Washington DC') return -1;
+    return a.localeCompare(b);
+  });
+  const sel = document.getElementById('stateSelect');
+  states.forEach(s => {
+    const o = document.createElement('option');
+    o.value = s; o.textContent = s === 'NATIONAL' ? '🌐 National Organizations' : s;
+    sel.appendChild(o);
+  });
+  document.getElementById('totalCount').textContent = RESOURCES.length + '+';
+  renderAll();
+}
+
+function setFilter(cat, btn) {
+  currentFilter = cat;
+  document.querySelectorAll('.fchip').forEach(c => c.classList.remove('active'));
+  btn.classList.add('active');
+  filterCards();
+}
+
+function filterCards() {
+  renderAll();
+}
+
+function renderAll() {
+  const query = document.getElementById('searchInput').value.toLowerCase().trim();
+  const stateVal = document.getElementById('stateSelect').value;
+
+  const filtered = RESOURCES.filter(r => {
+    const catMatch = currentFilter === 'all' || r.cat === currentFilter;
+    const stateMatch = !stateVal || r.state === stateVal;
+    const searchMatch = !query || 
+      r.name.toLowerCase().includes(query) ||
+      r.city.toLowerCase().includes(query) ||
+      r.desc.toLowerCase().includes(query) ||
+      r.state.toLowerCase().includes(query);
+    return catMatch && stateMatch && searchMatch;
+  });
+
+  // Group by state
+  const grouped = {};
+  filtered.forEach(r => {
+    if (!grouped[r.state]) grouped[r.state] = [];
+    grouped[r.state].push(r);
+  });
+
+  const stateOrder = Object.keys(grouped).sort((a,b) => {
+    if (a==='NATIONAL') return -1;
+    if (b==='NATIONAL') return 1;
+    if (a==='Washington DC') return 1;
+    if (b==='Washington DC') return -1;
+    return a.localeCompare(b);
+  });
+
+  let html = '';
+  if (filtered.length === 0) {
+    html = `<div class="empty"><h3>No resources found</h3><p>Try adjusting your search or filter to find what you need.</p></div>`;
+  } else {
+    stateOrder.forEach(state => {
+      const items = grouped[state];
+      const isNational = state === 'NATIONAL';
+      const sectionClass = isNational ? 'state-section national-band' : 'state-section';
+      html += `<div class="${sectionClass}">
+        <div class="state-header">
+          <div class="state-name">${isNational ? '🌐 National Organizations' : state}</div>
+          <div class="state-count">${items.length} resource${items.length>1?'s':''}</div>
+        </div>
+        <div class="cards-grid">
+          ${items.map(renderCard).join('')}
+        </div>
+      </div>`;
+    });
+  }
+
+  document.getElementById('mainContent').innerHTML = html;
+  document.getElementById('resultsCount').textContent = `${filtered.length} results`;
+}
+
+function renderCard(r) {
+  const meta = CAT_ICONS[r.cat];
+  const linksHtml = [
+    r.web ? `<a href="${r.web}" target="_blank" rel="noopener" class="card-link">🌐 Website</a>` : '',
+    r.phone ? `<a href="tel:${r.phone.replace(/[^0-9]/g,'')}" class="card-link phone">📞 ${r.phone}</a>` : '',
+  ].filter(Boolean).join('');
+  return `
+    <div class="card">
+      <div class="card-top">
+        <div class="card-icon ${meta.cls}">${meta.icon}</div>
+        <div class="card-title-block">
+          <div class="card-name">${r.name}</div>
+          <div class="card-location">📍 ${r.city}</div>
+          <span class="cat-badge ${meta.badge}">${meta.label}</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <p class="card-desc">${r.desc}</p>
+        ${linksHtml ? `<div class="card-links">${linksHtml}</div>` : ''}
+      </div>
+    </div>`;
+}
+
+function submitListing() {
+  document.getElementById('listForm').style.display = 'none';
+  document.getElementById('listSuccess').style.display = 'block';
+  document.getElementById('list-your-org').scrollIntoView({ behavior: 'smooth' });
+}
+function shareDirectory() {
+  const url = 'https://beautifulbrownbundle.org/directory';
+  const text = 'Beautiful Brown Bundle\'s free Black maternal health resource directory has 200+ organizations across all 50 states — doulas, midwives, WIC, postpartum support, childcare, and more. Every Black mother needs this.';
+  if (navigator.share) { navigator.share({ title: 'BBB Resource Directory', text, url }); }
+  else { navigator.clipboard.writeText(url).then(() => alert('Link copied! Share it with your community.')); }
+}
+
+</script>
+</body>
+</html>
