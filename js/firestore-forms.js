@@ -100,7 +100,12 @@ function initDirectoryForm() {
     const blackOwnedOrLed = (document.getElementById('dirBlackOwned')?.value || '').trim();
 
     const catEls = form.querySelectorAll('input[name="dirCategory"]:checked');
-    const categories = Array.from(catEls).map((c) => c.value);
+    /** Same order as directory filter chips / CAT_ICONS keys in bbb-resource-directory.html */
+    const CATEGORY_ORDER = ['maternal', 'postpartum', 'nutrition', 'childcare', 'mental', 'national'];
+    let categories = Array.from(catEls).map((c) => c.value);
+    categories = [...new Set(categories)].sort(
+      (a, b) => CATEGORY_ORDER.indexOf(a) - CATEGORY_ORDER.indexOf(b)
+    );
 
     if (!orgName || !contactName || !contactEmail || !city || !state || !serviceDescription || !blackOwnedOrLed) {
       showErr(err, 'Please fill in all required fields (marked *).');
@@ -120,6 +125,8 @@ function initDirectoryForm() {
       serviceDescription,
       blackOwnedOrLed,
       categories,
+      /** First value after sort — use as primary `cat` when adding to the public directory */
+      primaryCategory: categories[0],
       submittedAt: serverTimestamp(),
       source: 'directory_page',
     };

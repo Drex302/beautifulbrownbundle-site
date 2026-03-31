@@ -25,6 +25,26 @@ service cloud.firestore {
         && (cats.size() < 8 || (cats[7] is string && cats[7].size() <= 120));
     }
 
+    /** Must match directory filter keys in bbb-resource-directory.html (CAT_ICONS). */
+    function isDirCatKey(s) {
+      return s is string && (
+        s == 'maternal' || s == 'postpartum' || s == 'nutrition' ||
+        s == 'childcare' || s == 'mental' || s == 'national'
+      );
+    }
+
+    function validDirectoryCategories(cats) {
+      return cats is list
+        && cats.size() >= 1
+        && cats.size() <= 6
+        && isDirCatKey(cats[0])
+        && (cats.size() < 2 || isDirCatKey(cats[1]))
+        && (cats.size() < 3 || isDirCatKey(cats[2]))
+        && (cats.size() < 4 || isDirCatKey(cats[3]))
+        && (cats.size() < 5 || isDirCatKey(cats[4]))
+        && (cats.size() < 6 || isDirCatKey(cats[5]));
+    }
+
     // ---- Landing: "Tell Us What You Survived" ----
     function validStorySubmission() {
       let d = request.resource.data;
@@ -61,12 +81,13 @@ service cloud.firestore {
       let d = request.resource.data;
       return d.keys().hasOnly([
           'orgName', 'contactName', 'contactEmail', 'phone', 'city', 'state',
-          'websiteUrl', 'categories', 'serviceDescription', 'blackOwnedOrLed',
+          'websiteUrl', 'categories', 'primaryCategory', 'serviceDescription', 'blackOwnedOrLed',
           'slidingScale', 'additionalNotes', 'submittedAt', 'source'
         ])
         && d.keys().hasAll([
           'orgName', 'contactName', 'contactEmail', 'city', 'state',
-          'serviceDescription', 'blackOwnedOrLed', 'categories', 'submittedAt', 'source'
+          'serviceDescription', 'blackOwnedOrLed', 'categories', 'primaryCategory',
+          'submittedAt', 'source'
         ])
         && isNonEmptyString(d.orgName, 300)
         && isNonEmptyString(d.contactName, 200)
@@ -83,7 +104,9 @@ service cloud.firestore {
         && (!d.keys().hasAll(['websiteUrl']) || (d.websiteUrl is string && d.websiteUrl.size() <= 2000))
         && (!d.keys().hasAll(['slidingScale']) || (d.slidingScale is string && d.slidingScale.size() <= 500))
         && (!d.keys().hasAll(['additionalNotes']) || (d.additionalNotes is string && d.additionalNotes.size() <= 8000))
-        && stringListUpTo8(d.categories);
+        && validDirectoryCategories(d.categories)
+        && isDirCatKey(d.primaryCategory)
+        && d.primaryCategory == d.categories[0];
     }
 
     match /directory_listing_requests/{docId} {
