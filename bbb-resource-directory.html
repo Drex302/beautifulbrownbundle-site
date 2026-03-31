@@ -56,6 +56,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(44,26,14,0.9
 .count-num{font-family:var(--font-d);font-size:1.8rem;font-weight:900;color:var(--golden);display:block;line-height:1}
 .count-lbl{font-size:.75rem;color:rgba(245,230,208,.55);margin-top:3px}
 
+/* ── NATIONAL BIRTH-WORKER DIRECTORIES (under hero; not BBB listings) ── */
+.national-dir-callout{background:var(--linen);border-bottom:1px solid rgba(44,26,14,.08)}
+.national-dir-inner{max-width:1280px;margin:0 auto;padding:1.35rem 1.5rem 1.45rem}
+.national-dir-lead{font-size:.92rem;color:var(--walnut);line-height:1.65;margin:0 0 .85rem;max-width:52rem}
+.national-dir-strip{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem .9rem;font-size:.88rem}
+.national-dir-strip a{color:var(--terra);font-weight:500;text-decoration:underline;text-underline-offset:2px}
+.national-dir-strip a:hover{color:var(--mahogany)}
+.national-dir-strip .nd-sep{color:rgba(107,58,31,.35);user-select:none}
+.national-dir-note{font-size:.75rem;color:var(--sienna);opacity:.85;margin:.85rem 0 0;line-height:1.55;max-width:48rem}
+
 /* ── CONTROLS ── */
 .controls{background:var(--offwhite);border-bottom:1px solid rgba(44,26,14,.08);position:sticky;top:60px;z-index:90;padding:1.25rem 0 0;box-shadow:0 8px 24px rgba(44,26,14,.04)}
 .controls-inner{max-width:1280px;margin:0 auto;padding:0 1.5rem 1.25rem;display:flex;flex-direction:column;gap:1.1rem}
@@ -204,6 +214,9 @@ footer a:hover{opacity:1}
   .hero-counts{gap:1.25rem}
   .main{padding:1.75rem 1.25rem 3rem}
   .state-header{gap:.75rem}
+  .national-dir-inner{padding:1.15rem 1.25rem 1.25rem}
+  .national-dir-strip .nd-sep{display:none}
+  .national-dir-strip{flex-direction:column;align-items:flex-start;gap:.35rem}
 }
 @media(max-width:480px){
   .hero-counts{flex-direction:column;gap:1rem}
@@ -232,6 +245,20 @@ footer a:hover{opacity:1}
     </div>
   </div>
 </div>
+
+<section class="national-dir-callout" aria-label="National doula and midwife directories">
+  <div class="national-dir-inner">
+    <p class="national-dir-lead">Looking for more Black doulas or midwives beyond this list? These national sites maintain larger, searchable directories:</p>
+    <div class="national-dir-strip">
+      <a href="https://www.blackdoulas.org" target="_blank" rel="noopener noreferrer">National Black Doulas Association (NBDA)</a>
+      <span class="nd-sep">·</span>
+      <a href="https://www.blackmidwives.org" target="_blank" rel="noopener noreferrer">National Black Midwives Alliance (NBMA)</a>
+      <span class="nd-sep">·</span>
+      <a href="https://www.sistamidwife.com" target="_blank" rel="noopener noreferrer">Sista Midwife Productions &amp; Directory</a>
+    </div>
+    <p class="national-dir-note">These are independent organizations, not part of Beautiful Brown Bundle. For listings we curate here—including doulas, midwives, and birth centers—use the <strong>Maternal Health</strong> filter or search below.</p>
+  </div>
+</section>
 
 <div class="controls">
   <div class="controls-inner">
