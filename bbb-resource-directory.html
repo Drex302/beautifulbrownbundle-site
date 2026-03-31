@@ -57,14 +57,17 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(44,26,14,0.9
 .count-lbl{font-size:.75rem;color:rgba(245,230,208,.55);margin-top:3px}
 
 /* ── CONTROLS ── */
-.controls{background:var(--offwhite);border-bottom:1px solid rgba(44,26,14,.08);position:sticky;top:60px;z-index:90;padding:1rem 0}
-.controls-inner{max-width:1280px;margin:0 auto;padding:0 1.5rem;display:flex;gap:1rem;flex-wrap:wrap;align-items:center}
-.search-wrap{flex:1;min-width:220px;position:relative}
+.controls{background:var(--offwhite);border-bottom:1px solid rgba(44,26,14,.08);position:sticky;top:60px;z-index:90;padding:1.25rem 0 0;box-shadow:0 8px 24px rgba(44,26,14,.04)}
+.controls-inner{max-width:1280px;margin:0 auto;padding:0 1.5rem 1.25rem;display:flex;flex-direction:column;gap:1.1rem}
+.controls-top{display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.25rem}
+.controls-meta{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem}
+.search-wrap{flex:1;min-width:min(100%,240px);position:relative}
 .search-wrap svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);opacity:.4}
-.search-input{width:100%;padding:10px 12px 10px 38px;border:1.5px solid rgba(107,58,31,.2);border-radius:var(--r);background:white;font-family:var(--font-b);font-size:.9rem;color:var(--soil);outline:none;transition:border-color .2s}
+.search-input{width:100%;padding:12px 14px 12px 40px;border:1.5px solid rgba(107,58,31,.2);border-radius:var(--r);background:white;font-family:var(--font-b);font-size:.95rem;color:var(--soil);outline:none;transition:border-color .2s}
 .search-input:focus{border-color:var(--honey)}
-.filter-group{display:flex;gap:.5rem;flex-wrap:wrap}
-.fchip{padding:7px 16px;border-radius:100px;font-size:.78rem;font-weight:500;border:1.5px solid rgba(107,58,31,.2);background:transparent;color:var(--walnut);transition:all .2s;white-space:nowrap}
+.filter-group{display:flex;gap:.55rem;flex-wrap:wrap;align-items:center;width:100%}
+.filter-group-scroll{-webkit-overflow-scrolling:touch;scrollbar-width:thin}
+.fchip{padding:8px 16px;border-radius:100px;font-size:.8rem;font-weight:500;border:1.5px solid rgba(107,58,31,.2);background:transparent;color:var(--walnut);transition:all .2s;white-space:nowrap;flex-shrink:0}
 .fchip:hover,.fchip.active{background:var(--walnut);color:var(--cream);border-color:var(--walnut)}
 .fchip[data-cat="maternal"].active{background:var(--terra);border-color:var(--terra)}
 .fchip[data-cat="postpartum"].active{background:#7A8C6E;border-color:#7A8C6E;color:white}
@@ -72,25 +75,36 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(44,26,14,0.9
 .fchip[data-cat="childcare"].active{background:#5C4033;border-color:#5C4033}
 .fchip[data-cat="mental"].active{background:#6B3A1F;border-color:#6B3A1F}
 .fchip[data-cat="national"].active{background:var(--soil);border-color:var(--soil)}
-.state-select{padding:9px 14px;border:1.5px solid rgba(107,58,31,.2);border-radius:var(--r);background:white;font-family:var(--font-b);font-size:.85rem;color:var(--soil);outline:none;cursor:pointer;min-width:160px}
+.state-select{padding:10px 14px;border:1.5px solid rgba(107,58,31,.2);border-radius:var(--r);background:white;font-family:var(--font-b);font-size:.9rem;color:var(--soil);outline:none;cursor:pointer;min-width:min(100%,200px)}
 .state-select:focus{border-color:var(--honey)}
-.results-count{font-size:.8rem;color:var(--sienna);margin-left:auto;white-space:nowrap}
-.gov-tools-label{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--sienna);opacity:.75;flex:1 0 100%;margin-bottom:.35rem}
-.gov-tools-strip{display:flex;flex-wrap:wrap;gap:.5rem 1rem;align-items:center;justify-content:flex-start;padding:1rem 1.5rem;background:rgba(245,230,208,.35);border-top:1px solid rgba(44,26,14,.08);font-family:var(--font-b)}
-.gov-tools-strip a{font-size:.82rem;color:var(--terra);font-weight:500;text-decoration:underline;text-underline-offset:2px}
+.results-count{font-size:.85rem;color:var(--sienna);margin-left:auto;white-space:nowrap;font-weight:500}
+.gov-tools-label{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--sienna);opacity:.75;flex:1 0 100%;margin-bottom:.35rem;line-height:1.45}
+.gov-tools-strip{display:flex;flex-wrap:wrap;gap:.65rem 1rem;align-items:center;justify-content:flex-start;padding:1.25rem 1.5rem 1.35rem;background:rgba(245,230,208,.35);border-top:1px solid rgba(44,26,14,.08);font-family:var(--font-b);max-width:1280px;margin:0 auto}
+.gov-tools-strip a{font-size:.85rem;color:var(--terra);font-weight:500;text-decoration:underline;text-underline-offset:2px;line-height:1.5}
 .gov-tools-strip a:hover{color:var(--mahogany)}
 .gov-tools-strip .gov-sep{color:rgba(107,58,31,.35);font-size:.75rem;user-select:none}
+@media(max-width:640px){
+  .gov-tools-strip .gov-sep{display:none}
+  .gov-tools-strip{flex-direction:column;align-items:flex-start;gap:.5rem;padding:1.1rem 1.25rem 1.25rem}
+  .gov-tools-strip a{display:block;padding:.15rem 0}
+}
 
 /* ── MAIN GRID ── */
 .main{max-width:1280px;margin:0 auto;padding:2.5rem 1.5rem 4rem}
 .state-section{margin-bottom:3.5rem}
-.state-header{display:flex;align-items:center;gap:1rem;margin-bottom:1.25rem;padding-bottom:.75rem;border-bottom:2px solid rgba(107,58,31,.12)}
-.state-name{font-family:var(--font-d);font-size:1.5rem;font-weight:700;color:var(--walnut)}
+.state-header{display:flex;align-items:center;gap:1rem;margin-bottom:1.25rem;padding-bottom:.75rem;border-bottom:2px solid rgba(107,58,31,.12);flex-wrap:wrap}
+.state-name{font-family:var(--font-d);font-size:clamp(1.2rem,2.4vw,1.5rem);font-weight:700;color:var(--walnut);line-height:1.2}
 .state-count{font-size:.75rem;background:rgba(176,125,74,.12);color:var(--sienna);padding:3px 10px;border-radius:100px;font-weight:500}
-.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:1.25rem}
-.card{background:white;border-radius:var(--r-lg);border:1px solid rgba(44,26,14,.07);box-shadow:var(--sh-sm);transition:transform .22s,box-shadow .22s;overflow:hidden}
+.cards-grid{display:grid;gap:1.5rem;grid-template-columns:1fr}
+@media(min-width:640px){
+  .cards-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(min-width:1024px){
+  .cards-grid{grid-template-columns:repeat(3,1fr)}
+}
+.card{background:white;border-radius:var(--r-lg);border:1px solid rgba(44,26,14,.07);box-shadow:var(--sh-sm);transition:transform .22s,box-shadow .22s;overflow:hidden;min-width:0}
 .card:hover{transform:translateY(-3px);box-shadow:var(--sh)}
-.card-top{padding:1.2rem 1.4rem .9rem;display:flex;align-items:flex-start;gap:1rem}
+.card-top{padding:1.35rem 1.5rem 1rem;display:flex;align-items:flex-start;gap:1rem}
 .card-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
 .icon-maternal{background:rgba(160,82,45,.1)}
 .icon-postpartum{background:rgba(122,140,110,.1)}
@@ -99,8 +113,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(44,26,14,0.9
 .icon-mental{background:rgba(107,58,31,.09)}
 .icon-national{background:rgba(201,151,90,.12)}
 .card-title-block{flex:1}
-.card-name{font-size:.97rem;font-weight:500;color:var(--soil);line-height:1.3;margin-bottom:3px}
-.card-location{font-size:.75rem;color:var(--sienna)}
+.card-name{font-size:clamp(.95rem,1.2vw,1.05rem);font-weight:600;color:var(--soil);line-height:1.35;margin-bottom:4px}
+.card-location{font-size:.8rem;color:var(--sienna)}
 .cat-badge{font-size:.68rem;font-weight:500;padding:2px 9px;border-radius:100px;letter-spacing:.04em;display:inline-block;margin-top:4px}
 .badge-maternal{background:rgba(160,82,45,.1);color:var(--terra)}
 .badge-postpartum{background:rgba(122,140,110,.12);color:#4a6340}
@@ -108,16 +122,19 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(44,26,14,0.9
 .badge-childcare{background:rgba(44,26,14,.08);color:var(--walnut)}
 .badge-mental{background:rgba(107,58,31,.1);color:var(--mahogany)}
 .badge-national{background:rgba(201,151,90,.12);color:var(--walnut)}
-.card-body{padding:.1rem 1.4rem 1.1rem 1.4rem}
-.card-desc{font-size:.82rem;color:var(--sienna);line-height:1.7;margin-bottom:.9rem}
+.card-body{padding:.25rem 1.5rem 1.35rem}
+.card-desc{font-size:.88rem;color:var(--sienna);line-height:1.7;margin-bottom:1rem}
+@media(max-width:639px){
+  .card-desc{font-size:.9rem}
+}
 .card-links{display:flex;gap:.5rem;flex-wrap:wrap}
-.card-link{font-size:.75rem;font-weight:500;padding:5px 12px;border-radius:100px;border:1px solid rgba(107,58,31,.2);color:var(--walnut);transition:all .2s}
+.card-link{font-size:.78rem;font-weight:500;padding:8px 14px;border-radius:100px;border:1px solid rgba(107,58,31,.2);color:var(--walnut);transition:all .2s}
 .card-link:hover{background:var(--walnut);color:var(--cream);border-color:var(--walnut)}
 .card-link.phone{color:var(--terra);border-color:rgba(160,82,45,.25)}
 .card-link.phone:hover{background:var(--terra);color:white;border-color:var(--terra)}
 
 /* ── NATIONAL SECTION ── */
-.national-band{background:var(--mahogany);padding:3rem 0;margin-bottom:2.5rem;border-radius:var(--r-lg)}
+.national-band{background:var(--mahogany);padding:clamp(1.5rem,4vw,3rem) clamp(1rem,3vw,2rem);margin-bottom:2.5rem;border-radius:var(--r-lg)}
 .national-band .state-header .state-name{color:var(--golden)}
 .national-band .state-header .state-count{background:rgba(201,151,90,.15);color:var(--honey)}
 
@@ -171,11 +188,25 @@ footer a:hover{opacity:1}
 
 /* ── RESPONSIVE ── */
 @media(max-width:768px){
-  .controls-inner{flex-direction:column;align-items:stretch}
-  .filter-group{overflow-x:auto;padding-bottom:4px;flex-wrap:nowrap}
+  .nav-inner{padding:0 1rem}
+  .nav-logo{font-size:clamp(.85rem,3vw,1.05rem);line-height:1.3}
+  .nav-back{font-size:.78rem}
+  .hero{padding:88px 0 2.5rem}
+  .hero-inner{padding:0 1.25rem}
+  .controls{top:60px;padding-top:1rem}
+  .controls-inner{padding:0 1.25rem 1.1rem;gap:1rem}
+  .controls-top{flex-direction:column;align-items:stretch}
+  .controls-meta{width:100%;justify-content:space-between}
   .results-count{margin-left:0}
-  .cards-grid{grid-template-columns:1fr}
-  .hero-counts{gap:1.5rem}
+  .filter-group{flex-wrap:nowrap;overflow-x:auto;padding:4px 2px 10px;margin:0 -1.25rem;padding-left:1.25rem;padding-right:1.25rem;gap:.5rem}
+  .filter-group::-webkit-scrollbar{height:4px}
+  .filter-group::-webkit-scrollbar-thumb{background:rgba(107,58,31,.25);border-radius:4px}
+  .hero-counts{gap:1.25rem}
+  .main{padding:1.75rem 1.25rem 3rem}
+  .state-header{gap:.75rem}
+}
+@media(max-width:480px){
+  .hero-counts{flex-direction:column;gap:1rem}
 }
 </style>
 </head>
@@ -204,23 +235,27 @@ footer a:hover{opacity:1}
 
 <div class="controls">
   <div class="controls-inner">
-    <div class="search-wrap">
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="6.5" cy="6.5" r="5" stroke="#6B3A1F" stroke-width="1.5"/><path d="M10.5 10.5L14 14" stroke="#6B3A1F" stroke-width="1.5" stroke-linecap="round"/></svg>
-      <input class="search-input" type="text" id="searchInput" placeholder="Search by name, city, or service…" oninput="filterCards()">
+    <div class="controls-top">
+      <div class="search-wrap">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="6.5" cy="6.5" r="5" stroke="#6B3A1F" stroke-width="1.5"/><path d="M10.5 10.5L14 14" stroke="#6B3A1F" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <input class="search-input" type="search" id="searchInput" placeholder="Search by name, city, or service…" oninput="filterCards()" autocomplete="off">
+      </div>
+      <div class="controls-meta">
+        <select class="state-select" id="stateSelect" onchange="filterCards()" aria-label="Filter by state">
+          <option value="">All States</option>
+        </select>
+        <span class="results-count" id="resultsCount"></span>
+      </div>
     </div>
-    <div class="filter-group" id="filterGroup">
-      <button class="fchip active" data-cat="all" onclick="setFilter('all',this)">All</button>
-      <button class="fchip" data-cat="national" onclick="setFilter('national',this)">🌐 National</button>
-      <button class="fchip" data-cat="maternal" onclick="setFilter('maternal',this)">🤱 Maternal Health</button>
-      <button class="fchip" data-cat="postpartum" onclick="setFilter('postpartum',this)">🌿 Postpartum</button>
-      <button class="fchip" data-cat="nutrition" onclick="setFilter('nutrition',this)">🥦 Nutrition</button>
-      <button class="fchip" data-cat="childcare" onclick="setFilter('childcare',this)">👶 Childcare</button>
-      <button class="fchip" data-cat="mental" onclick="setFilter('mental',this)">💙 Mental Health</button>
+    <div class="filter-group filter-group-scroll" id="filterGroup" role="toolbar" aria-label="Filter by category">
+      <button type="button" class="fchip active" data-cat="all" onclick="setFilter('all',this)">All</button>
+      <button type="button" class="fchip" data-cat="national" onclick="setFilter('national',this)">🌐 National</button>
+      <button type="button" class="fchip" data-cat="maternal" onclick="setFilter('maternal',this)">🤱 Maternal Health</button>
+      <button type="button" class="fchip" data-cat="postpartum" onclick="setFilter('postpartum',this)">🌿 Postpartum</button>
+      <button type="button" class="fchip" data-cat="nutrition" onclick="setFilter('nutrition',this)">🥦 Nutrition</button>
+      <button type="button" class="fchip" data-cat="childcare" onclick="setFilter('childcare',this)">👶 Childcare</button>
+      <button type="button" class="fchip" data-cat="mental" onclick="setFilter('mental',this)">💙 Mental Health</button>
     </div>
-    <select class="state-select" id="stateSelect" onchange="filterCards()">
-      <option value="">All States</option>
-    </select>
-    <span class="results-count" id="resultsCount"></span>
   </div>
   <div class="gov-tools-strip" role="region" aria-label="Official U.S. government and community referral tools">
     <span class="gov-tools-label">Official U.S. tools (separate from this directory — not affiliated with Beautiful Brown Bundle)</span>
