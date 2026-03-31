@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="js/ga.js"></script>
+<script type="module" src="js/firebase-init.js"></script>
 <title>Resource Directory — Beautiful Brown Bundle</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -75,6 +75,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(44,26,14,0.9
 .state-select{padding:9px 14px;border:1.5px solid rgba(107,58,31,.2);border-radius:var(--r);background:white;font-family:var(--font-b);font-size:.85rem;color:var(--soil);outline:none;cursor:pointer;min-width:160px}
 .state-select:focus{border-color:var(--honey)}
 .results-count{font-size:.8rem;color:var(--sienna);margin-left:auto;white-space:nowrap}
+.gov-tools-label{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--sienna);opacity:.75;flex:1 0 100%;margin-bottom:.35rem}
+.gov-tools-strip{display:flex;flex-wrap:wrap;gap:.5rem 1rem;align-items:center;justify-content:flex-start;padding:1rem 1.5rem;background:rgba(245,230,208,.35);border-top:1px solid rgba(44,26,14,.08);font-family:var(--font-b)}
+.gov-tools-strip a{font-size:.82rem;color:var(--terra);font-weight:500;text-decoration:underline;text-underline-offset:2px}
+.gov-tools-strip a:hover{color:var(--mahogany)}
+.gov-tools-strip .gov-sep{color:rgba(107,58,31,.35);font-size:.75rem;user-select:none}
 
 /* ── MAIN GRID ── */
 .main{max-width:1280px;margin:0 auto;padding:2.5rem 1.5rem 4rem}
@@ -217,6 +222,18 @@ footer a:hover{opacity:1}
     </select>
     <span class="results-count" id="resultsCount"></span>
   </div>
+  <div class="gov-tools-strip" role="region" aria-label="Official U.S. government and community referral tools">
+    <span class="gov-tools-label">Official U.S. tools (separate from this directory — not affiliated with Beautiful Brown Bundle)</span>
+    <a href="https://findahealthcenter.hrsa.gov/" target="_blank" rel="noopener noreferrer">Find a Health Center (HRSA)</a>
+    <span class="gov-sep">·</span>
+    <a href="https://www.fns.usda.gov/wic/wic-how-apply" target="_blank" rel="noopener noreferrer">WIC (USDA)</a>
+    <span class="gov-sep">·</span>
+    <a href="https://www.211.org/" target="_blank" rel="noopener noreferrer">211</a>
+    <span class="gov-sep">·</span>
+    <a href="https://www.fns.usda.gov/snap/supplemental-nutrition-assistance-program-snap" target="_blank" rel="noopener noreferrer">SNAP</a>
+    <span class="gov-sep">·</span>
+    <a href="https://www.medicaid.gov/about-us/state-overviews/index.html" target="_blank" rel="noopener noreferrer">Medicaid (state info)</a>
+  </div>
 </div>
 
 <div class="main" id="mainContent"></div>
@@ -234,36 +251,37 @@ footer a:hover{opacity:1}
       <div class="why-card"><div class="wi">✊🏾</div><h4>Build the Network</h4><p>Every listing strengthens the collective. The more of us are visible, the more Black mothers choose us — and the more our community thrives.</p></div>
     </div>
 
-    <div class="list-form" style="margin-top:2.5rem" id="listForm">
+    <form class="list-form" style="margin-top:2.5rem" id="listForm" novalidate>
+      <p id="directoryFormError" role="alert" style="display:none;color:#a52a2a;font-size:0.9rem;margin-bottom:1rem"></p>
       <p class="required-note">Fields marked * are required. Listings are reviewed before publishing (typically within 3–5 business days).</p>
       <div class="lf-row">
         <div class="lf-group">
-          <label>Organization / Business Name *</label>
-          <input type="text" class="lf-control" placeholder="e.g. Soulful Birth Doula Services">
+          <label for="dirOrgName">Organization / Business Name *</label>
+          <input type="text" class="lf-control" id="dirOrgName" name="orgName" required placeholder="e.g. Soulful Birth Doula Services">
         </div>
         <div class="lf-group">
-          <label>Your Name (contact person) *</label>
-          <input type="text" class="lf-control" placeholder="First and last name">
-        </div>
-      </div>
-      <div class="lf-row">
-        <div class="lf-group">
-          <label>Email Address *</label>
-          <input type="email" class="lf-control" placeholder="hello@yourorg.com">
-        </div>
-        <div class="lf-group">
-          <label>Phone Number</label>
-          <input type="tel" class="lf-control" placeholder="(000) 000-0000">
+          <label for="dirContactName">Your Name (contact person) *</label>
+          <input type="text" class="lf-control" id="dirContactName" name="contactName" required placeholder="First and last name">
         </div>
       </div>
       <div class="lf-row">
         <div class="lf-group">
-          <label>City *</label>
-          <input type="text" class="lf-control" placeholder="e.g. Atlanta">
+          <label for="dirEmail">Email Address *</label>
+          <input type="email" class="lf-control" id="dirEmail" name="contactEmail" required placeholder="hello@yourorg.com" autocomplete="email">
         </div>
         <div class="lf-group">
-          <label>State *</label>
-          <select class="lf-control lf-select" id="listStateSelect">
+          <label for="dirPhone">Phone Number</label>
+          <input type="tel" class="lf-control" id="dirPhone" name="phone" placeholder="(000) 000-0000" autocomplete="tel">
+        </div>
+      </div>
+      <div class="lf-row">
+        <div class="lf-group">
+          <label for="dirCity">City *</label>
+          <input type="text" class="lf-control" id="dirCity" name="city" required placeholder="e.g. Atlanta">
+        </div>
+        <div class="lf-group">
+          <label for="listStateSelect">State *</label>
+          <select class="lf-control lf-select" id="listStateSelect" name="state" required>
             <option value="">Select your state</option>
             <option>Alabama</option><option>Alaska</option><option>Arizona</option><option>Arkansas</option>
             <option>California</option><option>Colorado</option><option>Connecticut</option><option>Delaware</option>
@@ -283,51 +301,51 @@ footer a:hover{opacity:1}
         </div>
       </div>
       <div class="lf-group">
-        <label>Website URL</label>
-        <input type="url" class="lf-control" placeholder="https://yourwebsite.com">
+        <label for="dirWebsite">Website URL</label>
+        <input type="url" class="lf-control" id="dirWebsite" name="websiteUrl" placeholder="https://yourwebsite.com">
       </div>
       <div class="lf-group">
-        <label>Resource Category * (select all that apply)</label>
-        <div class="cat-checkgroup" style="margin-top:.5rem">
-          <label class="lf-check"><input type="checkbox"> <span>🤱 Maternal Health (doula, midwife, birth center, OB)</span></label>
-          <label class="lf-check"><input type="checkbox"> <span>🌿 Postpartum Support</span></label>
-          <label class="lf-check"><input type="checkbox"> <span>🥦 Nutrition (WIC, food bank, farm, CSA)</span></label>
-          <label class="lf-check"><input type="checkbox"> <span>👶 Childcare & Early Childhood</span></label>
-          <label class="lf-check"><input type="checkbox"> <span>💙 Mental Health (therapy, counseling, peer support)</span></label>
-          <label class="lf-check"><input type="checkbox"> <span>🌐 National / Multi-State Organization</span></label>
+        <span id="dir-cats-label">Resource Category * (select all that apply)</span>
+        <div class="cat-checkgroup" style="margin-top:.5rem" role="group" aria-labelledby="dir-cats-label">
+          <label class="lf-check"><input type="checkbox" name="dirCategory" value="Maternal Health (doula, midwife, birth center, OB)"> <span>🤱 Maternal Health (doula, midwife, birth center, OB)</span></label>
+          <label class="lf-check"><input type="checkbox" name="dirCategory" value="Postpartum Support"> <span>🌿 Postpartum Support</span></label>
+          <label class="lf-check"><input type="checkbox" name="dirCategory" value="Nutrition (WIC, food bank, farm, CSA)"> <span>🥦 Nutrition (WIC, food bank, farm, CSA)</span></label>
+          <label class="lf-check"><input type="checkbox" name="dirCategory" value="Childcare &amp; Early Childhood"> <span>👶 Childcare & Early Childhood</span></label>
+          <label class="lf-check"><input type="checkbox" name="dirCategory" value="Mental Health (therapy, counseling, peer support)"> <span>💙 Mental Health (therapy, counseling, peer support)</span></label>
+          <label class="lf-check"><input type="checkbox" name="dirCategory" value="National / Multi-State Organization"> <span>🌐 National / Multi-State Organization</span></label>
         </div>
       </div>
       <div class="lf-group">
-        <label>Brief Description of Services * (2–4 sentences)</label>
-        <textarea class="lf-control" rows="4" placeholder="Describe what you offer, who you serve, and what makes your organization special. This is what mothers will read when they find you."></textarea>
+        <label for="dirDescription">Brief Description of Services * (2–4 sentences)</label>
+        <textarea class="lf-control" id="dirDescription" name="serviceDescription" rows="4" required placeholder="Describe what you offer, who you serve, and what makes your organization special. This is what mothers will read when they find you."></textarea>
       </div>
       <div class="lf-group">
-        <label>Is your organization Black-owned or Black-led? *</label>
-        <select class="lf-control lf-select">
+        <label for="dirBlackOwned">Is your organization Black-owned or Black-led? *</label>
+        <select class="lf-control lf-select" id="dirBlackOwned" name="blackOwnedOrLed" required>
           <option value="">Select one</option>
-          <option>Yes — Black-owned</option>
-          <option>Yes — Black-led (majority Black leadership)</option>
-          <option>No — but we specifically and intentionally serve Black families</option>
-          <option>No — but we have a dedicated Black maternal health program</option>
+          <option value="Yes — Black-owned">Yes — Black-owned</option>
+          <option value="Yes — Black-led (majority Black leadership)">Yes — Black-led (majority Black leadership)</option>
+          <option value="No — but we specifically and intentionally serve Black families">No — but we specifically and intentionally serve Black families</option>
+          <option value="No — but we have a dedicated Black maternal health program">No — but we have a dedicated Black maternal health program</option>
         </select>
       </div>
       <div class="lf-group">
-        <label>Do you offer sliding scale, free, or reduced-cost services?</label>
-        <select class="lf-control lf-select">
+        <label for="dirSliding">Do you offer sliding scale, free, or reduced-cost services?</label>
+        <select class="lf-control lf-select" id="dirSliding" name="slidingScale">
           <option value="">Select one</option>
-          <option>Yes — fully free services</option>
-          <option>Yes — sliding scale based on income</option>
-          <option>Yes — reduced cost for qualifying families</option>
-          <option>Accepts Medicaid / insurance</option>
-          <option>Standard market rate only</option>
+          <option value="Yes — fully free services">Yes — fully free services</option>
+          <option value="Yes — sliding scale based on income">Yes — sliding scale based on income</option>
+          <option value="Yes — reduced cost for qualifying families">Yes — reduced cost for qualifying families</option>
+          <option value="Accepts Medicaid / insurance">Accepts Medicaid / insurance</option>
+          <option value="Standard market rate only">Standard market rate only</option>
         </select>
       </div>
       <div class="lf-group">
-        <label>Anything else you want us to know?</label>
-        <textarea class="lf-control" rows="3" placeholder="Languages spoken, special certifications, awards, founding story, or anything that helps mothers understand your community connection…"></textarea>
+        <label for="dirNotes">Anything else you want us to know?</label>
+        <textarea class="lf-control" id="dirNotes" name="additionalNotes" rows="3" placeholder="Languages spoken, special certifications, awards, founding story, or anything that helps mothers understand your community connection…"></textarea>
       </div>
-      <button class="lf-submit" onclick="submitListing()">Submit My Organization for Listing →</button>
-    </div>
+      <button type="submit" class="lf-submit">Submit My Organization for Listing →</button>
+    </form>
 
     <div class="lf-success" id="listSuccess">
       <div class="si">🌿</div>
@@ -717,10 +735,13 @@ function renderAll() {
 
 function renderCard(r) {
   const meta = CAT_ICONS[r.cat];
+  const mapsQ = encodeURIComponent(`${r.name} ${r.city}`);
+  const mapsHref = `https://www.google.com/maps/search/?api=1&query=${mapsQ}`;
   const linksHtml = [
     r.web ? `<a href="${r.web}" target="_blank" rel="noopener" class="card-link">🌐 Website</a>` : '',
     r.phone ? `<a href="tel:${r.phone.replace(/[^0-9]/g,'')}" class="card-link phone">📞 ${r.phone}</a>` : '',
-  ].filter(Boolean).join('');
+    `<a href="${mapsHref}" target="_blank" rel="noopener" class="card-link">📍 Open in Maps</a>`,
+  ].join('');
   return `
     <div class="card">
       <div class="card-top">
@@ -733,23 +754,19 @@ function renderCard(r) {
       </div>
       <div class="card-body">
         <p class="card-desc">${r.desc}</p>
-        ${linksHtml ? `<div class="card-links">${linksHtml}</div>` : ''}
+        <div class="card-links">${linksHtml}</div>
       </div>
     </div>`;
 }
 
-function submitListing() {
-  document.getElementById('listForm').style.display = 'none';
-  document.getElementById('listSuccess').style.display = 'block';
-  document.getElementById('list-your-org').scrollIntoView({ behavior: 'smooth' });
-}
 function shareDirectory() {
-  const url = 'https://beautifulbrownbundle.org/directory';
+  const url = 'https://www.beautifulbrownbundle.site/bbb-resource-directory.html';
   const text = 'Beautiful Brown Bundle\'s free Black maternal health resource directory has 200+ organizations across all 50 states — doulas, midwives, WIC, postpartum support, childcare, and more. Every Black mother needs this.';
   if (navigator.share) { navigator.share({ title: 'BBB Resource Directory', text, url }); }
   else { navigator.clipboard.writeText(url).then(() => alert('Link copied! Share it with your community.')); }
 }
 
 </script>
+<script type="module" src="js/firestore-forms.js"></script>
 </body>
 </html>

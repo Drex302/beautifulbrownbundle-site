@@ -1,0 +1,99 @@
+rules_version = '2';
+// Beautiful Brown Bundle — aligned with index.html (#storyForm) & bbb-resource-directory.html (#listForm).
+// Paste into Firebase Console → Firestore → Rules, or: firebase deploy --only firestore:rules
+// Public cannot read these collections; only create. Review submissions in Firebase Console.
+// Pair with App Check + Cloud Functions for rate limits and spam (rules cannot throttle).
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isNonEmptyString(field, max) {
+      return field is string && field.size() > 0 && field.size() <= max;
+    }
+
+    function stringListUpTo8(cats) {
+      return cats is list
+        && cats.size() >= 1
+        && cats.size() <= 8
+        && (cats.size() < 1 || (cats[0] is string && cats[0].size() <= 120))
+        && (cats.size() < 2 || (cats[1] is string && cats[1].size() <= 120))
+        && (cats.size() < 3 || (cats[2] is string && cats[2].size() <= 120))
+        && (cats.size() < 4 || (cats[3] is string && cats[3].size() <= 120))
+        && (cats.size() < 5 || (cats[4] is string && cats[4].size() <= 120))
+        && (cats.size() < 6 || (cats[5] is string && cats[5].size() <= 120))
+        && (cats.size() < 7 || (cats[6] is string && cats[6].size() <= 120))
+        && (cats.size() < 8 || (cats[7] is string && cats[7].size() <= 120));
+    }
+
+    // ---- Landing: "Tell Us What You Survived" ----
+    function validStorySubmission() {
+      let d = request.resource.data;
+      return d.keys().hasOnly([
+          'firstName', 'cityState', 'stage', 'referralSource', 'story',
+          'culturalRemedy', 'consentShare', 'anonymousOnly', 'submittedAt', 'source'
+        ])
+        && d.keys().hasAll([
+          'story', 'consentShare', 'anonymousOnly', 'submittedAt', 'source'
+        ])
+        && d.consentShare is bool
+        && d.consentShare == true
+        && d.anonymousOnly is bool
+        && d.story is string
+        && d.story.size() >= 10
+        && d.story.size() <= 20000
+        && d.source == 'landing'
+        && d.submittedAt is timestamp
+        && (!d.keys().hasAll(['firstName']) || (d.firstName is string && d.firstName.size() <= 200))
+        && (!d.keys().hasAll(['cityState']) || (d.cityState is string && d.cityState.size() <= 200))
+        && (!d.keys().hasAll(['stage']) || (d.stage is string && d.stage.size() <= 500))
+        && (!d.keys().hasAll(['referralSource']) || (d.referralSource is string && d.referralSource.size() <= 500))
+        && (!d.keys().hasAll(['culturalRemedy']) || (d.culturalRemedy is string && d.culturalRemedy.size() <= 2000));
+    }
+
+    match /story_submissions/{docId} {
+      allow read: if false;
+      allow create: if validStorySubmission();
+      allow update, delete: if false;
+    }
+
+    // ---- Directory: "List Your Organization" (review queue, not live listings) ----
+    function validDirectoryListingRequest() {
+      let d = request.resource.data;
+      return d.keys().hasOnly([
+          'orgName', 'contactName', 'contactEmail', 'phone', 'city', 'state',
+          'websiteUrl', 'categories', 'serviceDescription', 'blackOwnedOrLed',
+          'slidingScale', 'additionalNotes', 'submittedAt', 'source'
+        ])
+        && d.keys().hasAll([
+          'orgName', 'contactName', 'contactEmail', 'city', 'state',
+          'serviceDescription', 'blackOwnedOrLed', 'categories', 'submittedAt', 'source'
+        ])
+        && isNonEmptyString(d.orgName, 300)
+        && isNonEmptyString(d.contactName, 200)
+        && d.contactEmail is string
+        && d.contactEmail.size() <= 320
+        && d.contactEmail.matches('^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$')
+        && isNonEmptyString(d.city, 120)
+        && isNonEmptyString(d.state, 120)
+        && isNonEmptyString(d.serviceDescription, 8000)
+        && isNonEmptyString(d.blackOwnedOrLed, 500)
+        && d.source == 'directory_page'
+        && d.submittedAt is timestamp
+        && (!d.keys().hasAll(['phone']) || (d.phone is string && d.phone.size() <= 40))
+        && (!d.keys().hasAll(['websiteUrl']) || (d.websiteUrl is string && d.websiteUrl.size() <= 2000))
+        && (!d.keys().hasAll(['slidingScale']) || (d.slidingScale is string && d.slidingScale.size() <= 500))
+        && (!d.keys().hasAll(['additionalNotes']) || (d.additionalNotes is string && d.additionalNotes.size() <= 8000))
+        && stringListUpTo8(d.categories);
+    }
+
+    match /directory_listing_requests/{docId} {
+      allow read: if false;
+      allow create: if validDirectoryListingRequest();
+      allow update, delete: if false;
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

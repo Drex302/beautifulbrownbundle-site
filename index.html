@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="js/ga.js"></script>
+<script type="module" src="js/firebase-init.js"></script>
 <title>Beautiful Brown Bundle — Protecting the Mothers of the Earth</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -262,133 +262,86 @@ nav {
 .pillar p { font-size: 0.85rem; color: rgba(245,230,208,0.65); line-height: 1.7; }
 
 /* ============================================================
-   RESOURCE LOCATOR
+   RESOURCE LOCATOR (Tier C — curated directory + official tools)
    ============================================================ */
 .locator { background: var(--offwhite); }
-.locator-header { text-align: center; margin-bottom: 3rem; }
+.locator-header { text-align: center; margin-bottom: 2rem; }
 .locator-header h2 { color: var(--soil); margin-bottom: 0.75rem; }
-.locator-header p { color: var(--sienna); max-width: 560px; margin: 0 auto; font-size: 1rem; }
+.locator-header p { color: var(--sienna); max-width: 620px; margin: 0 auto; font-size: 1rem; line-height: 1.75; }
 .locator-card {
   background: white;
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow);
   overflow: hidden;
-  max-width: 900px;
+  max-width: 720px;
   margin: 0 auto;
 }
-.locator-top {
-  background: var(--walnut);
-  padding: 2rem;
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  align-items: flex-end;
-}
-.zip-group { flex: 1; min-width: 180px; }
-.zip-group label {
-  display: block;
-  font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase;
-  color: rgba(245,230,208,0.7); margin-bottom: 0.5rem;
-}
-.zip-input {
-  width: 100%;
-  padding: 12px 16px;
-  border-radius: var(--radius);
-  border: 1.5px solid rgba(201,151,90,0.3);
-  background: rgba(255,255,255,0.08);
-  color: var(--cream);
-  font-size: 1rem;
-  font-family: var(--font-body);
-  transition: border-color .2s;
-  outline: none;
-}
-.zip-input::placeholder { color: rgba(245,230,208,0.35); }
-.zip-input:focus { border-color: var(--honey); }
-.zip-select {
-  width: 100%;
-  padding: 12px 16px;
-  border-radius: var(--radius);
-  border: 1.5px solid rgba(201,151,90,0.3);
-  background: rgba(255,255,255,0.08);
-  color: var(--cream);
-  font-size: 0.9rem;
-  font-family: var(--font-body);
-  outline: none;
-  cursor: pointer;
-}
-.zip-select option { background: var(--walnut); color: var(--cream); }
-.search-btn {
-  background: var(--honey);
-  color: var(--soil);
-  padding: 12px 28px;
-  border-radius: var(--radius);
-  font-weight: 500;
-  font-size: 0.95rem;
-  white-space: nowrap;
-  transition: all .2s;
-  align-self: flex-end;
-}
-.search-btn:hover { background: var(--golden); transform: translateY(-1px); }
-.locator-map {
-  height: 380px;
-  background: var(--linen);
-  position: relative;
-  display: flex; align-items: center; justify-content: center;
-  border-bottom: 1px solid rgba(44,26,14,0.08);
-}
-#map-frame {
-  width: 100%; height: 100%;
-  border: none;
-  display: none;
-}
-.map-placeholder {
+.locator-body {
+  padding: 2rem 2rem 1.5rem;
   text-align: center;
-  padding: 2rem;
 }
-.map-placeholder svg { opacity: 0.25; margin: 0 auto 1rem; }
-.map-placeholder p { color: var(--sienna); font-size: 0.9rem; }
-.locator-results {
-  padding: 1.5rem 2rem;
-  display: none;
-}
-.result-tabs { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
-.rtab {
-  padding: 6px 18px;
-  border-radius: 100px;
-  font-size: 0.82rem;
-  font-weight: 500;
-  border: 1.5px solid var(--caramel);
-  background: transparent;
-  color: var(--walnut);
-  transition: all .2s;
-}
-.rtab.active { background: var(--walnut); color: var(--cream); border-color: var(--walnut); }
-.result-list { display: flex; flex-direction: column; gap: 0.75rem; }
-.result-item {
-  display: flex; align-items: flex-start; gap: 1rem;
-  padding: 1rem 1.2rem;
-  background: var(--linen);
-  border-radius: var(--radius);
-  border: 1px solid rgba(44,26,14,0.07);
-  transition: border-color .2s;
-}
-.result-item:hover { border-color: var(--caramel); }
-.result-icon {
-  width: 40px; height: 40px; border-radius: 10px;
-  background: var(--walnut);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.1rem; flex-shrink: 0;
-}
-.result-info h4 { font-family: var(--font-body); font-size: 0.92rem; font-weight: 500; margin-bottom: 2px; }
-.result-info p { font-size: 0.78rem; color: var(--sienna); }
-.result-dist { font-size: 0.75rem; color: var(--honey); font-weight: 500; margin-left: auto; white-space: nowrap; }
-.locator-disclaimer {
-  padding: 1rem 2rem 1.5rem;
-  font-size: 0.75rem;
+.locator-body .lead-p {
   color: var(--sienna);
-  opacity: 0.7;
-  text-align: center;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  margin-bottom: 1.5rem;
+  text-align: left;
 }
+.locator-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: var(--walnut);
+  color: var(--cream);
+  padding: 14px 28px;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: background .2s, transform .15s;
+  margin-bottom: 0.5rem;
+}
+.locator-cta:hover { background: var(--mahogany); color: var(--cream); transform: translateY(-1px); }
+.locator-note { font-size: 0.82rem; color: var(--sienna); opacity: 0.85; margin-top: 0.75rem; }
+.gov-tools-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--sienna);
+  opacity: 0.75;
+  margin-bottom: 0.75rem;
+  text-align: left;
+}
+.gov-tools-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1.25rem 1.75rem;
+  background: var(--linen);
+  border-top: 1px solid rgba(44,26,14,0.06);
+}
+.gov-tools-strip a {
+  font-size: 0.85rem;
+  color: var(--terracotta);
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.gov-tools-strip a:hover { color: var(--rust); }
+.gov-tools-strip .gov-sep { color: rgba(107,58,31,0.35); font-size: 0.75rem; user-select: none; }
+.locator-disclaimer {
+  padding: 1rem 1.75rem 1.5rem;
+  font-size: 0.72rem;
+  color: var(--sienna);
+  opacity: 0.72;
+  text-align: center;
+  line-height: 1.6;
+  border-top: 1px solid rgba(44,26,14,0.05);
+}
+.stress-self-report select { margin-left: 0.35rem; padding: 4px 8px; border-radius: 8px; border: 1px solid rgba(107,58,31,0.25); font-family: var(--font-body); font-size: 0.8rem; }
 
 /* ============================================================
    FOOD PYRAMID SECTION
@@ -767,7 +720,6 @@ footer {
   .hamburger { display: flex; }
   .stories-grid { grid-template-columns: 1fr; }
   .hero-stats { gap: 1.5rem; }
-  .locator-top { flex-direction: column; }
   .mission-pillars { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
@@ -915,50 +867,29 @@ footer {
   <div class="container">
     <div class="locator-header reveal">
       <div class="section-label">Your Community</div>
-      <h2 class="display-md">Find Maternal Care &amp; Food Near You</h2>
-      <p>Enter your zip code to discover Black-centered maternal health providers, WIC offices, food banks, and farmers markets in your area.</p>
+      <h2 class="display-md">Find Care &amp; Support</h2>
+      <p>Our <strong>Resource Directory</strong> lists 200+ Black-owned, Black-led, and Black-serving organizations — doulas, food support, mental health, and more. Every listing is reviewed before it is published. Use <strong>Open in Maps</strong> on each card to see the location in Google Maps.</p>
     </div>
     <div class="locator-card reveal">
-      <div class="locator-top">
-        <div class="zip-group">
-          <label>Your Zip Code</label>
-          <input class="zip-input" type="text" id="zipInput" placeholder="e.g. 30301" maxlength="10" />
-        </div>
-        <div class="zip-group">
-          <label>Resource Type</label>
-          <select class="zip-select" id="resourceType">
-            <option value="all">All Resources</option>
-            <option value="maternal">Maternal Health Providers</option>
-            <option value="food">Food Resources (WIC, Food Banks)</option>
-            <option value="farmers">Farmers Markets</option>
-            <option value="mental">Mental Health Support</option>
-          </select>
-        </div>
-        <button class="search-btn" onclick="searchResources()">Search →</button>
+      <div class="locator-body">
+        <p class="lead-p">The directory is the expanded, searchable home for vetted resources. Government tools below are separate official systems — we link to them for programs we do not operate (WIC eligibility, FQHC lookup, crisis line, benefits).</p>
+        <a href="bbb-resource-directory.html" class="locator-cta">Open the full Resource Directory →</a>
+        <p class="locator-note">Search by state, category, or name. List your organization from the directory page.</p>
       </div>
-      <div class="locator-map">
-        <iframe id="map-frame" title="Resource Map"></iframe>
-        <div class="map-placeholder" id="mapPlaceholder">
-          <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
-            <circle cx="32" cy="28" r="16" stroke="#8B5E3C" stroke-width="2"/>
-            <path d="M32 44L32 58" stroke="#8B5E3C" stroke-width="2" stroke-linecap="round"/>
-            <circle cx="32" cy="28" r="6" fill="#8B5E3C" opacity="0.4"/>
-          </svg>
-          <p>Enter your zip code above to discover<br>maternal care and food resources near you</p>
-        </div>
-      </div>
-      <div class="locator-results" id="locatorResults">
-        <div class="result-tabs">
-          <button class="rtab active" onclick="filterResults('all', this)">All</button>
-          <button class="rtab" onclick="filterResults('maternal', this)">🏥 Maternal Care</button>
-          <button class="rtab" onclick="filterResults('food', this)">🥦 Food Resources</button>
-          <button class="rtab" onclick="filterResults('mental', this)">💙 Mental Health</button>
-        </div>
-        <div class="result-list" id="resultList"></div>
+      <div class="gov-tools-strip">
+        <span class="gov-tools-label" style="width:100%;margin-bottom:0">Official U.S. tools (not affiliated with Beautiful Brown Bundle)</span>
+        <a href="https://findahealthcenter.hrsa.gov/" target="_blank" rel="noopener noreferrer">Find a Health Center (HRSA)</a>
+        <span class="gov-sep">·</span>
+        <a href="https://www.fns.usda.gov/wic/wic-how-apply" target="_blank" rel="noopener noreferrer">WIC (USDA)</a>
+        <span class="gov-sep">·</span>
+        <a href="https://www.211.org/" target="_blank" rel="noopener noreferrer">211 (community referrals)</a>
+        <span class="gov-sep">·</span>
+        <a href="https://www.fns.usda.gov/snap/supplemental-nutrition-assistance-program-snap" target="_blank" rel="noopener noreferrer">SNAP (food benefits)</a>
+        <span class="gov-sep">·</span>
+        <a href="https://www.medicaid.gov/about-us/state-overviews/index.html" target="_blank" rel="noopener noreferrer">Medicaid (state info)</a>
       </div>
       <div class="locator-disclaimer">
-        Resource data is sourced from HRSA Health Center Finder, WIC Locator, and partner organizations.
-        Always call ahead to confirm availability and hours. If you are in an emergency, call 911 or go to your nearest emergency room.
+        Beautiful Brown Bundle does not run WIC, HRSA, SNAP, Medicaid, or 211. Always confirm hours and eligibility with each agency. Emergency: call <strong>911</strong>. Maternal mental health crisis: <strong>988</strong> (Suicide &amp; Crisis Lifeline) or text 741741.
       </div>
     </div>
   </div>
@@ -1033,6 +964,19 @@ footer {
           <button class="med-btn med-btn-primary" onclick="toggleMeditation()" id="medStartBtn">Begin Session</button>
           <button class="med-btn med-btn-outline" onclick="resetMeditation()">Reset</button>
         </div>
+        <div class="stress-self-report">
+          <p style="font-size:0.85rem;color:var(--sienna);margin-bottom:0.75rem;">Optional — helps us measure impact (1 = calm, 5 = very stressed). Rate before you begin; update &ldquo;After&rdquo; when the session ends.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:1rem;align-items:center;">
+            <label style="font-size:0.8rem;">Before <select id="stressBefore" aria-label="Stress level before session">
+              <option value="">—</option>
+              <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option>
+            </select></label>
+            <label style="font-size:0.8rem;">After <select id="stressAfter" aria-label="Stress level after session">
+              <option value="">—</option>
+              <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option>
+            </select></label>
+          </div>
+        </div>
         <div class="cortisol-note">
           <strong>Why this works:</strong> Slow diaphragmatic breathing activates the vagus nerve, 
           shifts the nervous system from sympathetic (fight-or-flight) to parasympathetic (rest-and-digest), 
@@ -1089,61 +1033,62 @@ footer {
       <div class="section-label mb-2" style="color:var(--honey)">Your Story</div>
       <h2 class="display-md cream">Tell Us What<br>You Survived.</h2>
       <p class="lead">Every testimony becomes part of our living library — a resource for the Black mothers who come after us. Share as much or as little as you choose.</p>
-      <div id="storyForm">
+      <form id="storyForm" novalidate>
+        <p id="storyFormError" class="form-error" role="alert" style="display:none;color:#c45c3e;font-size:0.9rem;margin-bottom:1rem"></p>
         <div class="form-row">
           <div class="form-group">
-            <label>First Name</label>
-            <input type="text" class="form-control" placeholder="Your first name">
+            <label for="storyFirstName">First Name</label>
+            <input type="text" class="form-control" id="storyFirstName" name="firstName" autocomplete="given-name" placeholder="Your first name">
           </div>
           <div class="form-group">
-            <label>City & State</label>
-            <input type="text" class="form-control" placeholder="e.g. Atlanta, GA">
+            <label for="storyCityState">City &amp; State</label>
+            <input type="text" class="form-control" id="storyCityState" name="cityState" autocomplete="address-level1" placeholder="e.g. Atlanta, GA">
           </div>
         </div>
         <div class="form-row">
           <div class="form-group">
-            <label>Stage of Journey</label>
-            <select class="form-control form-select">
+            <label for="storyStage">Stage of Journey</label>
+            <select class="form-control form-select" id="storyStage" name="stage">
               <option value="">Select your experience</option>
-              <option>Pregnant now</option>
-              <option>Postpartum (within 1 year)</option>
-              <option>Pregnancy loss</option>
-              <option>Near-miss / survived complication</option>
-              <option>Supporting a Black mother</option>
-              <option>Healthcare provider</option>
+              <option value="Pregnant now">Pregnant now</option>
+              <option value="Postpartum (within 1 year)">Postpartum (within 1 year)</option>
+              <option value="Pregnancy loss">Pregnancy loss</option>
+              <option value="Near-miss / survived complication">Near-miss / survived complication</option>
+              <option value="Supporting a Black mother">Supporting a Black mother</option>
+              <option value="Healthcare provider">Healthcare provider</option>
             </select>
           </div>
           <div class="form-group">
-            <label>How did you hear about us?</label>
-            <select class="form-control form-select">
+            <label for="storyReferral">How did you hear about us?</label>
+            <select class="form-control form-select" id="storyReferral" name="referralSource">
               <option value="">Select one</option>
-              <option>Instagram</option>
-              <option>Facebook</option>
-              <option>A friend or family member</option>
-              <option>Healthcare provider</option>
-              <option>Search engine</option>
-              <option>Community organization</option>
+              <option value="Instagram">Instagram</option>
+              <option value="Facebook">Facebook</option>
+              <option value="A friend or family member">A friend or family member</option>
+              <option value="Healthcare provider">Healthcare provider</option>
+              <option value="Search engine">Search engine</option>
+              <option value="Community organization">Community organization</option>
             </select>
           </div>
         </div>
         <div class="form-group">
-          <label>Your Story</label>
-          <textarea class="form-control" rows="6" placeholder="Share what happened, what helped, what you wish you had known — anything you are willing to give. Your words will be part of the protection we build together."></textarea>
+          <label for="storyBody">Your Story</label>
+          <textarea class="form-control" id="storyBody" name="story" rows="6" required minlength="10" placeholder="Share what happened, what helped, what you wish you had known — anything you are willing to give. Your words will be part of the protection we build together."></textarea>
         </div>
         <div class="form-group">
-          <label>Cultural Remedy or Tradition (optional)</label>
-          <input type="text" class="form-control" placeholder="e.g. Red raspberry leaf tea, bone broth, ancestor prayer practices...">
+          <label for="storyCultural">Cultural Remedy or Tradition (optional)</label>
+          <input type="text" class="form-control" id="storyCultural" name="culturalRemedy" placeholder="e.g. Red raspberry leaf tea, bone broth, ancestor prayer practices...">
         </div>
         <div class="form-check">
-          <input type="checkbox" id="consent" checked>
+          <input type="checkbox" id="consent" name="consentShare" checked>
           <label for="consent">I give Beautiful Brown Bundle permission to share my story (anonymously if preferred) as part of our community resource library to help other Black mothers.</label>
         </div>
         <div class="form-check">
-          <input type="checkbox" id="anon">
+          <input type="checkbox" id="anon" name="anonymousOnly">
           <label for="anon">Please share my story anonymously — use my initials only.</label>
         </div>
-        <button class="form-submit" onclick="submitStory()">Submit My Story — For Our Mothers →</button>
-      </div>
+        <button type="submit" class="form-submit">Submit My Story — For Our Mothers →</button>
+      </form>
       <div class="form-success" id="formSuccess">
         <div class="success-icon">🌿</div>
         <h3>Thank You, Sister.</h3>
@@ -1190,7 +1135,7 @@ footer {
       </div>
     </div>
     <div class="copy-link reveal">
-      <input type="text" id="linkInput" value="https://beautifulbrownbundle.org" readonly>
+      <input type="text" id="linkInput" value="https://www.beautifulbrownbundle.site" readonly>
       <button class="copy-btn" onclick="copyLink()">Copy</button>
     </div>
   </div>
@@ -1243,6 +1188,7 @@ footer {
 </footer>
 
 <!-- ============================================================ JAVASCRIPT -->
+<script type="module" src="js/landing-analytics.js"></script>
 <script>
 /* ---- NAV ---- */
 function toggleMenu() {
@@ -1298,58 +1244,11 @@ function showTrimester(t, btn) {
   document.querySelectorAll('.t-pill').forEach(p => p.classList.remove('active'));
   btn.classList.add('active');
   renderPyramid(t);
+  if (window.logFirebaseEvent) {
+    window.logFirebaseEvent('pyramid_trimester_view', { trimester: t });
+  }
 }
 renderPyramid(1);
-
-/* ---- RESOURCE LOCATOR ---- */
-function searchResources() {
-  const zip = document.getElementById('zipInput').value.trim();
-  if (!zip || zip.length < 5) { alert('Please enter a valid zip code.'); return; }
-  const type = document.getElementById('resourceType').value;
-  const mapFrame = document.getElementById('map-frame');
-  const placeholder = document.getElementById('mapPlaceholder');
-  const query = encodeURIComponent(
-    type === 'maternal' ? `maternal health clinic near ${zip}` :
-    type === 'food' ? `WIC office food bank near ${zip}` :
-    type === 'farmers' ? `farmers market near ${zip}` :
-    type === 'mental' ? `mental health counseling near ${zip}` :
-    `maternal health WIC food bank near ${zip}`
-  );
-  mapFrame.src = `https://maps.google.com/maps?q=${query}&output=embed&z=13`;
-  mapFrame.style.display = 'block';
-  placeholder.style.display = 'none';
-  const results = generateResults(zip, type);
-  document.getElementById('resultList').innerHTML = results;
-  document.getElementById('locatorResults').style.display = 'block';
-}
-function generateResults(zip, type) {
-  const all = [
-    { cat: 'maternal', icon: '🏥', name: 'Community Maternal Health Center', detail: `Near ${zip} · Accepting new patients`, dist: '0.8 mi' },
-    { cat: 'maternal', icon: '👩🏾‍⚕️', name: 'Black OB Alliance Provider Network', detail: 'Black-led obstetric care', dist: '1.2 mi' },
-    { cat: 'food', icon: '🥦', name: 'WIC Office', detail: 'Women, Infants & Children nutrition program', dist: '1.5 mi' },
-    { cat: 'food', icon: '🍎', name: 'Community Food Bank', detail: 'Fresh produce & shelf-stable items', dist: '2.1 mi' },
-    { cat: 'farmers', icon: '🌽', name: 'Local Farmers Market', detail: 'Saturdays 8am–1pm · Accepts SNAP/EBT', dist: '2.8 mi' },
-    { cat: 'mental', icon: '💙', name: 'Culturally Affirming Therapy Collective', detail: 'Black therapists specializing in perinatal mental health', dist: '1.9 mi' },
-    { cat: 'maternal', icon: '🤱🏾', name: 'Black Doula Collective', detail: 'Community-based doula matching', dist: '3.2 mi' },
-  ];
-  const filtered = type === 'all' ? all : all.filter(r => r.cat === type);
-  return filtered.map(r => `
-    <div class="result-item">
-      <div class="result-icon">${r.icon}</div>
-      <div class="result-info">
-        <h4>${r.name}</h4>
-        <p>${r.detail}</p>
-      </div>
-      <div class="result-dist">${r.dist}</div>
-    </div>
-  `).join('');
-}
-function filterResults(cat, btn) {
-  document.querySelectorAll('.rtab').forEach(t => t.classList.remove('active'));
-  btn.classList.add('active');
-  const zip = document.getElementById('zipInput').value || '00000';
-  document.getElementById('resultList').innerHTML = generateResults(zip, cat);
-}
 
 /* ---- MEDITATION ENGINE ---- */
 let medRunning = false, medInterval = null, medTotal = 5 * 60, medRemaining = 5 * 60;
@@ -1423,16 +1322,24 @@ function finishMeditation() {
   document.getElementById('medStartBtn').textContent = 'Begin Again';
   medRemaining = medTotal;
   updateTimerDisplay();
-}
-
-/* ---- STORY FORM ---- */
-function submitStory() {
-  document.getElementById('storyForm').style.display = 'none';
-  document.getElementById('formSuccess').style.display = 'block';
+  const durationMin = Math.round(medTotal / 60);
+  if (window.logFirebaseEvent) {
+    window.logFirebaseEvent('meditation_session_complete', { duration_min: durationMin });
+    const sb = document.getElementById('stressBefore');
+    const sa = document.getElementById('stressAfter');
+    const b = sb && sb.value ? parseInt(sb.value, 10) : NaN;
+    const a = sa && sa.value ? parseInt(sa.value, 10) : NaN;
+    const stressParams = {};
+    if (b >= 1 && b <= 5) stressParams.stress_before = b;
+    if (a >= 1 && a <= 5) stressParams.stress_after = a;
+    if (Object.keys(stressParams).length) {
+      window.logFirebaseEvent('stress_self_report', stressParams);
+    }
+  }
 }
 
 /* ---- SHARE FUNCTIONS ---- */
-const SITE_URL = 'https://beautifulbrownbundle.org';
+const SITE_URL = 'https://www.beautifulbrownbundle.site';
 const SHARE_TEXT = 'Beautiful Brown Bundle is saving Black mothers\' lives with free resources, nutrition science, and community. Every Black woman needs to know about this.';
 function shareWebsite() {
   if (navigator.share) { navigator.share({ title: 'Beautiful Brown Bundle', text: SHARE_TEXT, url: SITE_URL }); }
@@ -1453,5 +1360,6 @@ function copyLink() {
   });
 }
 </script>
+<script type="module" src="js/firestore-forms.js"></script>
 </body>
 </html>
