@@ -1,0 +1,53 @@
+# Builds the static site with Firebase config injected from a repo secret (not in git).
+# Repo → Settings → Secrets → Actions: add FIREBASE_CONFIG_JSON (one-line JSON, same shape as firebase-config.example.js).
+# Repo → Settings → Pages: set Source to "GitHub Actions" (not "Deploy from a branch") when using this workflow.
+name: Deploy GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Write js/firebase-config.js from secret
+        env:
+          FIREBASE_CONFIG_JSON: ${{ secrets.FIREBASE_CONFIG_JSON }}
+        run: |
+          if [ -z "$FIREBASE_CONFIG_JSON" ]; then
+            echo "Missing repository secret FIREBASE_CONFIG_JSON. Add it under Settings → Secrets and variables → Actions."
+            exit 1
+          fi
+          node <<'NODE'
+          const fs = require('fs');
+          const c = JSON.parse(process.env.FIREBASE_CONFIG_JSON);
+          fs.writeFileSync(
+            'js/firebase-config.js',
+            'export const firebaseConfig = ' + JSON.stringify(c, null, 2) + ';\n'
+          );
+          NODE
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - id: deployment
+        uses: actions/deploy-pages@v4

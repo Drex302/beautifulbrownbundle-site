@@ -5,3 +5,6 @@ Thumbs.db
 .vscode/
 *.swp
 *~
+
+# Firebase web config (contains API key — keep out of git; use firebase-config.example.js as template)
+js/firebase-config.js
