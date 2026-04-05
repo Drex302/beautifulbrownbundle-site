@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="description" content="Black mothers in America are dying at rates no statistic should ever have to report. Beautiful Brown Bundle exists to change that — through community, education, nutrition, and the ancient wisdom we were never supposed to forget.">
 <link rel="canonical" href="https://beautifulbrownbundle.site/">
 <!-- Social / messaging link previews — image: /og-share.png (logo) -->
@@ -58,13 +58,20 @@
    RESET & BASE
    ============================================================ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  background: var(--linen);
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+}
 body {
   font-family: var(--font-body);
   background: var(--linen);
   color: var(--soil);
   line-height: 1.7;
   overflow-x: hidden;
+  width: 100%;
+  min-height: 100%;
 }
 img { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; }
@@ -101,7 +108,8 @@ nav {
   background: rgba(44,26,14,0.92);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(201,151,90,0.2);
-  padding: 0 1.5rem;
+  padding: 0 max(1.5rem, env(safe-area-inset-right)) 0 max(1.5rem, env(safe-area-inset-left));
+  padding-top: env(safe-area-inset-top);
 }
 .nav-inner {
   max-width: 1200px; margin: 0 auto;
@@ -132,7 +140,7 @@ nav {
 .hamburger { display: none; flex-direction: column; gap: 5px; background: none; padding: 4px; }
 .hamburger span { display: block; width: 24px; height: 2px; background: var(--cream); border-radius: 2px; transition: all .3s; }
 .mobile-menu {
-  display: none; position: fixed; top: 64px; left: 0; right: 0;
+  display: none; position: fixed; top: calc(64px + env(safe-area-inset-top)); left: 0; right: 0;
   background: var(--soil); z-index: 99; padding: 1.5rem;
   border-bottom: 1px solid rgba(201,151,90,0.2);
   flex-direction: column; gap: 1.2rem;
@@ -145,11 +153,16 @@ nav {
    ============================================================ */
 .hero {
   min-height: 100vh;
+  min-height: 100dvh;
   background: var(--soil);
   display: flex; align-items: center;
   position: relative;
   overflow: hidden;
   padding-top: 64px;
+  padding-top: calc(64px + env(safe-area-inset-top));
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+  padding-bottom: env(safe-area-inset-bottom);
 }
 .hero-grain {
   position: absolute; inset: 0;
@@ -748,6 +761,46 @@ footer {
   .hero-btns { flex-direction: column; align-items: flex-start; }
   .med-controls { flex-direction: column; align-items: center; }
   .form-card { padding: 2rem 1.5rem; }
+}
+
+/* Phone / small tablet landscape: short viewport — vw is wide, so hero type & nav logo must scale down */
+@media (orientation: landscape) and (max-height: 520px) {
+  .nav-inner { height: 52px; min-height: 52px; }
+  .nav-logo {
+    font-size: clamp(0.72rem, 2.8vw, 1rem);
+    line-height: 1.2;
+    max-width: 78vw;
+  }
+  .nav-logo span { font-size: 0.82em; }
+  .mobile-menu { top: calc(52px + env(safe-area-inset-top)); }
+  .hero {
+    min-height: 100dvh;
+    padding-top: calc(52px + env(safe-area-inset-top));
+    align-items: flex-start;
+    padding-bottom: 1.25rem;
+  }
+  .hero .container { padding-top: 0.5rem; }
+  .hero .display-xl {
+    font-size: clamp(1.35rem, 4.2vw, 2.35rem) !important;
+    line-height: 1.12;
+  }
+  .hero-eyebrow {
+    margin-bottom: 0.75rem;
+    font-size: 0.65rem;
+    padding: 4px 12px;
+  }
+  .hero-sub {
+    font-size: 0.88rem !important;
+    line-height: 1.55;
+    margin-bottom: 1rem;
+  }
+  .hero-stats {
+    margin-top: 1.25rem;
+    padding-top: 1rem;
+    gap: 1rem 1.5rem;
+  }
+  .stat-num { font-size: 1.35rem; }
+  .stat-label { font-size: 0.65rem; }
 }
 
 /* ============================================================
