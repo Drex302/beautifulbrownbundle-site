@@ -8,3 +8,7 @@ Thumbs.db
 
 # Firebase web config (contains API key — keep out of git; use firebase-config.example.js as template)
 js/firebase-config.js
+
+# Local drafts / non-site assets (do not publish)
+CVD_Food_Deserts_Maternal_Health_Abstract_References.*
+pti_cortisol_linkedin_post.html
