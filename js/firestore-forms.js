@@ -149,6 +149,10 @@ function initDirectoryForm() {
 
     try {
       await addDoc(collection(db, 'directory_listing_requests'), payload);
+      logFirebaseEvent('directory_submit_success', {
+        has_phone: phone ? 1 : 0,
+        categories_count: categories.length,
+      });
       form.style.display = 'none';
       const success = document.getElementById('listSuccess');
       if (success) success.style.display = 'block';
@@ -156,6 +160,7 @@ function initDirectoryForm() {
       if (anchor) anchor.scrollIntoView({ behavior: 'smooth' });
     } catch (ex) {
       console.error(ex);
+      logFirebaseEvent('directory_submit_error', { reason: 'firestore_write_failed' });
       showErr(
         err,
         'Something went wrong sending your listing. Please check your connection and try again.'

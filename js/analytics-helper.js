@@ -1,5 +1,5 @@
 /**
- * Firebase Analytics (GA4) custom events — use logFirebaseEvent from the landing page and forms.
+ * Firebase Analytics (GA4) custom events — use logFirebaseEvent from site-analytics.js and forms.
  */
 import { getAnalytics, logEvent } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-analytics.js';
 import { app } from './firebase-init.js';
